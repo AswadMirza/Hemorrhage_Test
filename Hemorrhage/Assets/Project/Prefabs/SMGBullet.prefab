@@ -88,13 +88,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1947670980030776541}
   - component: {fileID: 2489273409312155687}
+  - component: {fileID: 630788777}
   m_Layer: 0
   m_Name: SMGBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1947670980030776541
 Transform:
   m_ObjectHideFlags: 0
@@ -122,9 +123,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 101
-  lifeDuration: 1
+  speed: 30
+  lifeDuration: 3
   damage: 1
+--- !u!136 &630788777
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915440770724970916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.5
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7909704256332840928
 GameObject:
   m_ObjectHideFlags: 0

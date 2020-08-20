@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private int health;
     public int Health { get { return health; } set { health = value; } }
     private int ammo;
-    public int Ammo { get { return ammo; } }
+    public int Ammo { get { return ammo; }  set { ammo = value; } }
 
     private bool killed;
     public bool Killed { get { return killed; } }
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             if (ammo > 0 && killed == false)
@@ -45,6 +46,8 @@ public class Player : MonoBehaviour
             }
 
         }
+
+        */
     }
 
     // Check for collisions
