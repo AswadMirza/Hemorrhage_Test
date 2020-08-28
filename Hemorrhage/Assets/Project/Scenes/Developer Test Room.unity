@@ -955,6 +955,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectPoolingManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5236334649757313018, guid: c4aee08bef5b584498afacd643669da4,
+        type: 3}
+      propertyPath: smgBulletPrefab
+      value: 
+      objectReference: {fileID: 3915440770724970916, guid: 183d2b25f45a1014ea4f1f8644f9d226,
+        type: 3}
     - target: {fileID: 5236334649757313019, guid: c4aee08bef5b584498afacd643669da4,
         type: 3}
       propertyPath: m_LocalPosition.x
