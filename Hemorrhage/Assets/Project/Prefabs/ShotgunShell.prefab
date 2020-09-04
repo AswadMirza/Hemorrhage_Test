@@ -185,8 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeDuration: 10
+  speed: 100
+  lifeDuration: 1
   damage: 5
 --- !u!135 &2779819863653678656
 SphereCollider:
@@ -628,8 +628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeDuration: 10
+  speed: 1000
+  lifeDuration: 1
   damage: 5
 --- !u!135 &2779819864448797982
 SphereCollider:
@@ -720,8 +720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeDuration: 10
+  speed: 100
+  lifeDuration: 1
   damage: 5
 --- !u!135 &2779819864641962253
 SphereCollider:
@@ -968,8 +968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeDuration: 10
+  speed: 100
+  lifeDuration: 1
   damage: 5
 --- !u!135 &2779819864838215205
 SphereCollider:
@@ -1060,8 +1060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeDuration: 10
+  speed: 1000
+  lifeDuration: 1
   damage: 5
 --- !u!135 &2779819864863809247
 SphereCollider:
@@ -1199,8 +1199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeDuration: 10
+  speed: 100
+  lifeDuration: 1
   damage: 5
 --- !u!135 &2779819864983980750
 SphereCollider:
@@ -1322,8 +1322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeDuration: 10
+  speed: 100
+  lifeDuration: 1
   damage: 5
 --- !u!135 &2779819865162249328
 SphereCollider:
@@ -1383,8 +1383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeDuration: 10
+  speed: 100
+  lifeDuration: 1
   damage: 5
 --- !u!135 &2779819865203208996
 SphereCollider:
@@ -1475,8 +1475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d27deda2cfbcf40886e9d3dceb4e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeDuration: 10
+  speed: 100
+  lifeDuration: 1
   damage: 5
 --- !u!135 &2779819865341106106
 SphereCollider:

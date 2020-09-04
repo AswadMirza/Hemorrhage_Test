@@ -96,7 +96,12 @@ public class ObjectPoolingManager : MonoBehaviour
             if (!shotgunShell.activeInHierarchy)
             {
                 shotgunShell.SetActive(true);
-                shotgunShell.GetComponent<Bullet>().ShotByPlayer = shotByPlayer;
+                foreach (Transform pellet in shotgunShell.transform) {
+                    Bullet childBullet = pellet.GetComponent<Bullet>();
+                    childBullet.ShotByPlayer = shotByPlayer;
+
+                }
+                //shotgunShell.GetComponent<Bullet>().ShotByPlayer = shotByPlayer;
                 return shotgunShell;
             }
         }
