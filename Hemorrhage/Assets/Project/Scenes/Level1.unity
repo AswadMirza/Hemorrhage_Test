@@ -4100,6 +4100,9 @@ MonoBehaviour:
   smgBulletPrefab: {fileID: 3915440770724970916, guid: 183d2b25f45a1014ea4f1f8644f9d226,
     type: 3}
   smgBulletAmount: 100
+  shotgunShellPrefab: {fileID: 2779819864114827519, guid: 320c5b7aab8ebeb40bd44e41afe0fa78,
+    type: 3}
+  shotgunShellAmount: 20
 --- !u!4 &2145945205
 Transform:
   m_ObjectHideFlags: 0
