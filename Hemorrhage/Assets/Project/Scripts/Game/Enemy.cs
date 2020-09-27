@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public int damage = 5;
     
     private bool killed = false;
-    public bool Killed { get { return killed; } }
+    public bool Killed { get { return killed; }  set { killed = value; } }
     void OnTriggerEnter(Collider otherCollider)
     {
         if (otherCollider.GetComponent<Bullet>() != null)
@@ -29,5 +29,7 @@ public class Enemy : MonoBehaviour
             }         
         }
     }
+
+    
     protected virtual void OnKill() { }
 }

@@ -32,10 +32,14 @@ public class RayCastGun : MonoBehaviour
 
         // Raycast returns true if you actually hit something
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, range)) {
-            Enemy enemy;
+            
             Debug.Log(hit.transform.name);
-            enemy = transform.GetComponent<Enemy>();
-            enemy.health -= damage;
+            ShootingEnemy enemy = hit.transform.GetComponent<ShootingEnemy>();
+            if (enemy != null) {
+                Debug.Log("Enemy exists");
+                enemy.health -= damage;
+
+            }
         }
     
     }
