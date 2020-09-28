@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Code is based on Brackeys
+//Code is based on Brackeys tutorial https://www.youtube.com/watch?v=THnivyG0Mvo
 public class RayCastGun : MonoBehaviour
 {
 
@@ -36,7 +36,7 @@ public class RayCastGun : MonoBehaviour
             Debug.Log(hit.transform.name);
             ShootingEnemy enemy = hit.transform.GetComponent<ShootingEnemy>();
             if (enemy != null) {
-                Debug.Log("Enemy exists");
+                Debug.Log("Test");
                 enemy.health -= damage;
 
             }

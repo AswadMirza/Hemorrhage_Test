@@ -31,7 +31,9 @@ public class MeleeWeapon : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy" && !isfired) {
+        // gotta change this so instead of killing the enemy, it deals damage
+        if (collision.gameObject.GetComponent<Enemy>() != false) {
+            Debug.Log("Destroyed");
             Destroy(collision.gameObject);
             int health = player.Health;
             player.Health=health+30;
