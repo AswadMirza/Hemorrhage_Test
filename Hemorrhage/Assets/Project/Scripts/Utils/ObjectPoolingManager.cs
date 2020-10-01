@@ -23,6 +23,11 @@ public class ObjectPoolingManager : MonoBehaviour
     public GameObject shotgunShellPrefab;
     public int shotgunShellAmount = 20;
     private List<GameObject> _shotgunShells;
+
+    // MeleeWeapon
+    public GameObject meleeWeaponPrefab;
+    public int meleeWeaponAmount = 5;
+    private List<GameObject> _meleeWeapons;
     void Awake()
     {
         instance = this;
@@ -56,6 +61,10 @@ public class ObjectPoolingManager : MonoBehaviour
             shotgunShellPrefabInstance.SetActive(false);
             _shotgunShells.Add(shotgunShellPrefabInstance);
         }
+
+        //Preload MeleeWeapons
+        //_meleeWeapons = new List<GameObject>(meleeWeaponAmount);
+        fillBulletList(ref _meleeWeapons, meleeWeaponPrefab, meleeWeaponAmount);
     }
         // Update is called once per frame
         public GameObject GetBullet (bool shotByPlayer) {
@@ -110,10 +119,26 @@ public class ObjectPoolingManager : MonoBehaviour
         _shotgunShells.Add(shotgunShellPrefabInstance);
         return shotgunShellPrefabInstance;
     }
+
+    public GameObject GetMeleeWeapon() {
+        foreach (GameObject melee in _meleeWeapons) {
+            if (!melee.activeInHierarchy)
+            {
+                melee.SetActive(true);
+                return melee;
+            }
+            
+            
+        }
+        GameObject meleeWeaponInstance = Instantiate(meleeWeaponPrefab);
+        meleeWeaponPrefab.transform.SetParent(transform);
+        _meleeWeapons.Add(meleeWeaponInstance);
+        return meleeWeaponInstance;
+    }
     //just to make the job of preloading a fuckton of bullets easier, and to add more scalability to the project
 
-    /*
-    private void fillBulletList( List<GameObject> bulletList,GameObject prefab,  int amount) {
+    
+    private void fillBulletList( ref List<GameObject> bulletList,GameObject prefab,  int amount) {
         bulletList = new List<GameObject>(amount);
         for (int i = 0; i < amount; i++)
         {
@@ -124,7 +149,7 @@ public class ObjectPoolingManager : MonoBehaviour
         }
 
     }
-    */
+    
 
 
 
