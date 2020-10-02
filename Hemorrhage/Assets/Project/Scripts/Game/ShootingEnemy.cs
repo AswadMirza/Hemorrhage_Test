@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/** 
+* Last modified 02/10/2020
+* By: Sharek Khan
+*/
+
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -59,7 +62,7 @@ public class ShootingEnemy : Enemy
     {
         base.OnKill();
         deathSound.Play();
-        agent.enabled = false;
+        // agent.enabled = false;
         this.enabled = false;
         transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }

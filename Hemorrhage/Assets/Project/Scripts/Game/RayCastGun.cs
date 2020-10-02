@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/** 
+* Last modified 02/10/2020
+* By: Sharek Khan
+*/
+
 using UnityEngine;
 
 //Code is based on Brackeys
@@ -23,7 +26,7 @@ public class RayCastGun : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            // Shoot();
         }
     }
 }
