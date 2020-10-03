@@ -1,51 +1,64 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/** 
+* Last modified 02/10/2020
+* By: Sharek Khan
+*/
+
 using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
 
     public GameObject playerObject;
-    public Camera playerCamera;
-    private Player _player;
-    // Start is called before the first frame update
+    public float initialFireRate = 0f;
+    public float delayFireRate = 2.5f;
 
-    //private float _fireRate=0f;
-   // public float initialFireRate=0.5f;
+    private Player m_player;
+    private float m_fireRate;
+
+
+    // Start is called before the first frame update
     void Start()
     {
-     //   _fireRate = initialFireRate;
-        _player = playerObject.GetComponent<Player>();
-
+        // Receives the Player component associated with the Player object
+        m_player = playerObject.GetComponent<Player>();
+        // Intializes the fire rate for Shotgun
+        m_fireRate = initialFireRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        
-
-         Fire();
-    }
-
-    void Fire() {
-      //  _fireRate -= Time.deltaTime;
-
+        // Decrements fire rate value if above zero, every frame
+        if (m_fireRate > 0f)
+        {
+            m_fireRate -= Time.deltaTime;
+        }
+        // Condition checks if player fired the gun
         if (Input.GetMouseButtonDown(0))
         {
-            if (_player.Ammo > 0 && _player.Killed != true )
-            {
-                _player.Ammo--;
-                GameObject shotgunShellObject = ObjectPoolingManager.Instance.GetShotgunShell(true);
-                shotgunShellObject.transform.position = playerCamera.transform.position + playerCamera.transform.forward;
-                shotgunShellObject.transform.forward = playerCamera.transform.forward;
-            }
+            Fire();
+        }
+    }
 
+    void Fire()
+    {
+        // Condition checks if Ammo is present/Players not dead/Shotgun not recoiling
+        if (m_player.Ammo > 0 && m_player.Killed != true && m_fireRate <= 0f)
+        {
+            // Ammo is decremented
+            m_player.Ammo -= 9;
+            // Creates a new instance of ShotgunShell through ObjectPoolingManager
+            GameObject shotgunShellObject = ObjectPoolingManager.Instance.GetShotgunShell(true);
+            // ShotgunShell takes the position of the parent objects position and angle
+            shotgunShellObject.transform.position = this.transform.position + this.transform.forward;
+            // ShotgunShell is shot forward with the direction of the parent object
+            shotgunShellObject.transform.forward = this.transform.forward;
         }
-        /*
-        if (_fireRate <= 0) {
-            _fireRate = initialFireRate;
+
+        // If Shotgun fired, delay the next shot (recoil)
+        if (m_fireRate <= 0f)
+        {
+            m_fireRate = delayFireRate;
         }
-        */
     }
 }

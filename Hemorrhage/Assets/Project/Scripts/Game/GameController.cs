@@ -1,8 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/** 
+* Last modified 02/10/2020
+* By: Sharek Khan
+*/
+
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class GameController : MonoBehaviour
     [Header("UI")]
     public Text healthText;
     public Text ammoText;
+    public Text armourText;
     public Text enemyText;
     public Text infoText;
 
@@ -27,6 +30,7 @@ public class GameController : MonoBehaviour
     {
         healthText.text = "Health: " + player.Health;
         ammoText.text = "Ammo: " + player.Ammo;
+        armourText.text = "Armour: " + player.Armour;
         int aliveEnemies = 0;
         foreach(Enemy enemy in enemyContainer.GetComponentsInChildren<Enemy>())
         {
@@ -53,7 +57,7 @@ public class GameController : MonoBehaviour
             resetTimer -= Time.deltaTime;
             if(resetTimer <= 0)
             {
-                SceneManager.LoadScene("Menu");
+                // SceneManager.LoadScene("Menu");
             }
         }
     }

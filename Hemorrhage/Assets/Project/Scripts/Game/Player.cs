@@ -1,78 +1,83 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/** 
+* Last modified 02/10/2020
+* By: Sharek Khan
+*/
+
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Fields visible to Unity Inpsector for tuning
     [Header("Visuals")]
     public Camera playerCamera;
     [Header("Gameplay")]
     public int initalHealth = 100;
-    public int initialAmmo = 12;
+    public int initalArmour = 0;
+    public int initialAmmo = 100;
     public float knockbackForce = 10f;
     public float hurtDuration = 0.5f;
 
-    
-    private int health;
-    public int Health { get { return health; } set { health = value; } }
-    private int ammo;
-    public int Ammo { get { return ammo; }  set { ammo = value; } }
+    // Player gameplay properties
+    private int m_health;
+    public int Health { get { return m_health; } set { m_health = value; } }
+    private int m_ammo;
+    public int Ammo { get { return m_ammo; }  set { m_ammo = value; } }
+    private int m_armour;
+    public int Armour { get { return m_armour; } set { m_armour = value; } }
 
-    private bool killed;
-    public bool Killed { get { return killed; } }
+    // Player state properties
+    private bool m_killed;
+    public bool Killed { get { return m_killed; } }
 
     private bool isHurt;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = initalHealth;
-        ammo = initialAmmo;
-        
+        m_health = initalHealth;
+        m_ammo = initialAmmo;
+        m_armour = initalArmour;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (ammo > 0 && killed == false)
-            {
-                ammo--;
-                GameObject bulletObject = ObjectPoolingManager.Instance.GetBullet(true);
-                bulletObject.transform.position = playerCamera.transform.position + playerCamera.transform.forward;
-                bulletObject.transform.forward = playerCamera.transform.forward;
-            }
 
-        }
-
-        */
     }
 
     // Check for collisions
     void OnTriggerEnter(Collider otherCollider)
     {
-        
-
-        if (otherCollider.GetComponent<AmmoCrate>() != null)
-        {
-            // Collect ammo crates
-            AmmoCrate ammoCrate = otherCollider.gameObject.GetComponent<AmmoCrate>();
-            ammo += ammoCrate.ammo;
-            Destroy(ammoCrate.gameObject);
-        }       
+        // If Player collides with a Health Object
         if(otherCollider.GetComponent<HealthCrate>() != null)
         {
             // Collect health crates
             HealthCrate healthCrate = otherCollider.gameObject.GetComponent<HealthCrate>();
-            health += healthCrate.health;
+            m_health += healthCrate.health;
             Destroy(healthCrate.gameObject);
         }
+        // If Player collides with a Ammo Object *NOTE WILL BE ALTERED
+        if (otherCollider.GetComponent<AmmoCrate>() != null)
+        {
+            // Collect ammo crates
+            AmmoCrate ammoCrate = otherCollider.gameObject.GetComponent<AmmoCrate>();
+            m_ammo += ammoCrate.ammo;
+            Destroy(ammoCrate.gameObject);
+        }
+        // If Player collides with a CellAmour Object
+        if(otherCollider.GetComponent<CellArmour>() != null)
+        {
+            // Collect armour
+            CellArmour cellArmour = otherCollider.gameObject.GetComponent<CellArmour>();
+            m_armour += cellArmour.armourPoint;
+            Destroy(cellArmour.gameObject);
+        }
 
-        //Lets the player die if they fall to the ground ---- 2020/07/28
+        // Lets the player die if they fall to the ground ---- 2020/07/28
+        // *NOTE WILL BE ALTERED
         if (otherCollider.GetComponent<DeathZone>() != null) {
-            health = 0; 
+            m_health = 0; 
         }
 
         if (isHurt == false)
@@ -85,7 +90,7 @@ public class Player : MonoBehaviour
                 if(enemy.Killed == false)
                 {
                     hazard = enemy.gameObject;
-                    health -= enemy.damage;
+                    m_health -= enemy.damage;
                 }
             }
             else if (otherCollider.GetComponent<Bullet>() != null)
@@ -95,7 +100,7 @@ public class Player : MonoBehaviour
                 if (bullet.ShotByPlayer == false)
                 {
                     hazard = bullet.gameObject;
-                    health -= bullet.damage;
+                    m_health -= bullet.damage;
                     bullet.gameObject.SetActive(false);
                 }
             }
@@ -108,11 +113,11 @@ public class Player : MonoBehaviour
                 GetComponent<ForceReceiver>().AddForce(knockbackDirection, knockbackForce);
                 StartCoroutine(HurtRoutine());
             }
-            if(health <= 0)
+            if(m_health <= 0)
             {
-                if(killed == false)
+                if(m_killed == false)
                 {
-                    killed = true;
+                    m_killed = true;
                     OnKill();
                 }
             }
@@ -126,7 +131,8 @@ public class Player : MonoBehaviour
 
     private void OnKill()
     {
-        GetComponent<CharacterController>().enabled = false;
-        GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+        // Disabled due to bricking the game through different GameStates
+        // GetComponent<CharacterController>().enabled = false;
+        // GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
     }
 }
