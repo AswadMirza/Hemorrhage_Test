@@ -37,11 +37,14 @@ public class ShootingEnemy : Enemy
             this.enabled = false;
             GetComponent<Rigidbody>().isKinematic = true;
         }
-
+        /*
+         * Removed since TakeDamage is now a base class function
+         * 
         if (health<=0) {
             Killed = true;
             OnKill();
         }
+        */
         // Shooting Logic
         shootingTimer -= Time.deltaTime;
         if(shootingTimer <= 0 && Vector3.Distance(transform.position, player.transform.position) <= shootingDistance)

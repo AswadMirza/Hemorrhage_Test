@@ -20,16 +20,35 @@ public class Enemy : MonoBehaviour
                 bullet.gameObject.SetActive(false);
                 if (health <= 0)
                 {
-                    if(killed == false)
+                    if (killed == false)
                     {
                         killed = true;
                         OnKill();
                     }
                 }
-            }         
+            }
         }
+        // code for if melee weapon becomes a trigger
+        /*
+        else if (otherCollider.GetComponent<MeleeWeapon>() != null) {
+            MeleeWeapon melee = otherCollider.GetComponent<MeleeWeapon>();
+            TakeDamage(melee.m_damage);
+            melee.gameObject.SetActive(false);
+        }
+        */
     }
 
-    
+
     protected virtual void OnKill() { }
+
+    // makes the enemy take x damage, and then check if it is dead or not
+    public void TakeDamage(int damage) {
+        this.health -= damage;
+        if (health <= 0) {
+            if (killed == false) {
+                killed = true;
+                OnKill();
+            }
+        }
+    }
 }

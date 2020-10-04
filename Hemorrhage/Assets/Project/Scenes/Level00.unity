@@ -3555,6 +3555,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1738943462}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1729039879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3452445931190094370, guid: c88887bb71f9dc14396ebe7bebf76eee,
+    type: 3}
+  m_PrefabInstance: {fileID: 3093471169420335423}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1738943462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3731,6 +3743,7 @@ MonoBehaviour:
   enemyContainer: {fileID: 1314045140}
   healthText: {fileID: 1001655181}
   ammoText: {fileID: 1045723589}
+  armourText: {fileID: 1729039879}
   enemyText: {fileID: 1555801976}
   infoText: {fileID: 1757062001}
 --- !u!4 &2051288920 stripped
@@ -4103,6 +4116,9 @@ MonoBehaviour:
   shotgunShellPrefab: {fileID: 2779819864114827519, guid: 320c5b7aab8ebeb40bd44e41afe0fa78,
     type: 3}
   shotgunShellAmount: 20
+  meleeWeaponPrefab: {fileID: 1968500049494879962, guid: 768a74cc62375f04e8dc13999cd5b940,
+    type: 3}
+  meleeWeaponAmount: 5
 --- !u!4 &2145945205
 Transform:
   m_ObjectHideFlags: 0

@@ -9,12 +9,16 @@ public class MeleeWeapon : MonoBehaviour
     Player player;
     static bool isfired = false;
 
-    public float timeAlive =0.25f;
+    public float initialTimeAlive =0.25f;
+    private float m_timeAlive = 0f;
+    public int m_damage = 5;
+    public int m_heal = 10;
+    public float speed = 20f;
     // Start is called before the first frame update
     void Start()
     {
-       // isfired = false;
-        //timeAlive = 0.25f;
+        // isfired = false;
+        m_timeAlive = initialTimeAlive;
         playerModel = GameObject.Find("Player");
         player = playerModel.GetComponent<Player>();
     }
@@ -22,25 +26,42 @@ public class MeleeWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //MoveObject();
+
         //we let the meleeweaponStay active for x seconds. and then destroy it
-        if (timeAlive <= 0) {
+        if (m_timeAlive <= 0) {
             isfired = false;
-            //Destroy(gameObject);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+            //gameObject.SetActive(false);
+            m_timeAlive = initialTimeAlive;
         }
-        timeAlive -= Time.deltaTime;
+        m_timeAlive -= Time.deltaTime;
     }
     private void OnCollisionEnter(Collision collision)
     {
         // gotta change this so instead of killing the enemy, it deals damage
         if (collision.gameObject.GetComponent<Enemy>() != false) {
-            Debug.Log("rekt");
-            Destroy(collision.gameObject);
-            int health = player.Health;
-            player.Health=health+30;
+            Debug.Log("srekt");
+            //Destroy(collision.gameObject);
+            //collision.gameObject.GetComponent<Enemy>().health -= m_damage;
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(m_damage);
+            if (collision.gameObject.GetComponent<Enemy>().health <= 0) {
+                player.Health += m_heal;
+            }
+            //this is to prevent the melee weapon from hitting the enemy for multiple frames
             isfired = true;
             
         }
         
+    }
+
+    private void MoveObject()
+    {
+        // Make the weapon move
+        transform.position += transform.forward * speed * Time.deltaTime;
+
+         
+
     }
 }

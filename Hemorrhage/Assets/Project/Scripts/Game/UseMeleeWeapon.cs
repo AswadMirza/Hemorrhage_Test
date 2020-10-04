@@ -26,8 +26,11 @@ public class UseMeleeWeapon : MonoBehaviour
             weaponRotation.x = 90;
 
             GameObject weapon = Instantiate(meleeWeapon, transform.position, Quaternion.Euler(weaponRotation));
-            //GameObject weapon =ObjectPoolingManager.Instance.GetMeleeWeapon();
-           // weapon.transform.position = gameObject.transform.position;
+            /*
+            GameObject weapon =ObjectPoolingManager.Instance.GetMeleeWeapon();
+            weapon.transform.position = transform.position;
+            weapon.transform.rotation = Quaternion.Euler(weaponRotation);
+            */
             Rigidbody rb = weapon.GetComponent<Rigidbody>();
 
             //Launch that shit with the might of zeus

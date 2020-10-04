@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectPoolingManager : MonoBehaviour
 {
+    //last updated by Aswad Mira - 2020-10-04
     private static ObjectPoolingManager instance;
     public static ObjectPoolingManager Instance { get { return instance; } }
 
@@ -63,10 +64,18 @@ public class ObjectPoolingManager : MonoBehaviour
         }
 
         //Preload MeleeWeapons
-        //_meleeWeapons = new List<GameObject>(meleeWeaponAmount);
-        fillBulletList(ref _meleeWeapons, meleeWeaponPrefab, meleeWeaponAmount);
+        _meleeWeapons = new List<GameObject>(meleeWeaponAmount);
+        //fillBulletList(ref _meleeWeapons, meleeWeaponPrefab, meleeWeaponAmount);
+
+        for (int i = 0; i < meleeWeaponAmount; i++)
+        {
+            GameObject meleeWeaponPrefabInstance = Instantiate(meleeWeaponPrefab);
+            meleeWeaponPrefabInstance.transform.SetParent(transform);
+            meleeWeaponPrefabInstance.SetActive(false);
+            _meleeWeapons.Add(meleeWeaponPrefabInstance);
+        }
     }
-        // Update is called once per frame
+        
         public GameObject GetBullet (bool shotByPlayer) {
         foreach(GameObject bullet in bullets)
         {
@@ -83,7 +92,7 @@ public class ObjectPoolingManager : MonoBehaviour
         return prefabInstance;
     }
 
-
+    //object pools a shotgun shell and creates  a new member in the list if there are not enough bullets preloaded
     public GameObject GetSmgBullet(bool shotByPlayer) {
         foreach (GameObject smgBullet in smgBullets) {
             if (!smgBullet.activeInHierarchy) {
@@ -98,6 +107,8 @@ public class ObjectPoolingManager : MonoBehaviour
         return smgPrefabInstance;
     }
 
+    //object pools a shotgun shell and creates  a new member in the list if there are not enough bullets preloaded
+    // also goes through and sets that each pellet in the shell is shot by the player
     public GameObject GetShotgunShell(bool shotByPlayer)
     {
         foreach (GameObject shotgunShell in _shotgunShells)
@@ -121,7 +132,8 @@ public class ObjectPoolingManager : MonoBehaviour
     }
 
     public GameObject GetMeleeWeapon() {
-        foreach (GameObject melee in _meleeWeapons) {
+        foreach (GameObject melee in _meleeWeapons) 
+        {
             if (!melee.activeInHierarchy)
             {
                 melee.SetActive(true);
