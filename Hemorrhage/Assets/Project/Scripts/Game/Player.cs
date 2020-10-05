@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 02/10/2020
+* Last modified 04/10/2020
 * By: Sharek Khan
 */
 
@@ -30,7 +30,8 @@ public class Player : MonoBehaviour
     private bool m_killed;
     public bool Killed { get { return m_killed; } }
 
-    private bool isHurt;
+    private bool m_isHurt;
+    private bool m_isArmourEquipped;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         m_health = initalHealth;
         m_ammo = initialAmmo;
         m_armour = initalArmour;
+        m_isArmourEquipped = false;
     }
 
     // Update is called once per frame
@@ -49,13 +51,13 @@ public class Player : MonoBehaviour
     // Check for collisions
     void OnTriggerEnter(Collider otherCollider)
     {
-        // If Player collides with a Health Object
-        if(otherCollider.GetComponent<HealthCrate>() != null)
+        // If Player collides with a VitaCapsule
+        if(otherCollider.GetComponent<VitaCapsule>() != null)
         {
-            // Collect health crates
-            HealthCrate healthCrate = otherCollider.gameObject.GetComponent<HealthCrate>();
-            m_health += healthCrate.health;
-            Destroy(healthCrate.gameObject);
+            // Collect health from VitaCapsule
+            VitaCapsule vitaCapsule = otherCollider.gameObject.GetComponent<VitaCapsule>();
+            m_health += vitaCapsule.health;
+            Destroy(vitaCapsule.gameObject);
         }
         // If Player collides with a Ammo Object *NOTE WILL BE ALTERED
         if (otherCollider.GetComponent<AmmoCrate>() != null)
@@ -68,56 +70,93 @@ public class Player : MonoBehaviour
         // If Player collides with a CellAmour Object
         if(otherCollider.GetComponent<CellArmour>() != null)
         {
+            // Player is now equipped with armour
+            m_isArmourEquipped = true;
             // Collect armour
             CellArmour cellArmour = otherCollider.gameObject.GetComponent<CellArmour>();
             m_armour += cellArmour.armourPoint;
             Destroy(cellArmour.gameObject);
         }
 
-        // Lets the player die if they fall to the ground ---- 2020/07/28
+        // Lets the Player die if they fall to the ground ---- 2020/07/28
         // *NOTE WILL BE ALTERED
         if (otherCollider.GetComponent<DeathZone>() != null) {
             m_health = 0; 
         }
 
-        if (isHurt == false)
+        // Checks if Player hasn't already taken damage
+        if (m_isHurt == false)
         {
             GameObject hazard = null;
+            // Checks if Player was damaged by an Enemy by melee
             if (otherCollider.GetComponent<Enemy>() != null)
             {
                 // Touching enemies
                 Enemy enemy = otherCollider.GetComponent<Enemy>();
+                // Checks if Enemy isn't already dead
                 if(enemy.Killed == false)
                 {
                     hazard = enemy.gameObject;
-                    m_health -= enemy.damage;
+                    // Checks if Player is equipped with CellArmour
+                    if (m_isArmourEquipped != false)
+                    {
+                        // Decrements Armour
+                        m_armour -= enemy.damage;
+                        // Decrements Health by half because of armour padding
+                        m_health -= enemy.damage / 2;
+                    }
+                    // Player isn't equipped with CellArmour
+                    else
+                    {
+                        // Decrements Health
+                        m_health -= enemy.damage;
+                    }
                 }
             }
+            // Checks if Player was damaged by an Enemy through projectile
             else if (otherCollider.GetComponent<Bullet>() != null)
             {
                 // Shot by enemies
                 Bullet bullet = otherCollider.GetComponent<Bullet>();
+                // Checks if Enemy isn't already dead
                 if (bullet.ShotByPlayer == false)
                 {
                     hazard = bullet.gameObject;
-                    m_health -= bullet.damage;
+                    // Checks if Player is equipped with CellArmour
+                    if(m_isArmourEquipped != false)
+                    {
+                        // Decrements Armour
+                        m_armour -= bullet.damage;
+                        // Decrements Health by half because of armour padding
+                        m_health -= bullet.damage / 2;
+                    }
+                    // Player isn't equipped with CellArmour
+                    else
+                    {// Decrements Health
+                        m_health -= bullet.damage;
+                    }
                     bullet.gameObject.SetActive(false);
                 }
             }
+            // Checks if knockback is required on attack
             if (hazard != null)
             {
-                isHurt = true;
+                m_isHurt = true;
                 // Perform the knockback effect
                 Vector3 hurtDirection = (transform.position - hazard.transform.position).normalized;
                 Vector3 knockbackDirection = (hurtDirection + Vector3.up).normalized;
                 GetComponent<ForceReceiver>().AddForce(knockbackDirection, knockbackForce);
                 StartCoroutine(HurtRoutine());
             }
+            // Checks to see if Player died because of depleted health
             if(m_health <= 0)
             {
+                // Checks if Player isn't already dead
                 if(m_killed == false)
                 {
+                    // Officially declares the Player dead
                     m_killed = true;
+                    // Performs the procedure that'll happen at death
                     OnKill();
                 }
             }
@@ -126,7 +165,7 @@ public class Player : MonoBehaviour
     IEnumerator HurtRoutine()
     {
         yield return new WaitForSeconds(hurtDuration);
-        isHurt = false;
+        m_isHurt = false;
     }
 
     private void OnKill()
