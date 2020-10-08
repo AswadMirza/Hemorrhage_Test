@@ -1,0 +1,62 @@
+﻿/** 
+* Last modified 04/10/2020
+* By: Sharek Khan
+*/
+
+using UnityEngine;
+
+public class PlasmaShotgun : MonoBehaviour
+{
+    public GameObject playerObject;
+    public float initialFireRate = 0f;
+    public float delayFireRate = 2.5f;
+
+    private Player m_player;
+    private float m_fireRate;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Receives the Player component associated with the Player object
+        m_player = playerObject.GetComponent<Player>();
+        // Intializes the fire rate for Shotgun
+        m_fireRate = initialFireRate;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Decrements fire rate value if above zero, every frame
+        if (m_fireRate > 0f)
+        {
+            m_fireRate -= Time.deltaTime;
+        }
+        // Condition checks if player fired the gun
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
+        }
+    }
+
+    void Fire()
+    {
+        // Condition checks if Ammo is present/Players not dead/Input not within fire rate
+        if (m_player.Ammo > 0 && m_player.Killed != true && m_fireRate <= 0f)
+        {
+            // Ammo is decremented
+            m_player.Ammo -= 9;
+            // Creates a new instance of ShotgunShell through ObjectPoolingManager
+            GameObject shotgunShellObject = ObjectPoolingManager.Instance.GetShotgunShell(true);
+            // ShotgunShell takes the position of the parent objects position and angle
+            shotgunShellObject.transform.position = this.transform.position + this.transform.forward;
+            // ShotgunShell is shot forward with the direction of the parent object
+            shotgunShellObject.transform.forward = this.transform.forward;
+        }
+
+        // If PlasmaShotgun fired, delay the next shot
+        if (m_fireRate <= 0f)
+        {
+            m_fireRate = delayFireRate;
+        }
+    }
+}
