@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 04/10/2020
-* By: Sharek Khan
+* Last modified 04/10/2020 
+* By: Aswad Mirza
 */
 
 using UnityEngine;
@@ -33,7 +33,7 @@ public class PlasmaRifle : MonoBehaviour
         m_fireRate -= Time.deltaTime;
 
         // Condition checks if player fired the gun
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0)||Input.GetMouseButtonDown(0))
         {
             Fire();
         }

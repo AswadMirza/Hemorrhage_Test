@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 04/10/2020
-* By: Sharek Khan
+* Last modified 04/10/2020 
+* By: Aswad Mirza 
 */
 
 using System.Collections;
@@ -17,7 +17,9 @@ public class Player : MonoBehaviour
     public int initialAmmo = 100;
     public float knockbackForce = 10f;
     public float hurtDuration = 0.5f;
-
+    public float initialRegenTimer = 5f;
+    // having less ammo then this amount causes the player to slowly restore ammo/plasma
+    public int initialRegenTrigger = 3;
     // Player gameplay properties
     private int m_health;
     public int Health { get { return m_health; } set { m_health = value; } }
@@ -33,19 +35,25 @@ public class Player : MonoBehaviour
     private bool m_isHurt;
     private bool m_isArmourEquipped;
 
+    private float m_ammoRegenTimer = 0f;
+    private int m_ammoRegenTrigger = 3;
+
+
     // Start is called before the first frame update
     void Start()
     {
         m_health = initalHealth;
         m_ammo = initialAmmo;
-        m_armour = initalArmour;
-        m_isArmourEquipped = false;
+        m_armour = initalArmour; 
+        m_isArmourEquipped = false; 
+        m_ammoRegenTimer = initialRegenTimer;
+        m_ammoRegenTrigger = initialRegenTrigger; 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        CheckRegen();
     }
 
     // Check for collisions
@@ -173,5 +181,22 @@ public class Player : MonoBehaviour
         // Disabled due to bricking the game through different GameStates
         // GetComponent<CharacterController>().enabled = false;
         // GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+    }
+
+    private void CheckRegen() {
+        if (m_ammo < m_ammoRegenTrigger)
+        {
+            m_ammoRegenTimer -= Time.deltaTime;
+            if (m_ammoRegenTimer <= 0) {
+                m_ammo++;
+                m_ammoRegenTimer = initialRegenTimer;
+            }
+
+        }
+        else
+        {
+            m_ammoRegenTimer = initialRegenTimer;
+        }
+
     }
 }
