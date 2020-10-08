@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 04/10/2020
-* By: Sharek Khan
+* Last modified 07/10/2020
+* By: Aswad Mirza
 */
 
 using UnityEngine;
@@ -41,7 +41,7 @@ public class CholesterolCrate : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    /*
     // Checks for any objects colliding with the crate
     void OnCollisionEnter(Collision collision)
     {
@@ -49,6 +49,13 @@ public class CholesterolCrate : MonoBehaviour
         if(collision.gameObject.GetComponent<Bullet>() != null)
         {
             // Reduce crate health
+            m_crateHealth -= 25;
+        }
+    }
+    */
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<Bullet>() != null) {
             m_crateHealth -= 25;
         }
     }

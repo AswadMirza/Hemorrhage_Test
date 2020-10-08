@@ -1687,6 +1687,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &682445339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 955029662939968144, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 955029664497740023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &688680968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3657,7 +3663,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 955029664497740023}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 682445339}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39fcbad4e0620da4f947661109fc7920, type: 3}
@@ -4200,6 +4206,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5051333574252244552, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
+        type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 682445339}
+    - target: {fileID: 8077744884920955834, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
+        type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 682445339}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f999c1b536e59f4d8424ec61d73e5bf, type: 3}
 --- !u!1001 &3093471169420335423
