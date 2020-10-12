@@ -522,6 +522,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3872304864730436007, guid: 3f9c4e94ca3677c438211961a70bd239,
+        type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872304864730436007, guid: 3f9c4e94ca3677c438211961a70bd239,
+        type: 3}
+      propertyPath: grabDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872304864730436007, guid: 3f9c4e94ca3677c438211961a70bd239,
+        type: 3}
+      propertyPath: grabSpeed
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 3872304865116987505, guid: 3f9c4e94ca3677c438211961a70bd239,
         type: 3}
       propertyPath: m_Name

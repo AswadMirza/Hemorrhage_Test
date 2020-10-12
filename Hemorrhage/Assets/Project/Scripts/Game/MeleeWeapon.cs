@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Last modified by Aswad Mirza on OCT 12th 2020
 public class MeleeWeapon : MonoBehaviour
 {
 
@@ -14,6 +14,7 @@ public class MeleeWeapon : MonoBehaviour
     public int m_damage = 5;
     public int m_heal = 10;
     public float speed = 20f;
+    public float m_enemyDistance = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,13 +41,19 @@ public class MeleeWeapon : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Enemy enemy = null;
         // gotta change this so instead of killing the enemy, it deals damage
-        if (collision.gameObject.GetComponent<Enemy>() != false) {
-            Debug.Log("srekt");
+        if (collision.gameObject.GetComponent<Enemy>() != null &&!isfired) {
+            Debug.Log("gottem");
+
+            enemy = collision.gameObject.GetComponent<Enemy>();
             //Destroy(collision.gameObject);
             //collision.gameObject.GetComponent<Enemy>().health -= m_damage;
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(m_damage);
-            if (collision.gameObject.GetComponent<Enemy>().health <= 0) {
+
+            // pullObject(collision.gameObject.GetComponent<Enemy>().gameObject);
+            enemy.IsGrabbed = true;
+            enemy.TakeDamage(m_damage);
+            if (enemy.health <= 0) {
                 player.Health += m_heal;
             }
             //this is to prevent the melee weapon from hitting the enemy for multiple frames
@@ -59,9 +66,12 @@ public class MeleeWeapon : MonoBehaviour
     private void MoveObject()
     {
         // Make the weapon move
-        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.position += transform.forward * speed * Time.deltaTime; 
+    }
 
-         
-
+    private void pullObject(GameObject enemy) {
+        Vector3 distanceFromPlayer = player.gameObject.transform.forward;
+       // distanceFromPlayer.z += m_enemyDistance;
+        enemy.transform.position = distanceFromPlayer;
     }
 }
