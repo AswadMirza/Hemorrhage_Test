@@ -1,5 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/** 
+* Last modified 12/10/2020 
+* By: Omer Farkhand
+*/
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -13,6 +15,7 @@ public class Enemy : MonoBehaviour
     {
         if (otherCollider.GetComponent<Bullet>() != null)
         {
+            Debug.Log("Hit");
             Bullet bullet = otherCollider.GetComponent<Bullet>();
             if (bullet.ShotByPlayer == true)
             {
