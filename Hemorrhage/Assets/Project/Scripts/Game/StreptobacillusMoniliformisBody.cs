@@ -2,6 +2,7 @@
 * Last modified 12/10/2020 
 * By: Omer Farkhand
 */
+using System.Collections;
 using UnityEngine;
 
 public class StreptobacillusMoniliformisBody : MonoBehaviour
@@ -24,11 +25,17 @@ public class StreptobacillusMoniliformisBody : MonoBehaviour
 
 
         //move towards the player
+        Move();
+    }
+    void Move()
+    {
+        //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * speed;
+    }
 
-
-      /*  Vector3 newPos = MoveSourceToDest(this.gameObject.transform.position, attach.transform.position, speed);
-        this.gameObject.transform.position = newPos;*/
+    IEnumerator Delay(float secs)
+    {
+        yield return new WaitForSeconds(secs);
     }
 
     private Vector3 MoveSourceToDest(Vector3 _source, Vector3 _dest, float _speed)

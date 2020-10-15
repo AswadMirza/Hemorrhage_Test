@@ -7,17 +7,14 @@ using System.Collections;
 using UnityEngine;
 
 
-public class StreptobacillusMoniliformis : Enemy
+public class StreptobacillusMoniliformis : MonoBehaviour
 {
 
-    public AudioSource deathSound;
-    public float speed;
-    public float rotationSpeed = 5;
+    float m_speed;
+    float rotationSpeed = 5;
     Vector3 dir1;
     Vector3 dir2;
-    float distance;
     public GameObject follow;
-    public GameObject[] body = new GameObject[6];
     // Start is called before the first frame update
     void Start()
     {
@@ -27,59 +24,29 @@ public class StreptobacillusMoniliformis : Enemy
     // Update is called once per frame
     void Update()
     {
-        Vector3 v1, v2;
-        v1 = this.gameObject.transform.position;
-        v2 = follow.transform.position;
-
-        Move();
-        distance = Vector3.Distance(this.gameObject.transform.position, follow.transform.position);
-
-        if (distance > 5.0f) { 
-
-            Debug.Log(distance);
+        if (Vector3.Distance(this.gameObject.transform.position, follow.transform.position) > 10)
+        {
+            print("worked");
+            Debug.Log("Distance is optimal");
             Lunge();
         }
         
     }
 
-    protected override void OnKill()
+    void Lunge()
     {
-        base.OnKill();
-        deathSound.Play();
-        // agent.enabled = false;
-        this.enabled = false;
+        //this.gameObject.transform.position = this.gameObject.transform.position * Time.deltaTime * 0;
 
-        body[5].SetActive(false);
-        body[4].SetActive(false);
-        body[3].SetActive(false);
-        body[2].SetActive(false);
-        body[1].SetActive(false);
-        body[0].SetActive(false);
-        this.gameObject.SetActive(false);
-    }
-
-    void Move()
-    {
-        //rotate to look at the player
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(follow.transform.position -
-            this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
-
-        //move towards the player
-        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * speed;
-    }
-
-    IEnumerator Lunge()
-    {
+           this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
         Debug.Log("Lunge");
-        this.gameObject.transform.position = this.gameObject.transform.position * Time.deltaTime * 0;
+        Delay(3);
 
-        //rotate to look at the player
-        this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(follow.transform.position -
-            this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
-
-        yield return new WaitForSeconds(2f);
-        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * speed*3;
+        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed*3;
     }
 
-
+    IEnumerator Delay(float secs)
+    {
+        yield return new WaitForSeconds(secs);
+    }
 }
