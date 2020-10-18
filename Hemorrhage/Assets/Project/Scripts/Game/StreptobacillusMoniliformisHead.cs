@@ -11,7 +11,7 @@ public class StreptobacillusMoniliformisHead : Enemy
 {
 
     public AudioSource deathSound;
-    public float speed;
+    public float m_speed;
     public float rotationSpeed = 5;
     Vector3 dir1;
     Vector3 dir2;
@@ -57,16 +57,7 @@ public class StreptobacillusMoniliformisHead : Enemy
     void Move()
     {
         //move towards the player
-        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * speed;
-    }
-
-    void Lunge()
-    {
-        Debug.Log("Lunge");
-        //this.gameObject.transform.position = this.gameObject.transform.position * Time.deltaTime * 0;
-
-        Delay(3);
-        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * speed * 3;
+        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
     IEnumerator Delay(float secs)

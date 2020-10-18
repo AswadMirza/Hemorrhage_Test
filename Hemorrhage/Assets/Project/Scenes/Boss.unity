@@ -1746,7 +1746,7 @@ MonoBehaviour:
   health: 100
   damage: 10
   deathSound: {fileID: 988882520}
-  speed: 7
+  m_speed: 7
   rotationSpeed: 7
   follow: {fileID: 1988471065}
   body:
@@ -2523,6 +2523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25094da9bc89d594a98d4b8570eae206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_speed: 7
   follow: {fileID: 1988471065}
 --- !u!1 &1959493654
 GameObject:
@@ -3018,7 +3019,7 @@ PrefabInstance:
     - target: {fileID: 1718251820641786720, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: distance
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1718251820641786720, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
@@ -3028,12 +3029,17 @@ PrefabInstance:
     - target: {fileID: 1718251820641786720, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: rotationSpeed
-      value: 7
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718251820641786720, guid: cb08b30d26dafe049b6058b408f4f559,
+        type: 3}
+      propertyPath: m_speed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2881037719506795827, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: distance
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2881037719506795827, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
@@ -3043,12 +3049,17 @@ PrefabInstance:
     - target: {fileID: 2881037719506795827, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: rotationSpeed
-      value: 7
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881037719506795827, guid: cb08b30d26dafe049b6058b408f4f559,
+        type: 3}
+      propertyPath: m_speed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2948289850207833608, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: distance
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2948289850207833608, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
@@ -3058,7 +3069,12 @@ PrefabInstance:
     - target: {fileID: 2948289850207833608, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: rotationSpeed
-      value: 7
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948289850207833608, guid: cb08b30d26dafe049b6058b408f4f559,
+        type: 3}
+      propertyPath: m_speed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4175732277954728360, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
@@ -3068,95 +3084,82 @@ PrefabInstance:
     - target: {fileID: 4175732277955999401, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3200002
+      value: -0.9599999
       objectReference: {fileID: 0}
     - target: {fileID: 4175732277955999401, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.027000329
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4175732277955999401, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.10100003
+      value: -0.02700001
       objectReference: {fileID: 0}
     - target: {fileID: 4175732277955999401, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4175732277955999401, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4175732277955999401, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: follow
       value: 
       objectReference: {fileID: 1988471065}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 988882520}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: body.Array.data[0]
       value: 
       objectReference: {fileID: 150641565}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: body.Array.data[1]
       value: 
       objectReference: {fileID: 1526763854}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: body.Array.data[2]
       value: 
       objectReference: {fileID: 604747357}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: body.Array.data[3]
       value: 
       objectReference: {fileID: 1695415719}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: body.Array.data[4]
       value: 
       objectReference: {fileID: 1364752986}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: body.Array.data[5]
       value: 
       objectReference: {fileID: 472102847}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: rotationSpeed
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 4175732277955999405, guid: cb08b30d26dafe049b6058b408f4f559,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -3310,6 +3313,11 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5449158963015782844, guid: cb08b30d26dafe049b6058b408f4f559,
+        type: 3}
+      propertyPath: m_speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5972629670682327226, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: speed
@@ -3375,6 +3383,11 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5972629671628898610, guid: cb08b30d26dafe049b6058b408f4f559,
+        type: 3}
+      propertyPath: m_speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5972629671742521080, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: speed
@@ -3448,6 +3461,11 @@ PrefabInstance:
     - target: {fileID: 7178345106884920221, guid: cb08b30d26dafe049b6058b408f4f559,
         type: 3}
       propertyPath: rotationSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178345106884920221, guid: cb08b30d26dafe049b6058b408f4f559,
+        type: 3}
+      propertyPath: m_speed
       value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []

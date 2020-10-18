@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  m_speed: 0
   rotationSpeed: 5
   distance: 0
   attach: {fileID: 4175732279564712774}
@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 4175732277955999404}
   - component: {fileID: 4175732277955999407}
   - component: {fileID: 4175732277955999406}
-  - component: {fileID: 4175732277955999405}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -202,23 +201,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4175732277955999405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175732277955999400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25094da9bc89d594a98d4b8570eae206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
-  damage: 5
-  speed: 0.01
-  rotationSpeed: 5
-  follow: {fileID: 0}
 --- !u!1 &4175732278191601651
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  m_speed: 0
   rotationSpeed: 5
   distance: 0
   attach: {fileID: 4175732278423199771}
@@ -433,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  m_speed: 0
   rotationSpeed: 5
   distance: 0
   attach: {fileID: 4175732277954728362}
@@ -542,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  m_speed: 0
   rotationSpeed: 5
   distance: 0
   attach: {fileID: 4175732279666782570}
@@ -651,7 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.01
+  m_speed: 0
   rotationSpeed: 5
   distance: 1
   attach: {fileID: 4175732277955999400}
@@ -760,7 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  m_speed: 0
   rotationSpeed: 5
   distance: 0
   attach: {fileID: 4175732278191601651}

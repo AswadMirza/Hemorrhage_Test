@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class StreptobacillusMoniliformisBody : MonoBehaviour
 {
-    public float speed;
+    public float m_speed;
     public float rotationSpeed = 5;
     public float distance;
     public GameObject attach;
@@ -23,14 +23,28 @@ public class StreptobacillusMoniliformisBody : MonoBehaviour
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(attach.transform.position -
             this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
 
-
         //move towards the player
         Move();
     }
     void Move()
     {
         //move towards the player
-        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * speed;
+        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
+    }
+
+    void Lunge(float multiplier)
+    {
+        //this.gameObject.transform.position = this.gameObject.transform.position * Time.deltaTime * 0;
+
+        this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(attach.transform.position -
+           this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
+
+        m_speed *= 0;
+
+        Debug.Log("Lunge");
+        Delay(3);
+
+        m_speed *= multiplier;
     }
 
     IEnumerator Delay(float secs)
