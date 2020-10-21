@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 12/10/2020
+* Last modified 21/10/2020
 * By: Aswad Mirza
 */
 
@@ -18,6 +18,8 @@ public class ShootingEnemy : Enemy
     private float shootingTimer;
     private float chasingTimer;
     private NavMeshAgent agent;
+
+    private Vector3 m_lastPlayerLocation = Vector3.zero;
 
     //variables for when the enemy is hit by the melee weapon   
     
@@ -73,14 +75,21 @@ public class ShootingEnemy : Enemy
         //grabbed logic
         if (IsGrabbed) {
             Debug.Log("Grabbed");
+            //disable the navmesh agent
+            
+            if (m_lastPlayerLocation.Equals(Vector3.zero)) {
+                Debug.Log("Going to the last Player location");
+                m_lastPlayerLocation = player.transform.position;
+            }
 
-            if (Vector3.Distance(transform.position, player.transform.position) > grabDistance)
+            if (Vector3.Distance(transform.position, m_lastPlayerLocation) > grabDistance)
             {
 
-                transform.position = CalculateDirection(transform.position, player.transform.position, grabSpeed);
+                transform.position = CalculateDirection(transform.position, m_lastPlayerLocation, grabSpeed);
             }
             else {
                 IsGrabbed = false;
+                m_lastPlayerLocation = Vector3.zero;
                 Debug.Log("not grabbed anymore");
             }
         }

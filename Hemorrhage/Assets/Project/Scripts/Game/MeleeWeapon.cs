@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// Last modified by Aswad Mirza on OCT 12th 2020
+// Last modified by Aswad Mirza on OCT 21st 2020
 public class MeleeWeapon : MonoBehaviour
 {
 
@@ -14,14 +14,19 @@ public class MeleeWeapon : MonoBehaviour
     public int m_damage = 5;
     public int m_heal = 10;
     public float speed = 20f;
+    public int ammoRestore = 10;
     public float m_enemyDistance = 3f;
+
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         // isfired = false;
         m_timeAlive = initialTimeAlive;
         playerModel = GameObject.Find("Player");
-        player = playerModel.GetComponent<Player>();
+        player = playerModel.GetComponent<Player>(); 
     }
 
     // Update is called once per frame
@@ -55,9 +60,10 @@ public class MeleeWeapon : MonoBehaviour
             enemy.TakeDamage(m_damage);
             if (enemy.health <= 0) {
                 player.Health += m_heal;
+                player.Ammo += ammoRestore;
             }
             //this is to prevent the melee weapon from hitting the enemy for multiple frames
-            isfired = true;
+            Destroy(gameObject);
             
         }
         
