@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 02/10/2020
-* By: Sharek Khan
+* Last modified 21/10/2020
+* By: Aswad Mirza
 */
 
 using UnityEngine;
@@ -19,6 +19,12 @@ public class ShootingEnemy : Enemy
     private float chasingTimer;
     private NavMeshAgent agent;
 
+    private Vector3 m_lastPlayerLocation = Vector3.zero;
+
+    //variables for when the enemy is hit by the melee weapon   
+    
+    public float grabDistance=3f;
+    public float grabSpeed = 120f;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,8 +70,40 @@ public class ShootingEnemy : Enemy
             chasingTimer = chasingInterval;
             agent.SetDestination(player.transform.position);
         }
+
+
+        //grabbed logic
+        if (IsGrabbed) {
+            Debug.Log("Grabbed");
+            //disable the navmesh agent
+            
+            if (m_lastPlayerLocation.Equals(Vector3.zero)) {
+                Debug.Log("Going to the last Player location");
+                m_lastPlayerLocation = player.transform.position;
+            }
+
+            if (Vector3.Distance(transform.position, m_lastPlayerLocation) > grabDistance)
+            {
+
+                transform.position = CalculateDirection(transform.position, m_lastPlayerLocation, grabSpeed);
+            }
+            else {
+                IsGrabbed = false;
+                m_lastPlayerLocation = Vector3.zero;
+                Debug.Log("not grabbed anymore");
+            }
+        }
     }
 
+    /*
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if (collision.gameObject.GetComponent<MeleeWeapon>() != null) {
+            isGrabbed = true;
+        }
+    }
+    */
     protected override void OnKill()
     {
         base.OnKill();
