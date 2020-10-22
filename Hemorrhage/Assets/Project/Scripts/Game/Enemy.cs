@@ -1,8 +1,8 @@
+
 /** 
 * Last modified 14/10/2020
 * By: Sharek Khan
 */
-
 using UnityEngine;
 
 //Last edited by Aswad Mirza on Octorber 12th 2020
@@ -23,7 +23,9 @@ public class Enemy : MonoBehaviour
         // If Enemy is colliding with PlasmaAmmo
         if (otherCollider.GetComponent<Bullet>() != null)
         {
+
             // Calls an instance of the PlasmaAmmo script component
+]
             Bullet bullet = otherCollider.GetComponent<Bullet>();
             // Checks if PlasmaAmmo was shot by Player
             if (bullet.ShotByPlayer == true)

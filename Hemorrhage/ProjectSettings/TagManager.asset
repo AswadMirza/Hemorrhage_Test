@@ -9,7 +9,9 @@ TagManager:
   - Enemy
   - S.Wall
   - N.Wall
+  - Bullet
   - AIDetection
+
   layers:
   - Default
   - TransparentFX
