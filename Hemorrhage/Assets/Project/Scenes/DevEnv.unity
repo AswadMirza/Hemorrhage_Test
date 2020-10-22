@@ -361,7 +361,7 @@ PrefabInstance:
     - target: {fileID: 3093471170928525683, guid: c88887bb71f9dc14396ebe7bebf76eee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3093471170928525683, guid: c88887bb71f9dc14396ebe7bebf76eee,
         type: 3}
@@ -502,31 +502,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3872304864730436006, guid: 3f9c4e94ca3677c438211961a70bd239,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3872304864730436006, guid: 3f9c4e94ca3677c438211961a70bd239,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3872304864730436006, guid: 3f9c4e94ca3677c438211961a70bd239,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3872304864730436007, guid: 3f9c4e94ca3677c438211961a70bd239,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3872304865116987505, guid: 3f9c4e94ca3677c438211961a70bd239,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyContainer
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f9c4e94ca3677c438211961a70bd239, type: 3}
 --- !u!4 &814074511 stripped
@@ -638,7 +613,7 @@ Transform:
   - {fileID: 355844529}
   - {fileID: 1350343537}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1230074411
 MonoBehaviour:
@@ -859,7 +834,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1830282792
 PrefabInstance:
@@ -1160,7 +1135,7 @@ PrefabInstance:
     - target: {fileID: 8199705126120259969, guid: 4aa0a7c44441caa4d82a2f26cfc66a8f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8199705126120259969, guid: 4aa0a7c44441caa4d82a2f26cfc66a8f,
         type: 3}

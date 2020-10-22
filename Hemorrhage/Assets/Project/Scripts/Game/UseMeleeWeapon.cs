@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// last updated by Aswad Mirza on 0ct 21st 2020
 public class UseMeleeWeapon : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -10,15 +10,27 @@ public class UseMeleeWeapon : MonoBehaviour
     public AudioClip meleeSounds;
 
     private AudioSource source;
+
+    //logic for fireRate
+    public float initialFireRate = 0f;
+    public float delayFireRate = 1f;
+
+    private float m_fireRate;
     void Start()
     {
         source = GetComponent<AudioSource>();
+        m_fireRate = initialFireRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)) {
+        //reducing the firerate by delta time
+        if (m_fireRate >= 0) {
+            m_fireRate -= Time.deltaTime;
+        }
+
+        if (Input.GetMouseButtonDown(1) && m_fireRate <=0) {
             float volume = Random.Range(5,10);
             source.PlayOneShot(meleeSounds,volume);
 
@@ -36,7 +48,8 @@ public class UseMeleeWeapon : MonoBehaviour
             //Launch that shit with the might of zeus
             rb.AddRelativeForce(0, 2000, 0);
 
-            
+            //fireRate is equal to the delay fireRate
+            m_fireRate = delayFireRate;
         }
     }
 }
