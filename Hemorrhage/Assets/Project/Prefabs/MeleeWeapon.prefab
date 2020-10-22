@@ -123,4 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialTimeAlive: 0.25
+  m_damage: 5
+  m_heal: 10
   speed: 20
+  m_enemyDistance: 1

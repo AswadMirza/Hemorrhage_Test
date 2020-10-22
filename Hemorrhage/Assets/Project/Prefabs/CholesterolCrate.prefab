@@ -724,11 +724,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c5c84802f71e94fb5b9955907aa4ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crateHealth: 100
   brokenCholestrolCrate: {fileID: 4233884251505767373, guid: cb0088eb7842c0946ac1a5fe44e53d2f,
     type: 3}
   vitaCapsule: {fileID: 7434838255138855230, guid: 31930135a96562b4181d4efa2c020512,
     type: 3}
+  crateHealth: 100
+  rngChance: 25
 --- !u!54 &8868329898504528213
 Rigidbody:
   m_ObjectHideFlags: 0
