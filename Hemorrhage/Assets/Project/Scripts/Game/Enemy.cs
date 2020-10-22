@@ -1,19 +1,23 @@
-﻿/** 
+/** 
 * Last modified 14/10/2020
 * By: Sharek Khan
 */
 
 using UnityEngine;
 
+//Last edited by Aswad Mirza on Octorber 12th 2020
+
 public class Enemy : MonoBehaviour
 {
     public int health = 5;
     public int damage = 5;
-    
-    private bool m_killed = false;
-    public bool Killed { get { return m_killed; }  set { m_killed = value; } }
 
-    // Checks triggered collision being interacted with Enemy
+    private bool _isGrabbed;
+    private bool killed = false;
+    public bool Killed { get { return killed; }  set { killed = value; } }
+
+    public bool IsGrabbed { get { return _isGrabbed; } set { _isGrabbed = value; } }
+    
     void OnTriggerEnter(Collider otherCollider)
     {
         // If Enemy is colliding with PlasmaAmmo
@@ -53,5 +57,12 @@ public class Enemy : MonoBehaviour
                 OnKill();
             }
         }
+    }
+
+    //helper function for calculating direction of vectors
+    protected Vector3 CalculateDirection(Vector3 source, Vector3 destination, float speed) {
+        Vector3 direction = (destination - source).normalized;
+        source += (direction * speed * Time.deltaTime);
+        return source;
     }
 }
