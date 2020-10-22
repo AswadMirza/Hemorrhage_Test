@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         {
 
             // Calls an instance of the PlasmaAmmo script component
-]
+
             Bullet bullet = otherCollider.GetComponent<Bullet>();
             // Checks if PlasmaAmmo was shot by Player
             if (bullet.ShotByPlayer == true)
