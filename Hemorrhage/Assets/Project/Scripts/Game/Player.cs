@@ -54,6 +54,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         CheckRegen();
+
+        if (m_ammo <= 0) {
+            m_ammo = 0;
+        }
     }
 
     // Check for collisions

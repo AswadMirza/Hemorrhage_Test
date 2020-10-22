@@ -47,7 +47,7 @@ public class CholesterolCrate : MonoBehaviour
             if(RNG(1, 100) <= m_rngChance)
             {
                 // Instantiates a VitaCapsule on destruction for Player pickup
-                Instantiate(vitaCapsule, new Vector3(transform.position.x, 3, transform.position.z), vitaCapsule.gameObject.transform.rotation);
+                Instantiate(vitaCapsule, new Vector3(transform.position.x, transform.position.y +1, transform.position.z), vitaCapsule.gameObject.transform.rotation);
             }
             // Destroys the base object
             Destroy(gameObject);

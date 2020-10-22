@@ -52,8 +52,8 @@ public class Enemy : MonoBehaviour
         this.health -= damage;
         if (health <= 0) {
             health = 0;
-            if (m_killed == false) {
-                m_killed = true;
+            if (killed == false) {
+                killed = true;
                 OnKill();
             }
         }
