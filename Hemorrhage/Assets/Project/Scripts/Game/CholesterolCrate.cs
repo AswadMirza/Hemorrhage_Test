@@ -1,17 +1,22 @@
 ﻿/** 
-* Last modified 07/10/2020
-* By: Aswad Mirza
+* Last modified 14/10/2020
+* By: Sharek Khan
 */
-
 using UnityEngine;
 
 public class CholesterolCrate : MonoBehaviour
 {
-    public int crateHealth = 100;
+    // Broken Cholesterol Crate Model
     public GameObject brokenCholestrolCrate;
+    // VitaCapsule GameObject
     public GameObject vitaCapsule;
+    // CholesterolCrate base health
+    public int crateHealth = 100;
+    // CholesterolCrate chance to generate a VitaCapsule
+    public int rngChance = 25;
 
     private int m_crateHealth;
+    private int m_rngChance;
     private bool m_isBroken;
 
     // Start is called before the first frame update
@@ -19,6 +24,9 @@ public class CholesterolCrate : MonoBehaviour
     {
         // Initializes the crates starting health
         m_crateHealth = crateHealth;
+        // Initializes the crates chance to generate a VitaCapsule
+        m_rngChance = rngChance;
+        // Initializes the crates dexterity status
         m_isBroken = false;
     }
 
@@ -35,27 +43,27 @@ public class CholesterolCrate : MonoBehaviour
         {
             // Breaks the crate by subbing in the destroyed model
             Instantiate(brokenCholestrolCrate, transform.position, transform.rotation);
-            // Instantiates a VitaCapsule on destruction for Player pickup
-            Instantiate(vitaCapsule, new Vector3(transform.position.x, 3, transform.position.z), vitaCapsule.gameObject.transform.rotation);
+            // Checks if a random number generated is in bounds of RNG Chance
+            if(RNG(1, 100) <= m_rngChance)
+            {
+                // Instantiates a VitaCapsule on destruction for Player pickup
+                Instantiate(vitaCapsule, new Vector3(transform.position.x, 3, transform.position.z), vitaCapsule.gameObject.transform.rotation);
+            }
             // Destroys the base object
             Destroy(gameObject);
         }
     }
-    /*
-    // Checks for any objects colliding with the crate
-    void OnCollisionEnter(Collision collision)
+
+    int RNG(int _minValue, int _maxValue)
     {
-        // If crates detects collision with object with Bullet script
-        if(collision.gameObject.GetComponent<Bullet>() != null)
-        {
-            // Reduce crate health
-            m_crateHealth -= 25;
-        }
+        System.Random rng = new System.Random();
+        return rng.Next(_minValue, _maxValue);
     }
-    */
-    private void OnTriggerEnter(Collider other)
+
+    // Checks for any trigger collisions the CholesterolCrate is colliding with
+    private void OnTriggerEnter(Collider _other)
     {
-        if (other.gameObject.GetComponent<Bullet>() != null) {
+        if (_other.gameObject.GetComponent<Bullet>() != null) {
             m_crateHealth -= 25;
         }
     }

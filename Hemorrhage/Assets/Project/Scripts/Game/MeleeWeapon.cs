@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/** 
+* Last modified 06/10/2020
+* By: Aswad Mirza
+*/
+
 using UnityEngine;
 // Last modified by Aswad Mirza on OCT 21st 2020
 public class MeleeWeapon : MonoBehaviour

@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+/** 
+* Last modified 14/10/2020
+* By: Sharek Khan
+*/
+
 using UnityEngine;
 
 //Last edited by Aswad Mirza on Octorber 12th 2020
@@ -8,28 +11,28 @@ public class Enemy : MonoBehaviour
 {
     public int health = 5;
     public int damage = 5;
+
     private bool _isGrabbed;
     private bool killed = false;
     public bool Killed { get { return killed; }  set { killed = value; } }
 
     public bool IsGrabbed { get { return _isGrabbed; } set { _isGrabbed = value; } }
+    
     void OnTriggerEnter(Collider otherCollider)
     {
+        // If Enemy is colliding with PlasmaAmmo
         if (otherCollider.GetComponent<Bullet>() != null)
         {
+            // Calls an instance of the PlasmaAmmo script component
             Bullet bullet = otherCollider.GetComponent<Bullet>();
+            // Checks if PlasmaAmmo was shot by Player
             if (bullet.ShotByPlayer == true)
             {
-                health -= bullet.damage;
+                // Enemy takes damage
+                TakeDamage(bullet.damage);
+                // PlasmaAmmo will be deactivated once contact is made
                 bullet.gameObject.SetActive(false);
-                if (health <= 0)
-                {
-                    if (killed == false)
-                    {
-                        killed = true;
-                        OnKill();
-                    }
-                }
+        
             }
         }
         // code for if melee weapon becomes a trigger
@@ -42,15 +45,15 @@ public class Enemy : MonoBehaviour
         */
     }
 
-
     protected virtual void OnKill() { }
 
-    // makes the enemy take x damage, and then check if it is dead or not
+    // Makes the enemy take x damage, and then check if it is dead or not
     public void TakeDamage(int damage) {
         this.health -= damage;
         if (health <= 0) {
-            if (killed == false) {
-                killed = true;
+            health = 0;
+            if (m_killed == false) {
+                m_killed = true;
                 OnKill();
             }
         }
