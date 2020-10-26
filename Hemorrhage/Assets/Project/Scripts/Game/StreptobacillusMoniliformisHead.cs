@@ -36,6 +36,8 @@ public class StreptobacillusMoniliformisHead : Enemy
             this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
 
         Move();
+
+        //Lunge(3);
     }
 
     protected override void OnKill()
@@ -64,4 +66,18 @@ public class StreptobacillusMoniliformisHead : Enemy
     {
         yield return new WaitForSeconds(secs);
     }
+
+    void Lunge(float multiplier)
+    {
+        Debug.Log("Lunge");
+        m_speed *= 0;
+
+        /* this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(follow.transform.position -
+            this.gameObject.transform.position), rotationSpeed * Time.deltaTime);*/
+
+        StartCoroutine(Delay(3));
+
+        m_speed *= multiplier;
+    }
+
 }
