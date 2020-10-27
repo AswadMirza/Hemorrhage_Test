@@ -1,14 +1,22 @@
-﻿using UnityEngine;
+﻿/** 
+* Last modified 26/10/2020
+* By: Sharek Khan
+*/
+
+using UnityEngine;
 
 public  class Gun : MonoBehaviour
 {
+    private Player m_player;
+
     public GameObject playerObject;
     public Camera playerCamera;
-    Player _player;
+    
     // Start is called before the first frame update
     void Start()
     {
-        _player = playerObject.GetComponent<Player>();
+        // Retrieve the Player scripts component of the Player object
+        m_player = playerObject.GetComponent<Player>();
 
     }
 
@@ -17,9 +25,9 @@ public  class Gun : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_player.Ammo > 0 && _player.Killed != true)
+            if (m_player.Ammo > 0 && m_player.IsKilled != true)
             {
-                _player.Ammo--;
+                m_player.Ammo--;
                 GameObject bulletObject = ObjectPoolingManager.Instance.GetBullet(true);
                 bulletObject.transform.position = playerCamera.transform.position + playerCamera.transform.forward;
                 bulletObject.transform.forward = playerCamera.transform.forward;
