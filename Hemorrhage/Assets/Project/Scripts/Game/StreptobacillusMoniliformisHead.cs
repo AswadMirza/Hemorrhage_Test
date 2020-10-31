@@ -27,9 +27,11 @@ public class StreptobacillusMoniliformisHead : Enemy
     // Update is called once per frame
     void Update()
     {
+        m_speed = 15f;
         Vector3 v1, v2;
         v1 = this.gameObject.transform.position;
         v2 = follow.transform.position;
+        distance = Vector3.Distance(v1, v2);
 
         //rotate to look at the player
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(follow.transform.position -
@@ -37,7 +39,10 @@ public class StreptobacillusMoniliformisHead : Enemy
 
         Move();
 
-        //Lunge(3);
+        if (distance > 10)
+        {
+            Lunge(3);
+        }
     }
 
     protected override void OnKill()
@@ -64,20 +69,21 @@ public class StreptobacillusMoniliformisHead : Enemy
 
     IEnumerator Delay(float secs)
     {
+        Debug.Log("Delay Called");
+
         yield return new WaitForSeconds(secs);
     }
 
     void Lunge(float multiplier)
     {
-        Debug.Log("Lunge");
+        Debug.Log("HeadLunge");
         m_speed *= 0;
 
-        /* this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(follow.transform.position -
-            this.gameObject.transform.position), rotationSpeed * Time.deltaTime);*/
-
         StartCoroutine(Delay(3));
-
+        Debug.Log("Speed = " + m_speed);
+        m_speed = 15f;
         m_speed *= multiplier;
+
     }
 
 }

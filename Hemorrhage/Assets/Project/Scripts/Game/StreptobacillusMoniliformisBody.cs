@@ -20,11 +20,23 @@ public class StreptobacillusMoniliformisBody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_speed = 15f;
+        Vector3 v1, v2;
+        v1 = this.gameObject.transform.position;
+        v2 = attach.transform.position;
+
+        distance = Vector3.Distance(v1, v2);
+
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(attach.transform.position -
             this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
 
+        Move();
+
         //move towards the player
-       Move();
+        if (distance > 10)
+        {
+            Lunge(3);
+        }
 
     }
     void Move()
@@ -35,18 +47,18 @@ public class StreptobacillusMoniliformisBody : MonoBehaviour
 
     IEnumerator Delay(float secs)
     {
+        Debug.Log("Delay Called");
         yield return new WaitForSeconds(secs);
     }
 
     void Lunge(float multiplier)
     {
-        Debug.Log("Lunge");
+        Debug.Log("BodyLunge");
         m_speed *= 0;
 
-       /* this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(attach.transform.position -
-           this.gameObject.transform.position), rotationSpeed * Time.deltaTime);*/
         StartCoroutine (Delay(3));
-
+        Debug.Log("Speed = " + m_speed);
+        m_speed = 15f;
         m_speed *= multiplier;
     }
 
