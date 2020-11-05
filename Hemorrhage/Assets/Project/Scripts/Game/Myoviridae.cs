@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 21/10/2020
+* Last modified 26/10/2020
 * By: Sharek Khan
 */
 
@@ -7,29 +7,39 @@ using UnityEngine;
 
 public class Myoviridae : Enemy
 {
+    private GameObject m_player;
+    private Vector3 m_initialPos;
+    private Quaternion m_initialRot;
+    private int m_speed = 3;
+    private int m_rushSpeed = 4;
+    private int m_rotSpeed = 45;
+    private string m_enemyState;
+
     public float chargingDelta = 5f;
     public float chargingDistance = 5f;
-
-    private Player m_player;
-    private float m_chargingTimer;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_initialPos = transform.position;
+        m_initialRot = transform.rotation;
+        m_enemyState = "IDLE";
+
         // Retrieves the Player script through the active Player GameObject
-        m_player = GameObject.Find("Player").GetComponent<Player>();
-        // Initializes the rate of which enemy fires
-        m_chargingTimer = Random.Range(0, chargingDelta);
+        m_player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Chasing Logic
-        m_chargingTimer -= Time.deltaTime;
-        if (m_chargingTimer <= 0 && Vector3.Distance(transform.position, m_player.transform.position) >= chargingDistance)
+        // Check Enemy behaviour state
+        if(m_enemyState == "IDLE")
         {
-            m_chargingTimer = chargingDelta;
+            OnIdle();
+        }
+        else if(m_enemyState == "ATTACK")
+        {
+            OnAttack();
         }
     }
 
@@ -40,7 +50,7 @@ public class Myoviridae : Enemy
         {
             Debug.Log("Myoviridae is inside Player vicinty.");
             // Switch enemy state to attack
-            OnAttack();
+            m_enemyState = "ATTACK";
         }
     }
 
@@ -50,8 +60,11 @@ public class Myoviridae : Enemy
         if (collider.gameObject.tag == "AIDetection")
         {
             Debug.Log("Myoviridae is outside Player vicinty.");
+            // Reset enemy position
+            // transform.position = m_initialPos;
+            transform.rotation = m_initialRot;
             //  Switch enemy state to idle
-            OnIdle();
+            m_enemyState = "IDLE";
         }
     }
 
@@ -59,13 +72,28 @@ public class Myoviridae : Enemy
     void OnIdle()
     {
         // Translate enemy back and forth, while rotating around
+        transform.Translate(Vector3.forward * m_speed * Time.deltaTime);
+        if(transform.position.z >= (m_initialPos.z + 10))
+        {
+            // Rotate Enemy
+            transform.Rotate(Vector3.up, m_rotSpeed * Time.deltaTime);
+        }
+        else if (transform.position.z <= (m_initialPos.z - 10))
+        {
+            // Rotate Enemy
+            transform.Rotate(Vector3.up, m_rotSpeed * Time.deltaTime);
+        }
 
     }
 
     // Enemies Behaviour Patterns when enter Player vicinity
     void OnAttack()
     {
+        // Rotate in Player direction
+        Vector3 playerDir = m_player.transform.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(playerDir);
         // Attack Player by rushing them with melee damage
+        transform.position = CalculateDirection(transform.position, m_player.transform.position, m_rushSpeed);
     }
 
     protected override void OnKill()

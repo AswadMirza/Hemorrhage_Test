@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 02/10/2020
+* Last modified 26/10/2020
 * By: Sharek Khan
 */
 
@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    private float m_resetTimer = 3f;
+    private bool m_gameOver = false;
+
     [Header("Game")]
     public Player player;
     public GameObject enemyContainer;
@@ -19,8 +22,6 @@ public class GameController : MonoBehaviour
     public Text enemyText;
     public Text infoText;
 
-    private float resetTimer = 3f;
-    private bool gameOver = false;
     void Start()
     {
         infoText.gameObject.SetActive(false);
@@ -34,7 +35,7 @@ public class GameController : MonoBehaviour
         int aliveEnemies = 0;
         foreach(Enemy enemy in enemyContainer.GetComponentsInChildren<Enemy>())
         {
-            if(enemy.Killed == false)
+            if(enemy.IsKilled == false)
             {
                 aliveEnemies++;
             }
@@ -42,20 +43,20 @@ public class GameController : MonoBehaviour
         enemyText.text = "Enemies: " + aliveEnemies;
         if(aliveEnemies == 0)
         {
-            gameOver = true;
+            m_gameOver = true;
             infoText.gameObject.SetActive(true);
             infoText.text = "You Win!";
         }
-        if(player.Killed == true)
+        if(player.IsKilled == true)
         {
-            gameOver = true;
+            m_gameOver = true;
             infoText.gameObject.SetActive(true);
             infoText.text = "You Died!";
         }
-        if(gameOver == true)
+        if(m_gameOver == true)
         {
-            resetTimer -= Time.deltaTime;
-            if(resetTimer <= 0)
+            m_resetTimer -= Time.deltaTime;
+            if(m_resetTimer <= 0)
             {
                 // SceneManager.LoadScene("Menu");
             }

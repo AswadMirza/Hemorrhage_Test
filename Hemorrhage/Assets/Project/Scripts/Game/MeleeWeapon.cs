@@ -1,35 +1,31 @@
 ﻿/** 
-* Last modified 06/10/2020
+* Last modified 26/10/2020
 * By: Aswad Mirza
 */
 
 using UnityEngine;
-// Last modified by Aswad Mirza on OCT 21st 2020
+
 public class MeleeWeapon : MonoBehaviour
 {
-
-    GameObject playerModel;
-    Player player;
-    static bool isfired = false;
-
-    public float initialTimeAlive =0.25f;
+    private GameObject m_playerObject;
+    private Player m_player;
     private float m_timeAlive = 0f;
-    public int m_damage = 5;
-    public int m_heal = 10;
-    public float speed = 20f;
+    private static bool m_isFired = false;
+
+    public int heal = 10;
+    public int damage = 5;
     public int ammoRestore = 10;
-    public float m_enemyDistance = 3f;
-
-
+    public float speed = 20f;
+    public float enemyDistance = 3f;
+    public float initialTimeAlive = 0.25f;
     
-
     // Start is called before the first frame update
     void Start()
     {
         // isfired = false;
         m_timeAlive = initialTimeAlive;
-        playerModel = GameObject.Find("Player");
-        player = playerModel.GetComponent<Player>(); 
+        m_playerObject = GameObject.Find("Player");
+        m_player = m_playerObject.GetComponent<Player>(); 
     }
 
     // Update is called once per frame
@@ -38,20 +34,21 @@ public class MeleeWeapon : MonoBehaviour
 
         //MoveObject();
 
-        //we let the meleeweaponStay active for x seconds. and then destroy it
+        // We let the meleeweaponStay active for x seconds and then destroy it
         if (m_timeAlive <= 0) {
-            isfired = false;
-            Destroy(gameObject);
+            m_isFired = false;
+            Destroy(this.gameObject);
             //gameObject.SetActive(false);
             m_timeAlive = initialTimeAlive;
         }
         m_timeAlive -= Time.deltaTime;
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         Enemy enemy = null;
-        // gotta change this so instead of killing the enemy, it deals damage
-        if (collision.gameObject.GetComponent<Enemy>() != null &&!isfired) {
+        // Gotta change this so instead of killing the enemy, it deals damage
+        if (collision.gameObject.GetComponent<Enemy>() != null &&!m_isFired) {
             Debug.Log("gottem");
 
             enemy = collision.gameObject.GetComponent<Enemy>();
@@ -60,16 +57,14 @@ public class MeleeWeapon : MonoBehaviour
 
             // pullObject(collision.gameObject.GetComponent<Enemy>().gameObject);
             enemy.IsGrabbed = true;
-            enemy.TakeDamage(m_damage);
-            if (enemy.health <= 0) {
-                player.Health += m_heal;
-                player.Ammo += ammoRestore;
+            enemy.TakeDamage(damage);
+            if (enemy.Health <= 0) {
+                m_player.Health += heal;
+                m_player.Ammo += ammoRestore;
             }
-            //this is to prevent the melee weapon from hitting the enemy for multiple frames
-            Destroy(gameObject);
-            
+            // This is to prevent the melee weapon from hitting the enemy for multiple frames
+            Destroy(this.gameObject);
         }
-        
     }
 
     private void MoveObject()
@@ -79,7 +74,7 @@ public class MeleeWeapon : MonoBehaviour
     }
 
     private void pullObject(GameObject enemy) {
-        Vector3 distanceFromPlayer = player.gameObject.transform.forward;
+        Vector3 distanceFromPlayer = m_playerObject.transform.forward;
        // distanceFromPlayer.z += m_enemyDistance;
         enemy.transform.position = distanceFromPlayer;
     }

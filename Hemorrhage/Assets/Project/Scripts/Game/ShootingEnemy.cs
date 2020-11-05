@@ -1,7 +1,6 @@
 /** 
-
-* Last modified 21/10/2020
-* By: Aswad Mirza
+* Last modified 26/10/2020
+* By: Sharek Khan
 */
 
 using UnityEngine;
@@ -38,7 +37,7 @@ public class ShootingEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(player.Killed == true)
+        if(player.IsKilled == true)
         {
             agent.enabled = false;
             this.enabled = false;
@@ -113,6 +112,4 @@ public class ShootingEnemy : Enemy
         this.enabled = false;
         transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
-
-    
 }
