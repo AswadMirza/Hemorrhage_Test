@@ -41,6 +41,9 @@ public class Myoviridae : Enemy
         {
             OnAttack();
         }
+
+
+
     }
 
     void OnTriggerEnter(Collider collider)

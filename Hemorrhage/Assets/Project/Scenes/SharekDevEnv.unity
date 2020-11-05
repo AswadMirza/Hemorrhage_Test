@@ -740,7 +740,7 @@ PrefabInstance:
     - target: {fileID: 955029662934536688, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
         type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 955029662934536688, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
         type: 3}
@@ -1476,6 +1476,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Myoviridae
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987682488152580350, guid: 078a0d5e6da62a44c82a83e323e9f06a,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 078a0d5e6da62a44c82a83e323e9f06a, type: 3}

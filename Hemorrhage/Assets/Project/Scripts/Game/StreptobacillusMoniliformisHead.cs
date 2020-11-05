@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class StreptobacillusMoniliformisHead : Enemy
 {
-
+    public int InitialHealth = 100;
     public AudioSource deathSound;
     public float m_speed;
     public float rotationSpeed = 5;
@@ -21,7 +21,7 @@ public class StreptobacillusMoniliformisHead : Enemy
     // Start is called before the first frame update
     void Start()
     {
-
+        this.Health = InitialHealth;
     }
 
     // Update is called once per frame
