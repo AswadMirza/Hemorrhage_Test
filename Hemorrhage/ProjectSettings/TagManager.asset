@@ -11,7 +11,7 @@ TagManager:
   - N.Wall
   - Bullet
   - AIDetection
-
+  - PlayerHitBox
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 04/10/2020 
-* By: Aswad Mirza
+* Last modified 26/10/2020
+* By: Sharek Khan
 */
 
 using UnityEngine;
@@ -13,7 +13,7 @@ public class PlasmaRifle : MonoBehaviour
     public float initialFireRate = 0.1f;
 
     // Player script
-    Player m_player;
+    private Player m_player;
     // Internal counter for checking if it is time to fire another bullet
     private float m_fireRate = 0f;
 
@@ -48,16 +48,16 @@ public class PlasmaRifle : MonoBehaviour
     void Fire()
     {
         // Condition checks if Ammo is present/Players not dead/Input within fire rate
-        if (m_player.Ammo > 0 && m_player.Killed != true && m_fireRate <= 0)
+        if (m_player.Ammo > 0 && m_player.IsKilled != true && m_fireRate <= 0)
         {
             // Ammo is decremented
             m_player.Ammo--;
             // Creates a new instance of SMGBullet through ObjectPoolingManager
             GameObject smgBulletObject = ObjectPoolingManager.Instance.GetSmgBullet(true);
             // Bullet takes the position of the parent objects position and angle
-            smgBulletObject.transform.position = this.transform.position + this.transform.forward;
+            smgBulletObject.transform.position = transform.position + transform.forward;
             // Bullet is shot forward with the direction of the parent object
-            smgBulletObject.transform.forward = this.transform.forward;
+            smgBulletObject.transform.forward = transform.forward;
         }
     }
 }

@@ -1,7 +1,6 @@
 /** 
-
-* Last modified 21/10/2020
-* By: Aswad Mirza
+* Last modified 26/10/2020
+* By: Sharek Khan
 */
 
 using UnityEngine;
@@ -9,6 +8,8 @@ using UnityEngine.AI;
 
 public class ShootingEnemy : Enemy
 {
+
+    public int InitialHealth = 10;
     public AudioSource deathSound;
     public float shootingInterval = 4f;
     public float shootingDistance = 3f;
@@ -29,6 +30,7 @@ public class ShootingEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        this.Health = InitialHealth;
         player = GameObject.Find("Player").GetComponent<Player>();
         agent = GetComponent<NavMeshAgent>();
         shootingTimer = Random.Range(0, shootingInterval);
@@ -38,7 +40,7 @@ public class ShootingEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(player.Killed == true)
+        if(player.IsKilled == true)
         {
             agent.enabled = false;
             this.enabled = false;
@@ -113,6 +115,4 @@ public class ShootingEnemy : Enemy
         this.enabled = false;
         transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
-
-    
 }
