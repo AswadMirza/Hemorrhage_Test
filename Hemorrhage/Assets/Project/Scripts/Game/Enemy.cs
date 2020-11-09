@@ -67,4 +67,8 @@ public class Enemy : MonoBehaviour
         source += (direction * speed * Time.deltaTime);
         return source;
     }
+
+    protected virtual void Grabbed() {
+        Debug.Log("Base Class Grabbed");
+    }
 }

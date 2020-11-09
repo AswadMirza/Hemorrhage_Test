@@ -104,4 +104,9 @@ public class Myoviridae : Enemy
         base.OnKill();
         // Kill State
     }
+
+    protected override void Grabbed()
+    {
+        base.Grabbed();
+    }
 }

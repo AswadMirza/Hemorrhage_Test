@@ -76,26 +76,7 @@ public class ShootingEnemy : Enemy
 
 
         //grabbed logic
-        if (IsGrabbed) {
-            Debug.Log("Grabbed");
-            //disable the navmesh agent
-            
-            if (m_lastPlayerLocation.Equals(Vector3.zero)) {
-                Debug.Log("Going to the last Player location");
-                m_lastPlayerLocation = player.transform.position;
-            }
-
-            if (Vector3.Distance(transform.position, m_lastPlayerLocation) > grabDistance)
-            {
-
-                transform.position = CalculateDirection(transform.position, m_lastPlayerLocation, grabSpeed);
-            }
-            else {
-                IsGrabbed = false;
-                m_lastPlayerLocation = Vector3.zero;
-                Debug.Log("not grabbed anymore");
-            }
-        }
+        Grabbed();
     }
 
     /*
@@ -114,5 +95,32 @@ public class ShootingEnemy : Enemy
         // agent.enabled = false;
         this.enabled = false;
         transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
+    }
+
+    protected override void Grabbed()
+    {
+        if (IsGrabbed)
+        {
+            Debug.Log("Grabbed");
+            //disable the navmesh agent
+
+            if (m_lastPlayerLocation.Equals(Vector3.zero))
+            {
+                Debug.Log("Going to the last Player location");
+                m_lastPlayerLocation = player.transform.position;
+            }
+
+            if (Vector3.Distance(transform.position, m_lastPlayerLocation) > grabDistance)
+            {
+
+                transform.position = CalculateDirection(transform.position, m_lastPlayerLocation, grabSpeed);
+            }
+            else
+            {
+                IsGrabbed = false;
+                m_lastPlayerLocation = Vector3.zero;
+                Debug.Log("not grabbed anymore");
+            }
+        }
     }
 }
