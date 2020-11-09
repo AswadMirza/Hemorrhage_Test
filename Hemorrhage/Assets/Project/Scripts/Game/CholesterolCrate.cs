@@ -1,11 +1,16 @@
 ﻿/** 
-* Last modified 14/10/2020
+* Last modified 26/10/2020
 * By: Sharek Khan
 */
+
 using UnityEngine;
 
 public class CholesterolCrate : MonoBehaviour
 {
+    private int m_crateHealth;
+    private int m_rngChance;
+    private bool m_isBroken;
+
     // Broken Cholesterol Crate Model
     public GameObject brokenCholestrolCrate;
     // VitaCapsule GameObject
@@ -14,10 +19,6 @@ public class CholesterolCrate : MonoBehaviour
     public int crateHealth = 100;
     // CholesterolCrate chance to generate a VitaCapsule
     public int rngChance = 25;
-
-    private int m_crateHealth;
-    private int m_rngChance;
-    private bool m_isBroken;
 
     // Start is called before the first frame update
     void Start()
@@ -47,23 +48,24 @@ public class CholesterolCrate : MonoBehaviour
             if(RNG(1, 100) <= m_rngChance)
             {
                 // Instantiates a VitaCapsule on destruction for Player pickup
-                Instantiate(vitaCapsule, new Vector3(transform.position.x, transform.position.y +1, transform.position.z), vitaCapsule.gameObject.transform.rotation);
+                Instantiate(vitaCapsule, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), vitaCapsule.gameObject.transform.rotation);
             }
             // Destroys the base object
             Destroy(gameObject);
         }
     }
 
-    int RNG(int _minValue, int _maxValue)
+    int RNG(int minValue, int maxValue)
     {
         System.Random rng = new System.Random();
-        return rng.Next(_minValue, _maxValue);
+        return rng.Next(minValue, maxValue);
     }
 
     // Checks for any trigger collisions the CholesterolCrate is colliding with
-    private void OnTriggerEnter(Collider _other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (_other.gameObject.GetComponent<Bullet>() != null) {
+        // Checks for collision with projectiles that are instantiated through the Player
+        if (other.gameObject.GetComponent<Bullet>() != null && other.gameObject.GetComponent<Bullet>().ShotByPlayer != false) {
             m_crateHealth -= 25;
         }
     }

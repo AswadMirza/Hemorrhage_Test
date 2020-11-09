@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 04/10/2020
+* Last modified 26/10/2020
 * By: Sharek Khan
 */
 
@@ -41,16 +41,16 @@ public class PlasmaShotgun : MonoBehaviour
     void Fire()
     {
         // Condition checks if Ammo is present/Players not dead/Input not within fire rate
-        if (m_player.Ammo > 0 && m_player.Killed != true && m_fireRate <= 0f)
+        if (m_player.Ammo > 0 && m_player.IsKilled != true && m_fireRate <= 0f)
         {
             // Ammo is decremented
             m_player.Ammo -= 9;
             // Creates a new instance of ShotgunShell through ObjectPoolingManager
             GameObject shotgunShellObject = ObjectPoolingManager.Instance.GetShotgunShell(true);
             // ShotgunShell takes the position of the parent objects position and angle
-            shotgunShellObject.transform.position = this.transform.position + this.transform.forward;
+            shotgunShellObject.transform.position = transform.position + transform.forward;
             // ShotgunShell is shot forward with the direction of the parent object
-            shotgunShellObject.transform.forward = this.transform.forward;
+            shotgunShellObject.transform.forward = transform.forward;
         }
 
         // If PlasmaShotgun fired, delay the next shot
