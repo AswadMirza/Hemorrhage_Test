@@ -5,14 +5,18 @@
 
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.Rendering;
 
 public class StreptobacillusMoniliformisHead : Enemy
 {
     public int InitialHealth = 100;
     public AudioSource deathSound;
     public float m_speed;
-    public float rotationSpeed = 5;
+    public float Speed { get { return m_speed; } set { m_speed = value; } }
+    
+    public float m_rotation = 0;
+    public float RotationSpeed { get { return m_rotation; } set { m_rotation = value; } }
+
     Vector3 dir1;
     Vector3 dir2;
     float distance;
@@ -33,16 +37,12 @@ public class StreptobacillusMoniliformisHead : Enemy
         v2 = follow.transform.position;
         distance = Vector3.Distance(v1, v2);
 
-        //rotate to look at the player
-        this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(follow.transform.position -
-            this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
-
         Move();
 
         if (distance > 10)
         {
-            Lunge(3);
-        }
+           // Lunge(5);
+        } 
     }
 
     protected override void OnKill()
@@ -51,18 +51,15 @@ public class StreptobacillusMoniliformisHead : Enemy
         deathSound.Play();
         // agent.enabled = false;
         this.enabled = false;
-
-        body[5].SetActive(false);
-        body[4].SetActive(false);
-        body[3].SetActive(false);
-        body[2].SetActive(false);
-        body[1].SetActive(false);
-        body[0].SetActive(false);
-        this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 
     void Move()
     {
+        //rotate to look at the player
+        this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(follow.transform.position -
+            this.gameObject.transform.position), m_rotation * Time.deltaTime);
+
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
@@ -79,11 +76,26 @@ public class StreptobacillusMoniliformisHead : Enemy
         Debug.Log("HeadLunge");
         m_speed *= 0;
 
-        StartCoroutine(Delay(3));
+        //rotate to look at the player
+        this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(follow.transform.position -
+            this.gameObject.transform.position), m_rotation * Time.deltaTime);
+
+        StartCoroutine(Delay(10));
         Debug.Log("Speed = " + m_speed);
         m_speed = 15f;
         m_speed *= multiplier;
 
+        //move towards the player
+        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "Player")
+        {
+            m_speed *= 0;
+            StartCoroutine(Delay(3));
+            m_speed = 15;
+        }
+    }
 }

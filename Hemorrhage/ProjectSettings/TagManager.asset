@@ -12,6 +12,9 @@ TagManager:
   - Bullet
   - AIDetection
   - PlayerHitBox
+  - SMGBullet
+  - ShotgunShell
+  - Door
   layers:
   - Default
   - TransparentFX

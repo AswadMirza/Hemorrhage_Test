@@ -5,16 +5,27 @@
 using System.Collections;
 using UnityEngine;
 
-public class StreptobacillusMoniliformisBody : MonoBehaviour
+public class StreptobacillusMoniliformisBody : Enemy
 {
+    public int InitialHealth = 100;
     public float m_speed;
-    public float rotationSpeed = 5;
-    public float distance;
+    public float Speed { get { return m_speed; } set { m_speed = value; } }
+    public float m_rotation = 0;
+    public float RotationSpeed { get { return m_rotation; } set { m_rotation = value; } }
+    float distance;
     public GameObject attach;
+
+    GameObject tail, body1, body2, body3, body4, body5;
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.Health = InitialHealth;
+        tail = GameObject.Find("Tail");
+        body1 = GameObject.Find("Body1");
+        body2 = GameObject.Find("Body2");
+        body3 = GameObject.Find("Body3");
+        body4 = GameObject.Find("Body4");
+        body5 = GameObject.Find("Body5");
     }
 
     // Update is called once per frame
@@ -24,23 +35,17 @@ public class StreptobacillusMoniliformisBody : MonoBehaviour
         Vector3 v1, v2;
         v1 = this.gameObject.transform.position;
         v2 = attach.transform.position;
-
         distance = Vector3.Distance(v1, v2);
 
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(attach.transform.position -
-            this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
+           this.gameObject.transform.position), m_rotation * Time.deltaTime);
 
         Move();
-
-        //move towards the player
-        if (distance > 10)
-        {
-            Lunge(3);
-        }
-
+        
     }
     void Move()
     {
+       
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
@@ -51,15 +56,11 @@ public class StreptobacillusMoniliformisBody : MonoBehaviour
         yield return new WaitForSeconds(secs);
     }
 
-    void Lunge(float multiplier)
+    public GameObject getAttach()
     {
-        Debug.Log("BodyLunge");
-        m_speed *= 0;
-
-        StartCoroutine (Delay(3));
-        Debug.Log("Speed = " + m_speed);
-        m_speed = 15f;
-        m_speed *= multiplier;
+        return attach;
     }
+
+   
 
 }
