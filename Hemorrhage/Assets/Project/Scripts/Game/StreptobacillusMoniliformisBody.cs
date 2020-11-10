@@ -12,7 +12,7 @@ public class StreptobacillusMoniliformisBody : Enemy
     public float Speed { get { return m_speed; } set { m_speed = value; } }
     public float m_rotation = 0;
     public float RotationSpeed { get { return m_rotation; } set { m_rotation = value; } }
-    float distance;
+    float distance = 1;
     public GameObject attach;
 
     GameObject tail, body1, body2, body3, body4, body5;
@@ -41,11 +41,16 @@ public class StreptobacillusMoniliformisBody : Enemy
            this.gameObject.transform.position), m_rotation * Time.deltaTime);
 
         Move();
+
+        if (distance > 10)
+        {
+            //Lunge(5);
+        }
         
+
     }
     void Move()
     {
-       
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
@@ -61,6 +66,18 @@ public class StreptobacillusMoniliformisBody : Enemy
         return attach;
     }
 
-   
+    void Lunge(float multiplier)
+    {
+        Debug.Log("BodyLunge");
+        m_speed *= 0;
+
+        StartCoroutine(Delay(10));
+        Debug.Log("Speed = " + m_speed);
+        m_speed = 15f;
+        m_speed *= multiplier;
+
+        //move forwards
+        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
+    }
 
 }
