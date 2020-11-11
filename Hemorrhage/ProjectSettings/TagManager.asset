@@ -15,6 +15,7 @@ TagManager:
   - SMGBullet
   - ShotgunShell
   - Door
+  - Shootable
   layers:
   - Default
   - TransparentFX
@@ -24,9 +25,9 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Enemy
-  - 
+  - Lighting
+  - Ground
+  - Postprocessing
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

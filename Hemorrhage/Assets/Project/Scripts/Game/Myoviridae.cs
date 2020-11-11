@@ -18,6 +18,13 @@ public class Myoviridae : Enemy
     public float chargingDelta = 5f;
     public float chargingDistance = 5f;
 
+    public float grabDistance = 3f;
+    public float grabSpeed = 120f;
+    private Vector3 m_lastPlayerLocation = Vector3.zero;
+
+    //health
+    public int initialHealth = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +34,8 @@ public class Myoviridae : Enemy
 
         // Retrieves the Player script through the active Player GameObject
         m_player = GameObject.Find("Player");
+
+        this.Health = initialHealth;
     }
 
     // Update is called once per frame
@@ -42,12 +51,13 @@ public class Myoviridae : Enemy
             OnAttack();
         }
 
-
+        Grabbed();
 
     }
 
     void OnTriggerEnter(Collider collider)
     {
+        
         // Checks if Enemy has entered the Players vicinity bubble
         if (collider.gameObject.tag == "AIDetection")
         {
@@ -55,6 +65,25 @@ public class Myoviridae : Enemy
             // Switch enemy state to attack
             m_enemyState = "ATTACK";
         }
+
+
+        // because we are using ontrigger enter in this class, it needs to be updated
+        if (collider.GetComponent<Bullet>() != null)
+        {
+            // Calls an instance of the PlasmaAmmo script component
+            Bullet bullet = collider.GetComponent<Bullet>();
+            // Checks if PlasmaAmmo was shot by Player
+            if (bullet.ShotByPlayer == true)
+            {
+                // Enemy takes damage
+                TakeDamage(bullet.damage);
+                // PlasmaAmmo will be deactivated once contact is made
+                bullet.gameObject.SetActive(false);
+
+            }
+        }
+
+
     }
 
     void OnTriggerExit(Collider collider)
@@ -103,5 +132,35 @@ public class Myoviridae : Enemy
     {
         base.OnKill();
         // Kill State
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        this.enabled = false;
+        transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
+    }
+
+    protected override void Grabbed()
+    {
+        if (IsGrabbed)
+        {
+            Debug.Log("Grabbed");
+            //disable the navmesh agent
+
+            if (m_lastPlayerLocation.Equals(Vector3.zero))
+            {
+                Debug.Log("Going to the last Player location");
+                m_lastPlayerLocation = m_player.transform.position;
+            }
+
+            if (Vector3.Distance(transform.position, m_lastPlayerLocation) > grabDistance)
+            {
+
+                transform.position = CalculateDirection(transform.position, m_lastPlayerLocation, grabSpeed);
+            }
+            else
+            {
+                IsGrabbed = false;
+                m_lastPlayerLocation = Vector3.zero;
+                Debug.Log("not grabbed anymore");
+            }
+        }
     }
 }
