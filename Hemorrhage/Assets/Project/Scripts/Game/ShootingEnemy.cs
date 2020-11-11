@@ -101,18 +101,14 @@ public class ShootingEnemy : Enemy
     {
         if (IsGrabbed)
         {
-            Debug.Log("Grabbed");
-            //disable the navmesh agent
-
+            Debug.Log("Grabbed"); 
             if (m_lastPlayerLocation.Equals(Vector3.zero))
             {
                 Debug.Log("Going to the last Player location");
                 m_lastPlayerLocation = player.transform.position;
-            }
-
+            } 
             if (Vector3.Distance(transform.position, m_lastPlayerLocation) > grabDistance)
-            {
-
+            { 
                 transform.position = CalculateDirection(transform.position, m_lastPlayerLocation, grabSpeed);
             }
             else
