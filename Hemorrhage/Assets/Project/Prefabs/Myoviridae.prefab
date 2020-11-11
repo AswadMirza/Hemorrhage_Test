@@ -391,6 +391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargingDelta: 5
   chargingDistance: 5
+  grabDistance: 3
+  grabSpeed: 10
 --- !u!1 &4987682488163748964
 GameObject:
   m_ObjectHideFlags: 0

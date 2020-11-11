@@ -95,6 +95,8 @@ public class Player : MonoBehaviour
 
     }
 
+    
+
     private void OnKill()
     {
         // Disabled due to bricking the game through different GameStates

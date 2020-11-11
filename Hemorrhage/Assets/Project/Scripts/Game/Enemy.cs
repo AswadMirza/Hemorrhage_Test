@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public bool IsGrabbed { get { return m_isGrabbed; } set { m_isGrabbed = value; } }
     private bool m_isKilled = false;
     public bool IsKilled { get { return m_isKilled; } set { m_isKilled = value; } }
+
+
     
     void OnTriggerEnter(Collider otherCollider)
     {
