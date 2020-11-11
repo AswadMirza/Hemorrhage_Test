@@ -5,14 +5,18 @@
 
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.Rendering;
 
 public class StreptobacillusMoniliformisHead : Enemy
 {
     public int InitialHealth = 100;
     public AudioSource deathSound;
     public float m_speed;
-    public float rotationSpeed = 5;
+    public float Speed { get { return m_speed; } set { m_speed = value; } }
+    
+    public float m_rotation = 0;
+    public float RotationSpeed { get { return m_rotation; } set { m_rotation = value; } }
+
     Vector3 dir1;
     Vector3 dir2;
     float distance;
@@ -27,7 +31,7 @@ public class StreptobacillusMoniliformisHead : Enemy
     // Update is called once per frame
     void Update()
     {
-        m_speed = 15f;
+        //m_speed = 15f;
         Vector3 v1, v2;
         v1 = this.gameObject.transform.position;
         v2 = follow.transform.position;
@@ -35,14 +39,15 @@ public class StreptobacillusMoniliformisHead : Enemy
 
         //rotate to look at the player
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(follow.transform.position -
-            this.gameObject.transform.position), rotationSpeed * Time.deltaTime);
+            this.gameObject.transform.position), m_rotation * Time.deltaTime);
+
 
         Move();
 
         if (distance > 10)
         {
-            Lunge(3);
-        }
+           //StartCoroutine(Lunge(5));
+        } 
     }
 
     protected override void OnKill()
@@ -51,14 +56,7 @@ public class StreptobacillusMoniliformisHead : Enemy
         deathSound.Play();
         // agent.enabled = false;
         this.enabled = false;
-
-        body[5].SetActive(false);
-        body[4].SetActive(false);
-        body[3].SetActive(false);
-        body[2].SetActive(false);
-        body[1].SetActive(false);
-        body[0].SetActive(false);
-        this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 
     void Move()
@@ -67,23 +65,26 @@ public class StreptobacillusMoniliformisHead : Enemy
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
-    IEnumerator Delay(float secs)
+    /*IEnumerator Delay(float secs)
     {
         Debug.Log("Delay Called");
 
         yield return new WaitForSeconds(secs);
-    }
+    }*/
 
-    void Lunge(float multiplier)
+    IEnumerator Lunge(float multiplier)
     {
         Debug.Log("HeadLunge");
         m_speed *= 0;
+        yield return new WaitForSeconds(10);
 
-        StartCoroutine(Delay(3));
         Debug.Log("Speed = " + m_speed);
+       
         m_speed = 15f;
         m_speed *= multiplier;
 
+        //move towards the player
+        this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
 }
