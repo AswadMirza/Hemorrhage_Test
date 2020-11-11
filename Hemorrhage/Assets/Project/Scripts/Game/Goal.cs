@@ -8,13 +8,16 @@ public class Goal : MonoBehaviour
     // Start is called before the first frame update
 
     public int SceneIndex =0;
-    
-    
 
-    private void OnTriggerEnter(Collider other)
+
+
+
+    private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<Player>() != null) {
+        if (other.GetComponent<Player>() != null && Vector3.Distance(transform.position, other.transform.position)<1)
+        {
             SceneManager.LoadScene(SceneIndex);
         }
     }
+   
 }

@@ -4,6 +4,7 @@
 */
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -21,6 +22,9 @@ public class GameController : MonoBehaviour
     public Text armourText;
     public Text enemyText;
     public Text infoText;
+
+    public int nextLevelIndex = 1;
+    public int currentLevelIndex = 0;
 
     void Start()
     {
@@ -58,7 +62,14 @@ public class GameController : MonoBehaviour
             m_resetTimer -= Time.deltaTime;
             if(m_resetTimer <= 0)
             {
-                // SceneManager.LoadScene("Menu");
+                if (!player.IsKilled)
+                {
+                    SceneManager.LoadScene(nextLevelIndex);
+                }
+                else {
+                    SceneManager.LoadScene(currentLevelIndex);
+                }
+                 
             }
         }
     }
