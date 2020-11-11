@@ -31,7 +31,7 @@ public class StreptobacillusMoniliformisHead : Enemy
     // Update is called once per frame
     void Update()
     {
-        m_speed = 15f;
+        //m_speed = 15f;
         Vector3 v1, v2;
         v1 = this.gameObject.transform.position;
         v2 = follow.transform.position;
@@ -46,7 +46,7 @@ public class StreptobacillusMoniliformisHead : Enemy
 
         if (distance > 10)
         {
-           // Lunge(5);
+           //StartCoroutine(Lunge(5));
         } 
     }
 
@@ -61,24 +61,23 @@ public class StreptobacillusMoniliformisHead : Enemy
 
     void Move()
     {
-        
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
-    IEnumerator Delay(float secs)
+    /*IEnumerator Delay(float secs)
     {
         Debug.Log("Delay Called");
 
         yield return new WaitForSeconds(secs);
-    }
+    }*/
 
-    void Lunge(float multiplier)
+    IEnumerator Lunge(float multiplier)
     {
         Debug.Log("HeadLunge");
         m_speed *= 0;
-        StartCoroutine(Delay(10));
-        
+        yield return new WaitForSeconds(10);
+
         Debug.Log("Speed = " + m_speed);
        
         m_speed = 15f;
