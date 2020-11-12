@@ -14,7 +14,7 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<Player>() != null && Vector3.Distance(transform.position, other.transform.position)<1)
+        if (other.GetComponent<Player>() != null && Vector3.Distance(transform.position, other.transform.position)<3)
         {
             SceneManager.LoadScene(SceneIndex);
         }

@@ -15,6 +15,8 @@ public class Myoviridae : Enemy
     private int m_rotSpeed = 45;
     private string m_enemyState;
 
+    private AudioSource m_source;
+
     public float chargingDelta = 5f;
     public float chargingDistance = 5f;
 
@@ -32,6 +34,7 @@ public class Myoviridae : Enemy
         m_initialRot = transform.rotation;
         m_enemyState = "IDLE";
 
+        m_source = GetComponent<AudioSource>();
         // Retrieves the Player script through the active Player GameObject
         m_player = GameObject.Find("Player");
 
@@ -133,6 +136,10 @@ public class Myoviridae : Enemy
         base.OnKill();
         // Kill State
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        if (!m_source.isPlaying) {
+            m_source.Play();
+        }
         this.enabled = false;
         transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }

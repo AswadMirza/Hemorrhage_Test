@@ -16,13 +16,16 @@ public class CancerCell : Enemy
     private int m_rotSpeed = 180;
     private string m_enemyState;
 
+    public int InitialHealth = 10;
     public float shootingDelta = 1f;
     public float shootingDist = 10f;
     public GameObject weapon;
 
+    private AudioSource m_source;
     //fire rate
     public float m_fireRate = 1f;
 
+    private float m_initialFireRate = 0f;
     //grab variables
     public float grabDistance = 3f;
     public float grabSpeed = 12;
@@ -35,8 +38,12 @@ public class CancerCell : Enemy
         m_initialRot = transform.rotation;
         m_enemyState = "IDLE";
 
+        this.Health = InitialHealth;
+        m_initialFireRate = m_fireRate;
         // Retrieves the Player through the active Player GameObject
         m_player = GameObject.Find("Player");
+
+        m_source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,7 +56,16 @@ public class CancerCell : Enemy
         }
         else if (m_enemyState == "ATTACK")
         {
-            OnAttack();
+            m_fireRate -= Time.deltaTime;
+
+            if (m_fireRate <= 0) {
+                OnAttack();
+            }
+            
+        }
+
+        if (m_fireRate <= 0) {
+            m_fireRate = m_initialFireRate;
         }
     }
 
@@ -119,9 +135,17 @@ public class CancerCell : Enemy
         transform.rotation = Quaternion.LookRotation(playerDir);
         // Chase Player
         transform.position = CalculateDirection(transform.position, m_player.transform.position, m_chaseSpeed);
-        StartCoroutine(fireBullet(m_fireRate));
+        //StartCoroutine(fireBullet(m_fireRate));
+        // Attack Player by shooting projectiles at their direction
+        // Instantiate an Ammo type GameObject
+        GameObject plasmaAmmo = ObjectPoolingManager.Instance.GetSmgBullet(false);
+        // Set the initial position of the Ammo object to be from PlasmaRifle
+        plasmaAmmo.transform.position = weapon.transform.position;
+        // Translate the Ammo object towards the Player
+        plasmaAmmo.transform.forward = (m_player.transform.position - weapon.transform.position).normalized;
     }
 
+    /*
     IEnumerator fireBullet(float firedelay) {
         yield return new WaitForSeconds(firedelay);
         // Attack Player by shooting projectiles at their direction
@@ -132,6 +156,7 @@ public class CancerCell : Enemy
         // Translate the Ammo object towards the Player
         plasmaAmmo.transform.forward = (m_player.transform.position - weapon.transform.position).normalized;
     }
+    */
 
     protected override void OnKill()
     {
@@ -139,6 +164,10 @@ public class CancerCell : Enemy
         // Kill State
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
+        if (!m_source.isPlaying) {
+            m_source.Play();
+        }
+        
         this.enabled = false;
         transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
