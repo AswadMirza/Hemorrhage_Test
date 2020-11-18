@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHitBox : MonoBehaviour
 {
@@ -53,6 +54,12 @@ public class PlayerHitBox : MonoBehaviour
             m_player.Health = 0;
         }
 
+        // changes the scene based on the goals scene index
+        /*
+        if (collider.GetComponent<Goal>() != null) {
+            SceneManager.LoadScene(collider.GetComponent<Goal>().SceneIndex);
+        }
+        */
         // Enemies
         // Checks if Player hasn't already taken damage
         if (m_player.IsHurt == false)

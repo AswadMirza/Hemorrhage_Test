@@ -15,4 +15,12 @@ public class DeathZone : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Player>() != false) {
+            Player player = other.GetComponent<Player>();
+            player.Health = 0;
+        }
+    }
 }

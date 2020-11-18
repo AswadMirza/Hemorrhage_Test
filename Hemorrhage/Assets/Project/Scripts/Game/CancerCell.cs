@@ -3,6 +3,7 @@
 * By: Sharek Khan
 */
 
+using System.Collections;
 using UnityEngine;
 
 public class CancerCell : Enemy
@@ -15,9 +16,20 @@ public class CancerCell : Enemy
     private int m_rotSpeed = 180;
     private string m_enemyState;
 
+    public int InitialHealth = 10;
     public float shootingDelta = 1f;
     public float shootingDist = 10f;
     public GameObject weapon;
+
+    private AudioSource m_source;
+    //fire rate
+    public float m_fireRate = 1f;
+
+    private float m_initialFireRate = 0f;
+    //grab variables
+    public float grabDistance = 3f;
+    public float grabSpeed = 12;
+    private Vector3 m_lastPlayerLocation = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +38,12 @@ public class CancerCell : Enemy
         m_initialRot = transform.rotation;
         m_enemyState = "IDLE";
 
+        this.Health = InitialHealth;
+        m_initialFireRate = m_fireRate;
         // Retrieves the Player through the active Player GameObject
         m_player = GameObject.Find("Player");
+
+        m_source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,7 +56,16 @@ public class CancerCell : Enemy
         }
         else if (m_enemyState == "ATTACK")
         {
-            OnAttack();
+            m_fireRate -= Time.deltaTime;
+
+            if (m_fireRate <= 0) {
+                OnAttack();
+            }
+            
+        }
+
+        if (m_fireRate <= 0) {
+            m_fireRate = m_initialFireRate;
         }
     }
 
@@ -52,6 +77,22 @@ public class CancerCell : Enemy
             Debug.Log("CancerCell is inside Player vicinty.");
             // Switch enemy state to attack
             m_enemyState = "ATTACK";
+        }
+
+        // because we are using ontrigger enter in this class, it needs to be updated
+        if (collider.GetComponent<Bullet>() != null)
+        {
+            // Calls an instance of the PlasmaAmmo script component
+            Bullet bullet = collider.GetComponent<Bullet>();
+            // Checks if PlasmaAmmo was shot by Player
+            if (bullet.ShotByPlayer == true)
+            {
+                // Enemy takes damage
+                TakeDamage(bullet.damage);
+                // PlasmaAmmo will be deactivated once contact is made
+                bullet.gameObject.SetActive(false);
+
+            }
         }
     }
 
@@ -94,6 +135,7 @@ public class CancerCell : Enemy
         transform.rotation = Quaternion.LookRotation(playerDir);
         // Chase Player
         transform.position = CalculateDirection(transform.position, m_player.transform.position, m_chaseSpeed);
+        //StartCoroutine(fireBullet(m_fireRate));
         // Attack Player by shooting projectiles at their direction
         // Instantiate an Ammo type GameObject
         GameObject plasmaAmmo = ObjectPoolingManager.Instance.GetSmgBullet(false);
@@ -103,9 +145,57 @@ public class CancerCell : Enemy
         plasmaAmmo.transform.forward = (m_player.transform.position - weapon.transform.position).normalized;
     }
 
+    /*
+    IEnumerator fireBullet(float firedelay) {
+        yield return new WaitForSeconds(firedelay);
+        // Attack Player by shooting projectiles at their direction
+        // Instantiate an Ammo type GameObject
+        GameObject plasmaAmmo = ObjectPoolingManager.Instance.GetSmgBullet(false);
+        // Set the initial position of the Ammo object to be from PlasmaRifle
+        plasmaAmmo.transform.position = weapon.transform.position;
+        // Translate the Ammo object towards the Player
+        plasmaAmmo.transform.forward = (m_player.transform.position - weapon.transform.position).normalized;
+    }
+    */
+
     protected override void OnKill()
     {
         base.OnKill();
         // Kill State
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        if (!m_source.isPlaying) {
+            m_source.Play();
+        }
+        
+        this.enabled = false;
+        transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
+    }
+
+    protected override void Grabbed()
+    {
+        if (IsGrabbed)
+        {
+            Debug.Log("Grabbed");
+            //disable the navmesh agent
+
+            if (m_lastPlayerLocation.Equals(Vector3.zero))
+            {
+                Debug.Log("Going to the last Player location");
+                m_lastPlayerLocation = m_player.transform.position;
+            }
+
+            if (Vector3.Distance(transform.position, m_lastPlayerLocation) > grabDistance)
+            {
+
+                transform.position = CalculateDirection(transform.position, m_lastPlayerLocation, grabSpeed);
+            }
+            else
+            {
+                IsGrabbed = false;
+                m_lastPlayerLocation = Vector3.zero;
+                Debug.Log("not grabbed anymore");
+            }
+        }
     }
 }
