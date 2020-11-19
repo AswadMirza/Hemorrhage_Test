@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 26/10/2020
+* Last modified 19/11/2020
 * By: Sharek Khan
 */
 
@@ -10,6 +10,7 @@ public class CholesterolCrate : MonoBehaviour
     private int m_crateHealth;
     private int m_rngChance;
     private bool m_isBroken;
+    private AudioSource m_audioSource;
 
     // Broken Cholesterol Crate Model
     public GameObject brokenCholestrolCrate;
@@ -29,6 +30,8 @@ public class CholesterolCrate : MonoBehaviour
         m_rngChance = rngChance;
         // Initializes the crates dexterity status
         m_isBroken = false;
+
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -67,6 +70,10 @@ public class CholesterolCrate : MonoBehaviour
         // Checks for collision with projectiles that are instantiated through the Player
         if (other.gameObject.GetComponent<Bullet>() != null && other.gameObject.GetComponent<Bullet>().ShotByPlayer != false) {
             m_crateHealth -= 25;
+            if(!m_audioSource.isPlaying)
+            {
+                m_audioSource.Play();
+            }
         }
     }
 }
