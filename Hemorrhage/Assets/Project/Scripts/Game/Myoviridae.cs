@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 26/10/2020
+* Last modified 18/11/2020
 * By: Sharek Khan
 */
 
@@ -14,8 +14,9 @@ public class Myoviridae : Enemy
     private int m_rushSpeed = 4;
     private int m_rotSpeed = 45;
     private string m_enemyState;
-
     private AudioSource m_source;
+
+    public GameObject myoviridaeKilled;
 
     public float chargingDelta = 5f;
     public float chargingDistance = 5f;
@@ -30,8 +31,11 @@ public class Myoviridae : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        // Initializes the original position of Myoviridae
         m_initialPos = transform.position;
+        // Initializes the original rotation of Myoviridae
         m_initialRot = transform.rotation;
+        // Initializes the inital behaviour state of Myoviridae
         m_enemyState = "IDLE";
 
         m_source = GetComponent<AudioSource>();
@@ -53,9 +57,7 @@ public class Myoviridae : Enemy
         {
             OnAttack();
         }
-
         Grabbed();
-
     }
 
     void OnTriggerEnter(Collider collider)
@@ -78,15 +80,17 @@ public class Myoviridae : Enemy
             // Checks if PlasmaAmmo was shot by Player
             if (bullet.ShotByPlayer == true)
             {
+                // Queue audio for enemy taking damage
+                if (!m_source.isPlaying && this.Health > 0)
+                {
+                    m_source.Play();
+                }
                 // Enemy takes damage
                 TakeDamage(bullet.damage);
                 // PlasmaAmmo will be deactivated once contact is made
                 bullet.gameObject.SetActive(false);
-
             }
         }
-
-
     }
 
     void OnTriggerExit(Collider collider)
@@ -118,7 +122,6 @@ public class Myoviridae : Enemy
             // Rotate Enemy
             transform.Rotate(Vector3.up, m_rotSpeed * Time.deltaTime);
         }
-
     }
 
     // Enemies Behaviour Patterns when enter Player vicinity
@@ -135,13 +138,9 @@ public class Myoviridae : Enemy
     {
         base.OnKill();
         // Kill State
-        gameObject.GetComponent<Rigidbody>().isKinematic = false;
-
-        if (!m_source.isPlaying) {
-            m_source.Play();
-        }
-        this.enabled = false;
-        transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
+        Debug.Log("Myoviridae is killed.");
+        Instantiate(myoviridaeKilled, transform.position, transform.rotation);
+        Destroy(this.gameObject);
     }
 
     protected override void Grabbed()
@@ -149,7 +148,7 @@ public class Myoviridae : Enemy
         if (IsGrabbed)
         {
             Debug.Log("Grabbed");
-            //disable the navmesh agent
+            // Disable the navmesh agent
 
             if (m_lastPlayerLocation.Equals(Vector3.zero))
             {
@@ -166,7 +165,7 @@ public class Myoviridae : Enemy
             {
                 IsGrabbed = false;
                 m_lastPlayerLocation = Vector3.zero;
-                Debug.Log("not grabbed anymore");
+                Debug.Log("Not grabbed anymore");
             }
         }
     }
