@@ -8,11 +8,13 @@ public class Respawn : MonoBehaviour
 
     private Vector3 m_startPos;
     private Quaternion m_startRot;
+    Player player;
     // Start is called before the first frame update
     void Start()
     {
         m_startPos = transform.position;
         m_startRot = transform.rotation;
+        player = gameObject.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -25,8 +27,9 @@ public class Respawn : MonoBehaviour
     {
         if (other.tag == "Death")
         {
-            gameObject.transform.position = m_startPos;
-            gameObject.transform.rotation = m_startRot;
+            //gameObject.transform.position = m_startPos;
+            //gameObject.transform.rotation = m_startRot;
+            player.Health = 0;
         }
         else if (other.tag == "Goal") {
             SceneManager.LoadScene(0);
