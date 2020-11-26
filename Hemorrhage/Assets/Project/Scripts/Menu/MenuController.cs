@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/** 
+* Last modified 25/11/2020
+* By: Sharek Khan
+*/
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,8 +20,16 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
-    public void PlayLevel1() {
-        Debug.Log("Loading level 1");
+    public void PlayGame()
+    {
+        Debug.Log("Loading level 1...");
         SceneManager.LoadScene("Level1");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game...");
+        // Quit the game...
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
