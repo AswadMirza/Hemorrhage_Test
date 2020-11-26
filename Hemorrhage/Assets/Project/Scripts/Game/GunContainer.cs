@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 02/10/2020
+* Last modified 25/11/2020
 * By: Sharek Khan
 */
 
@@ -11,13 +11,14 @@ using UnityEngine;
 // When the player scrolls up and down, they just select a different gun 
 public class GunContainer : MonoBehaviour
 {
-    // Selects the deafult weapon on start
-    //public int SelectedGun = 0;
-    public int DefaultGun = 0;
-    
     private int m_maxWeapons;
-    private int m_selectedGun;
     private int m_previousSelectedGun;
+    private int m_selectedGun;
+    public int SelectedGun { get { return m_selectedGun; } }
+
+    // Selects the deafult weapon on start
+    public int DefaultGun = 0;
+
     void Start()
     {
         // Starts the selected gun as the default value

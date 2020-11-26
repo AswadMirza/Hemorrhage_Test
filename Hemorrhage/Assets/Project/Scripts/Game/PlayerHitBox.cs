@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/** 
+* Last modified 25/11/2020 
+* By: Sharek Khan 
+*/
+
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,6 +42,7 @@ public class PlayerHitBox : MonoBehaviour
         // If Player collides with a VitaCapsule
         if (collider.GetComponent<VitaCapsule>() != null)
         {
+            ActivityLog.AddActivity("PICKED UP A VITA CAPSULE!");
             // Collect health from VitaCapsule
             VitaCapsule vitaCapsule = collider.gameObject.GetComponent<VitaCapsule>();
             m_player.Health += vitaCapsule.health;
@@ -49,6 +55,7 @@ public class PlayerHitBox : MonoBehaviour
         // If Player collides with a CellAmour Object
         if (collider.GetComponent<CellArmour>() != null)
         {
+            ActivityLog.AddActivity("PICKED UP A CELL ARMOUR!");
             // Player is now equipped with armour
             m_player.IsArmourEquipped = true;
             // Collect armour
