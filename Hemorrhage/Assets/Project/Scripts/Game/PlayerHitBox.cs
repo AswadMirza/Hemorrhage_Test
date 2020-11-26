@@ -9,12 +9,18 @@ public class PlayerHitBox : MonoBehaviour
 
     public float knockbackForce = 20f;
     public float hurtDuration = 0.5f;
-    
+
+    AudioSource m_audio;
+
+    public AudioClip vitaCapsuleClip;
+    public AudioClip armorClip;
+    float volume;
     // Start is called before the first frame update
     void Start()
     {
         m_playerObject = GameObject.Find("Player");
         m_player = m_playerObject.GetComponent<Player>();
+        m_audio = m_player.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +32,7 @@ public class PlayerHitBox : MonoBehaviour
     // Check for trigger collisions on enter
     void OnTriggerEnter(Collider collider)
     {
+        volume = Random.Range(5,10);
         // Interactables
         // If Player collides with a VitaCapsule
         if (collider.GetComponent<VitaCapsule>() != null)
@@ -33,6 +40,10 @@ public class PlayerHitBox : MonoBehaviour
             // Collect health from VitaCapsule
             VitaCapsule vitaCapsule = collider.gameObject.GetComponent<VitaCapsule>();
             m_player.Health += vitaCapsule.health;
+
+            if (m_audio != null && vitaCapsuleClip!=null) {
+                m_audio.PlayOneShot(vitaCapsuleClip, volume);
+            }
             Destroy(vitaCapsule.gameObject);
         }
         // If Player collides with a CellAmour Object
@@ -43,6 +54,10 @@ public class PlayerHitBox : MonoBehaviour
             // Collect armour
             CellArmour cellArmour = collider.gameObject.GetComponent<CellArmour>();
             m_player.Armour += cellArmour.armourPoint;
+            if (m_audio != null && armorClip != null)
+            {
+                m_audio.PlayOneShot(armorClip, volume);
+            }
             Destroy(cellArmour.gameObject);
         }
 

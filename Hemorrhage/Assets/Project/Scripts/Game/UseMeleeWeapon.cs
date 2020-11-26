@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// last updated by Aswad Mirza on 0ct 21st 2020
+// last updated by Aswad Mirza on  November 25th 2020
 public class UseMeleeWeapon : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class UseMeleeWeapon : MonoBehaviour
     //logic for fireRate
     public float initialFireRate = 0f;
     public float delayFireRate = 1f;
-
+    public Vector3 MeleeDirection =new Vector3(0,100,5000);
     private float m_fireRate;
     void Start()
     {
@@ -34,10 +34,10 @@ public class UseMeleeWeapon : MonoBehaviour
             float volume = Random.Range(5,10);
             source.PlayOneShot(meleeSounds,volume);
 
-            Vector3 weaponRotation = transform.rotation.eulerAngles;
-            weaponRotation.x = 90;
+           // Vector3 weaponRotation = transform.rotation.eulerAngles;
+            //weaponRotation.x = 90;
 
-            GameObject weapon = Instantiate(meleeWeapon, transform.position, Quaternion.Euler(weaponRotation));
+            GameObject weapon = Instantiate(meleeWeapon, transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
             /*
             GameObject weapon =ObjectPoolingManager.Instance.GetMeleeWeapon();
             weapon.transform.position = transform.position;
@@ -46,8 +46,8 @@ public class UseMeleeWeapon : MonoBehaviour
             Rigidbody rb = weapon.GetComponent<Rigidbody>();
 
             //Launch that shit with the might of zeus
-            rb.AddRelativeForce(0, 2000, 0);
-
+            //rb.AddRelativeForce(0, 2000, 0);
+            rb.AddRelativeForce(MeleeDirection);
             //fireRate is equal to the delay fireRate
             m_fireRate = delayFireRate;
         }

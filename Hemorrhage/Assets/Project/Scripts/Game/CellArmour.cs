@@ -11,11 +11,12 @@ public class CellArmour : MonoBehaviour
     public float rotationSpeed = 80f;
 
     public int armourPoint = 100;
+    AudioSource m_audio;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,5 +24,14 @@ public class CellArmour : MonoBehaviour
     {
         // Rotates the Cell Armour throught every frame
         cellArmour.transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (m_audio != null) {
+            if (!m_audio.isPlaying) {
+                m_audio.Play();
+            }
+        }
     }
 }
