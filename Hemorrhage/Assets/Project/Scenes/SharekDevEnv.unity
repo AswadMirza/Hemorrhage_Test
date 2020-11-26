@@ -1447,14 +1447,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 328798060, guid: 7f999c1b536e59f4d8424ec61d73e5bf, type: 3}
-      propertyPath: m_Radius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1211533793, guid: 7f999c1b536e59f4d8424ec61d73e5bf, type: 3}
-      propertyPath: knockbackForce
-      value: 100
-      objectReference: {fileID: 0}
+    - target: {fileID: 242454785050290445, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
+        type: 3}
+      propertyPath: gameInfoText
+      value: 
+      objectReference: {fileID: 5783259}
     - target: {fileID: 242454785050290445, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
         type: 3}
       propertyPath: armourText
@@ -1467,19 +1464,14 @@ PrefabInstance:
       objectReference: {fileID: 117025235}
     - target: {fileID: 242454785050290445, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
         type: 3}
-      propertyPath: plasmaText
-      value: 
-      objectReference: {fileID: 1329361496}
-    - target: {fileID: 242454785050290445, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
-        type: 3}
-      propertyPath: gameInfoText
-      value: 
-      objectReference: {fileID: 5783259}
-    - target: {fileID: 242454785050290445, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
-        type: 3}
       propertyPath: playerImage
       value: 
       objectReference: {fileID: 1791942455}
+    - target: {fileID: 242454785050290445, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
+        type: 3}
+      propertyPath: plasmaText
+      value: 
+      objectReference: {fileID: 1329361496}
     - target: {fileID: 242454785050290445, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
         type: 3}
       propertyPath: weaponImage
@@ -1540,18 +1532,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 955029662939541168, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 955029662939541168, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 955029662939541168, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 955029662939968144, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4044883790273130038, guid: 7f999c1b536e59f4d8424ec61d73e5bf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0095
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f999c1b536e59f4d8424ec61d73e5bf, type: 3}
 --- !u!1001 &1682033911
 PrefabInstance:

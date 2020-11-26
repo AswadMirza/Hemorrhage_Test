@@ -188,7 +188,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1211533790
 GameObject:
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46118c168140fe7488f7e187f4616d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 10
+  knockbackForce: 100
   hurtDuration: 0.5
   vitaCapsuleClip: {fileID: 8300000, guid: 8c54adc5f3449344cb4584793de91209, type: 3}
   armorClip: {fileID: 8300000, guid: 949a3735b31552a4bafbaf5b1c292ec0, type: 3}
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 955029662939968144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 955029662939541170}
   - {fileID: 328798059}
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 10
   m_StickToGroundForce: 10
-  m_GravityMultiplier: 1
+  m_GravityMultiplier: 2
   m_MouseLook:
     XSensitivity: 2
     YSensitivity: 2
@@ -728,11 +728,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71734a5ac7eea41419f71390bb09118c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  gameInfoText: {fileID: 0}
   armourText: {fileID: 0}
   healthText: {fileID: 0}
+  playerImage: {fileID: 0}
   plasmaText: {fileID: 0}
-  gameInfoText: {fileID: 0}
+  weaponImage: {fileID: 0}
 --- !u!1 &5346727449517753163
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,11 +847,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlasmaShotgun
       objectReference: {fileID: 0}
-    - target: {fileID: 4374459564557319811, guid: 33911d2f33f335445a7137e004af4062,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5051333573158922600, guid: 33911d2f33f335445a7137e004af4062,
         type: 3}
       propertyPath: playerObject
@@ -930,11 +926,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlasmaRifle
-      objectReference: {fileID: 0}
-    - target: {fileID: 4044883790489789934, guid: 0fc858dce44275a4a8ceaec4576cc5c7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8077744884702197857, guid: 0fc858dce44275a4a8ceaec4576cc5c7,
         type: 3}

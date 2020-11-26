@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.580032, y: 1, z: 4.830696}
-  m_Center: {x: 1.588385, y: 0, z: -3.3461816}
+  m_Size: {x: 17.098877, y: 0.7634209, z: 3.5032227}
+  m_Center: {x: -1.272992, y: 0.118291095, z: -2.6824448}
 --- !u!114 &2084544814135766942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 4987682488152580339, guid: 078a0d5e6da62a44c82a83e323e9f06a, type: 3}
+  EnemyContainer: {fileID: 0}
   maxXPos: 0
   minXPos: 0
   maxZPos: 0

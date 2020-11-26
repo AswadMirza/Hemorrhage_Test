@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     public GameObject Enemy;
-
+    public GameObject EnemyContainer;
     Vector3 objectPos;
     float objectXPos;
     float objectZPos;
@@ -47,8 +47,9 @@ public class EnemyGenerator : MonoBehaviour
             for(int i = 0; i < maxEnemy; i++)
             {
                 
-                GameObject virus = Instantiate(Enemy, new Vector3(gameObject.transform.position.x, other.gameObject.transform.position.y , gameObject.transform.position.z), Quaternion.identity);
-                virus.transform.parent = GameObject.Find("EnemyController").transform;
+                GameObject virus = Instantiate(Enemy, new Vector3(UnityEngine.Random.Range(gameObject.transform.position.x, gameObject.transform.position.x+10f), other.gameObject.transform.position.y , UnityEngine.Random.Range(gameObject.transform.position.z, gameObject.transform.position.z + 10f)), Quaternion.identity);
+                //virus.transform.parent = GameObject.Find("EnemyController").transform;
+                virus.transform.parent = EnemyContainer.transform;
                 Debug.Log("Spawned");
             }
 
