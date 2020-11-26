@@ -145,6 +145,7 @@ MonoBehaviour:
   meleeSounds: {fileID: 8300000, guid: ce44f5886b8417f4d867038263fa3eed, type: 3}
   initialFireRate: 0
   delayFireRate: 1
+  MeleeDirection: {x: 0, y: 100, z: 5000}
 --- !u!1 &328798058
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackForce: 10
   hurtDuration: 0.5
+  vitaCapsuleClip: {fileID: 8300000, guid: 8c54adc5f3449344cb4584793de91209, type: 3}
+  armorClip: {fileID: 8300000, guid: 949a3735b31552a4bafbaf5b1c292ec0, type: 3}
 --- !u!1 &955029662939968144
 GameObject:
   m_ObjectHideFlags: 0

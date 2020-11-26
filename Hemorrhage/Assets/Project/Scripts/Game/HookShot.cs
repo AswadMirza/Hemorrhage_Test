@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Made By Aswad Mirza 2020, November
 public class HookShot : MonoBehaviour
 {
 
@@ -12,12 +13,14 @@ public class HookShot : MonoBehaviour
     public float GrabDistance;
     public GameObject PlayerObject;
     private Player m_player;
-    
+
+    private AudioSource m_audio;
     // Start is called before the first frame update
     void Start()
     {
         //m_player = GameObject.Find();
         m_player = PlayerObject.GetComponent<Player>();
+        m_audio = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class HookShot : MonoBehaviour
     void Traversal() {
         if (IsGrabbed)
         {
+            
             Debug.Log("Moving Player to Object");
              
             if (Vector3.Distance(transform.position, PlayerObject.transform.position) > GrabDistance)
@@ -58,6 +62,14 @@ public class HookShot : MonoBehaviour
         if (collision.gameObject.GetComponent<MeleeWeapon>() != null) {
             melee = collision.gameObject.GetComponent<MeleeWeapon>();
             IsGrabbed = true;
+
+            //plays the sound clip of the audio source attached to this object
+            if (m_audio != null) {
+                if (!m_audio.isPlaying) {
+                    m_audio.Play();
+                }
+            
+            }
             Debug.Log("You triggered me");
         }
     }
