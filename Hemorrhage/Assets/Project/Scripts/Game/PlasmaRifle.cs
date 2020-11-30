@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 26/10/2020
+* Last modified 25/11/2020
 * By: Sharek Khan
 */
 
@@ -48,10 +48,10 @@ public class PlasmaRifle : MonoBehaviour
     void Fire()
     {
         // Condition checks if Ammo is present/Players not dead/Input within fire rate
-        if (m_player.Ammo > 0 && m_player.IsKilled != true && m_fireRate <= 0)
+        if (m_player.Plasma > 0 && m_player.IsKilled != true && m_fireRate <= 0)
         {
             // Ammo is decremented
-            m_player.Ammo--;
+            m_player.Plasma--;
             // Creates a new instance of SMGBullet through ObjectPoolingManager
             GameObject smgBulletObject = ObjectPoolingManager.Instance.GetSmgBullet(true);
             // Bullet takes the position of the parent objects position and angle

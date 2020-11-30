@@ -145,6 +145,7 @@ MonoBehaviour:
   meleeSounds: {fileID: 8300000, guid: ce44f5886b8417f4d867038263fa3eed, type: 3}
   initialFireRate: 0
   delayFireRate: 1
+  MeleeDirection: {x: 0, y: 100, z: 5000}
 --- !u!1 &328798058
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1211533790
 GameObject:
@@ -247,8 +248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46118c168140fe7488f7e187f4616d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 10
+  knockbackForce: 100
   hurtDuration: 0.5
+  vitaCapsuleClip: {fileID: 8300000, guid: 8c54adc5f3449344cb4584793de91209, type: 3}
+  armorClip: {fileID: 8300000, guid: 949a3735b31552a4bafbaf5b1c292ec0, type: 3}
 --- !u!1 &955029662939968144
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +267,6 @@ GameObject:
   - component: {fileID: 955029662931872624}
   - component: {fileID: 955029662749467826}
   - component: {fileID: 555741430200974113}
-  - component: {fileID: 2487973915671980582}
   - component: {fileID: 536193376}
   m_Layer: 0
   m_Name: Player
@@ -287,6 +289,7 @@ Transform:
   - {fileID: 955029662939541170}
   - {fileID: 328798059}
   - {fileID: 1211533791}
+  - {fileID: 7656669937509669813}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -557,9 +560,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 955029662937936048}
-  initalHealth: 100
-  initalArmour: 0
-  initialAmmo: 100
+  initialHealth: 100
+  initialArmour: 0
+  initialPlasma: 100
   initialRegenTimer: 5
   initialRegenTrigger: 3
 --- !u!114 &555741430200974113
@@ -576,19 +579,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deceleration: 5
   mass: 3
---- !u!65 &2487973915671980582
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955029662939968144}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &536193376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,6 +685,55 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955029662939968146}
   m_Enabled: 1
+--- !u!1 &1790335581887547087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7656669937509669813}
+  - component: {fileID: 242454785050290445}
+  m_Layer: 0
+  m_Name: PlayerUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7656669937509669813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790335581887547087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 955029662939541168}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &242454785050290445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790335581887547087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71734a5ac7eea41419f71390bb09118c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInfoText: {fileID: 0}
+  armourText: {fileID: 0}
+  healthText: {fileID: 0}
+  playerImage: {fileID: 0}
+  plasmaText: {fileID: 0}
+  weaponImage: {fileID: 0}
 --- !u!1 &5346727449517753163
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,11 +847,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlasmaShotgun
       objectReference: {fileID: 0}
-    - target: {fileID: 4374459564557319811, guid: 33911d2f33f335445a7137e004af4062,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5051333573158922600, guid: 33911d2f33f335445a7137e004af4062,
         type: 3}
       propertyPath: playerObject
@@ -892,11 +926,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlasmaRifle
-      objectReference: {fileID: 0}
-    - target: {fileID: 4044883790489789934, guid: 0fc858dce44275a4a8ceaec4576cc5c7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8077744884702197857, guid: 0fc858dce44275a4a8ceaec4576cc5c7,
         type: 3}

@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         healthText.text = "Health: " + player.Health;
-        ammoText.text = "Ammo: " + player.Ammo;
+        ammoText.text = "Ammo: " + player.Plasma;
         armourText.text = "Armour: " + player.Armour;
         int aliveEnemies = 0;
         foreach(Enemy enemy in enemyContainer.GetComponentsInChildren<Enemy>())

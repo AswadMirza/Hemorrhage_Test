@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 26/10/2020 
+* Last modified 25/11/2020 
 * By: Sharek Khan 
 */
 
@@ -8,25 +8,25 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Plasma regeneration properties
-    private float m_ammoRegenTimer = 0f;
-    private int m_ammoRegenTrigger = 3;
+    private float m_plasmaRegenTimer = 0f;
+    private int m_plasmaRegenTrigger = 3;
 
     // Fields visible to Unity Inpsector for tuning
     [Header("Visuals")]
     public Camera playerCamera;
     [Header("Gameplay")]
-    public int initalHealth = 100;
-    public int initalArmour = 0;
-    public int initialAmmo = 100;
+    public int initialHealth = 100;
+    public int initialArmour = 0;
+    public int initialPlasma = 100;
     public float initialRegenTimer = 5f;
-    // Having less ammo then this amount causes the player to slowly restore ammo/plasma
+    // Having less Plasma then this amount causes the player to slowly restore Plasma/plasma
     public int initialRegenTrigger = 3;
 
     // Player gameplay properties
     private int m_health;
     public int Health { get { return m_health; } set { m_health = value; } }
-    private int m_ammo;
-    public int Ammo { get { return m_ammo; }  set { m_ammo = value; } }
+    private int m_plasma;
+    public int Plasma { get { return m_plasma; }  set { m_plasma = value; } }
     private int m_armour;
     public int Armour { get { return m_armour; } set { m_armour = value; } }
     // Player state properties
@@ -41,14 +41,14 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_health = initalHealth;
-        m_ammo = initialAmmo;
-        m_armour = initalArmour;
+        m_health = initialHealth;
+        m_plasma = initialPlasma;
+        m_armour = initialArmour;
         m_isKilled = false;
         m_isHurt = false;
         m_isArmourEquipped = false; 
-        m_ammoRegenTimer = initialRegenTimer;
-        m_ammoRegenTrigger = initialRegenTrigger; 
+        m_plasmaRegenTimer = initialRegenTimer;
+        m_plasmaRegenTrigger = initialRegenTrigger; 
     }
 
     // Update is called once per frame
@@ -68,9 +68,9 @@ public class Player : MonoBehaviour
                 OnKill();
             }
         }
-        // Validates Ammo value from being negative
-        if (m_ammo <= 0) {
-            m_ammo = 0;
+        // Validates Plasma value from being negative
+        if (m_plasma <= 0) {
+            m_plasma = 0;
         }
         // Validates Armour value from being negative
         if (m_armour <= 0)
@@ -80,22 +80,20 @@ public class Player : MonoBehaviour
     }
 
     private void CheckRegen() {
-        if (m_ammo < m_ammoRegenTrigger)
+        if (m_plasma < m_plasmaRegenTrigger)
         {
-            m_ammoRegenTimer -= Time.deltaTime;
-            if (m_ammoRegenTimer <= 0) {
-                m_ammo++;
-                m_ammoRegenTimer = initialRegenTimer;
+            m_plasmaRegenTimer -= Time.deltaTime;
+            if (m_plasmaRegenTimer <= 0) {
+                m_plasma++;
+                m_plasmaRegenTimer = initialRegenTimer;
             }
         }
         else
         {
-            m_ammoRegenTimer = initialRegenTimer;
+            m_plasmaRegenTimer = initialRegenTimer;
         }
 
     }
-
-    
 
     private void OnKill()
     {

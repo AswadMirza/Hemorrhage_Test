@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 26/10/2020
-* By: Aswad Mirza
+* Last modified 25/11/2020
+* By: Sharek Khan
 */
 
 using UnityEngine;
@@ -60,7 +60,7 @@ public class MeleeWeapon : MonoBehaviour
             enemy.TakeDamage(damage);
             if (enemy.Health <= 0) {
                 m_player.Health += heal;
-                m_player.Ammo += ammoRestore;
+                m_player.Plasma += ammoRestore;
             }
             // This is to prevent the melee weapon from hitting the enemy for multiple frames
             if (!m_source.isPlaying) {

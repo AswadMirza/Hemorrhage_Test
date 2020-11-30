@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 26/10/2020
+* Last modified 25/11/2020
 * By: Sharek Khan
 */
 
@@ -25,9 +25,9 @@ public  class Gun : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (m_player.Ammo > 0 && m_player.IsKilled != true)
+            if (m_player.Plasma > 0 && m_player.IsKilled != true)
             {
-                m_player.Ammo--;
+                m_player.Plasma--;
                 GameObject bulletObject = ObjectPoolingManager.Instance.GetBullet(true);
                 bulletObject.transform.position = playerCamera.transform.position + playerCamera.transform.forward;
                 bulletObject.transform.forward = playerCamera.transform.forward;
