@@ -7,23 +7,25 @@ public class EnemyGenerator : MonoBehaviour
 {
     public GameObject Enemy;
     public GameObject EnemyContainer;
+    public GameObject[] spawnPoints;
+    public GameObject spawnEffect;
+
+    public GameObject Door = null;
+
     Vector3 objectPos;
-    float objectXPos;
-    float objectZPos;
+
 
     public float maxXPos;
     public float minXPos;
 
     public float maxZPos;
     public float minZPos;
-
-    public int maxEnemy;
-    int enemyCount;
+    int enemyCount = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-                objectPos = this.gameObject.transform.position;
+        objectPos = this.gameObject.transform.position;
 
         minXPos = objectPos.x - 10f;
         maxXPos = minXPos + 10f;
@@ -36,7 +38,20 @@ public class EnemyGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       /* for (int i = 0; i <= spawnPoints.Length; i++)
+        {
+            if (spawnPoints[i].GetComponent<Enemy>().Health == 0)
+            {
+                Debug.Log("Enemy = " + enemyCount);
+                enemyCount--;
+            }
+
+        }
+
+        if(enemyCount == 0)
+        {
+            Door.SetActive(false);
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,13 +59,21 @@ public class EnemyGenerator : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            for(int i = 0; i < maxEnemy; i++)
+            for(int i = 0; i < spawnPoints.Length; i++)
             {
-                
-                GameObject virus = Instantiate(Enemy, new Vector3(UnityEngine.Random.Range(gameObject.transform.position.x, gameObject.transform.position.x+10f), other.gameObject.transform.position.y , UnityEngine.Random.Range(gameObject.transform.position.z, gameObject.transform.position.z + 10f)), Quaternion.identity);
-                //virus.transform.parent = GameObject.Find("EnemyController").transform;
-                virus.transform.parent = EnemyContainer.transform;
+                GameObject effect = Instantiate(spawnEffect, spawnPoints[i].transform.position, spawnEffect.transform.rotation);
+
+
+                GameObject virus = Instantiate(Enemy, spawnPoints[i].transform.position, Quaternion.identity);
+                //spawnPoints[i].Equals(virus);
+                //spawnPoints[i].transform.parent = EnemyContainer.transform;
                 Debug.Log("Spawned");
+                Destroy(effect);
+
+            }
+            if (Door != null)
+            {
+                Door.SetActive(true);
             }
 
             Destroy(this.gameObject);
