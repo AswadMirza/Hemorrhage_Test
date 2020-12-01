@@ -14304,7 +14304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585901dad4c09564db67dc1e08787f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEffectTime: 3
+  spawnEffectTime: 0.5
   pause: 1
   fadeIn:
     serializedVersion: 2
