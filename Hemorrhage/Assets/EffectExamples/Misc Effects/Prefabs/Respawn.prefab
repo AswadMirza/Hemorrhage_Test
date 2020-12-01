@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1002970789739392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4556009535875590}
   - {fileID: 4588285378018612}
@@ -4791,7 +4791,7 @@ Transform:
   m_GameObject: {fileID: 1093924223191944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 4659170232275452}
   m_RootOrder: 0
@@ -9472,7 +9472,7 @@ Transform:
   m_GameObject: {fileID: 1805684386808522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 4659170232275452}
   m_RootOrder: 1
@@ -14304,7 +14304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585901dad4c09564db67dc1e08787f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEffectTime: 3
+  spawnEffectTime: 2
   pause: 1
   fadeIn:
     serializedVersion: 2
