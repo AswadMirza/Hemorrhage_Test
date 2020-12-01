@@ -564,7 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitaCapsule: {fileID: 7434838255138855230}
   rotationSpeed: 80
-  health: 50
+  health: 10
 --- !u!1 &7917380276537028676
 GameObject:
   m_ObjectHideFlags: 0
