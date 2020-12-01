@@ -61,15 +61,14 @@ public class EnemyGenerator : MonoBehaviour
         {
             for(int i = 0; i < spawnPoints.Length; i++)
             {
+
+
                 GameObject effect = Instantiate(spawnEffect, spawnPoints[i].transform.position, spawnEffect.transform.rotation);
-
-
                 GameObject virus = Instantiate(Enemy, spawnPoints[i].transform.position, Quaternion.identity);
                 //spawnPoints[i].Equals(virus);
                 //spawnPoints[i].transform.parent = EnemyContainer.transform;
                 Debug.Log("Spawned");
-                Destroy(effect);
-
+                
             }
             if (Door != null)
             {

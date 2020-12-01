@@ -29,7 +29,7 @@ public class SpawnEffect : MonoBehaviour {
 	
 	void Update ()
     {
-        if (timer < spawnEffectTime + pause)
+       /* if (timer < spawnEffectTime + pause)
         {
             timer += Time.deltaTime;
         }
@@ -37,7 +37,7 @@ public class SpawnEffect : MonoBehaviour {
         {
             ps.Play();
             timer = 0;
-        }
+        }*/
 
 
         _renderer.material.SetFloat(shaderProperty, fadeIn.Evaluate( Mathf.InverseLerp(0, spawnEffectTime, timer)));
