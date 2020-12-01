@@ -14211,6 +14211,7 @@ GameObject:
   - component: {fileID: 23985610673556730}
   - component: {fileID: 135954929688684896}
   - component: {fileID: 114496700428029676}
+  - component: {fileID: 2285760787738684475}
   m_Layer: 0
   m_Name: Respawn
   m_TagString: Untagged
@@ -14330,3 +14331,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2285760787738684475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912731163003908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0accb8194a47ca45950c38fe1cfa22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Timer: 2

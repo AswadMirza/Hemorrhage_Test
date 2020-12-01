@@ -395,7 +395,7 @@ MonoBehaviour:
   chargingDelta: 5
   chargingDistance: 5
   grabDistance: 3
-  grabSpeed: 10
+  grabSpeed: 20
   initialHealth: 10
 --- !u!82 &9052601927669171952
 AudioSource:
