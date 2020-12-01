@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 25/11/2020
+* Last modified 30/11/2020
 * By: Sharek Khan
 */
 
@@ -18,15 +18,24 @@ public class PlayerUI : MonoBehaviour
     public Image playerImage = null;
     public Text plasmaText = null;
     public Image weaponImage = null;
-    // Image for weapon
+
+    [Header("Sprites")]
+    public Sprite playerDefault = null;
+    public Sprite playerMinor = null;
+    public Sprite playerSome = null;
+    public Sprite playerPlenty = null;
+    public Sprite playerMajor = null;
+    public Sprite playerDefeated = null;
+    public Sprite plasmaRifle = null;
+    public Sprite plasmaShotgun = null;
 
     // Start is called before the first frame update
     private void Start()
     {
         // Gets the Player script from the Player objects component
-        player = GameObject.Find("Player").GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         // Gets the GunContainer scripts from the component of Player objects children
-        gunContainer = GameObject.Find("Player").GetComponentInChildren<GunContainer>();
+        gunContainer = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GunContainer>();
         // gameInfoText.gameObject.SetActive(false);
     }
 
@@ -44,26 +53,32 @@ public class PlayerUI : MonoBehaviour
         if (player.Health >= 100)
         {
             // Show Default Player Image
+            playerImage.sprite = playerDefault;
         }
         else if(player.Health >= 75 && player.Health < 100)
         {
             // Show Minor Player Degradation
+            playerImage.sprite = playerMinor;
         }
         else if(player.Health >= 50 && player.Health < 75)
         {
             // Show Some Player Degradation
+            playerImage.sprite = playerSome;
         }
         else if(player.Health >= 25 && player.Health < 50)
         {
             // Show Plenty Player Degradation
+            playerImage.sprite = playerPlenty;
         }
         else if(player.Health > 0 && player.Health < 25)
         {
             // Show Major Player Degradation
+            playerImage.sprite = playerMajor;
         }
         else
         {
             // Show Defeated/Killed Player Image
+            playerImage.sprite = playerDefeated;
         }
         
         // Updates the Weapon Plasma on the UI
@@ -73,10 +88,12 @@ public class PlayerUI : MonoBehaviour
         if(gunContainer.SelectedGun == 0)
         {
             // Display Plasma Rifle
+            weaponImage.sprite = plasmaRifle;
         }
         else if (gunContainer.SelectedGun == 1)
         {
             // Display Plasma Shotgun
+            weaponImage.sprite = plasmaShotgun;
         }
     }
 }
