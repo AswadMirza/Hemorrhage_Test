@@ -10,7 +10,7 @@ public class EnemyGenerator : MonoBehaviour
     public GameObject[] spawnPoints;
     public GameObject spawnEffect;
 
-    public GameObject Door = null;
+    public GameObject Door;
 
     Vector3 objectPos;
 
@@ -22,6 +22,8 @@ public class EnemyGenerator : MonoBehaviour
     public float minZPos;
     int enemyCount = 10;
 
+    private List<GameObject> enemiesSpawned = new List<GameObject>();
+    private bool spawned = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,20 +40,12 @@ public class EnemyGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /* for (int i = 0; i <= spawnPoints.Length; i++)
-        {
-            if (spawnPoints[i].GetComponent<Enemy>().Health == 0)
-            {
-                Debug.Log("Enemy = " + enemyCount);
-                enemyCount--;
-            }
-
-        }
-
-        if(enemyCount == 0)
-        {
+        //destroys the game obect if all the enemies are dead and disables the door
+        if (Door != null && AreEnemiesDead()) {
             Door.SetActive(false);
-        }*/
+            Destroy(gameObject);
+        
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,7 +53,28 @@ public class EnemyGenerator : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            for(int i = 0; i < spawnPoints.Length; i++)
+            Spawn();
+
+            if (Door != null)
+            {
+                Door.SetActive(true);
+            }
+
+            
+            else {
+                Destroy(this.gameObject);
+            }
+
+            
+        }
+
+    }
+
+
+    void Spawn() {
+        //if we havnt spawned enemies, then spawn them
+        if (!spawned) {
+            for (int i = 0; i < spawnPoints.Length; i++)
             {
 
 
@@ -67,16 +82,40 @@ public class EnemyGenerator : MonoBehaviour
                 GameObject virus = Instantiate(Enemy, spawnPoints[i].transform.position, Quaternion.identity);
                 //spawnPoints[i].Equals(virus);
                 //spawnPoints[i].transform.parent = EnemyContainer.transform;
+                virus.transform.parent = EnemyContainer.transform;
+                enemiesSpawned.Add(virus);
                 Debug.Log("Spawned");
-                
-            }
-            if (Door != null)
-            {
-                Door.SetActive(true);
-            }
 
-            Destroy(this.gameObject);
+                //Destroy(effect);
+
+            }
+            spawned = true;
+
+
+        }
+        
+    }
+
+    bool AreEnemiesDead() {
+        bool check = true;
+        if (spawned)
+        {
+            foreach (GameObject virus in enemiesSpawned)
+            {
+                // if the virus is destroyed this will be null
+                if (virus != null)
+                {
+                    check = false;
+                    break;
+                }
+            }
+            
+        }
+        else {
+            check = false;
         }
 
+        return check;
+    
     }
 }

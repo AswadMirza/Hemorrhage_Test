@@ -28,6 +28,8 @@ public class Myoviridae : Enemy
     //health
     public int initialHealth = 10;
 
+    Rigidbody rigidbody;
+    bool originalKinematicSetting =false;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,11 @@ public class Myoviridae : Enemy
         m_player = GameObject.Find("Player");
 
         this.Health = initialHealth;
+
+        rigidbody = GetComponent<Rigidbody>();
+        if (rigidbody != null) {
+            originalKinematicSetting = rigidbody.isKinematic;
+        }
     }
 
     // Update is called once per frame
@@ -145,10 +152,15 @@ public class Myoviridae : Enemy
 
     protected override void Grabbed()
     {
+       
         if (IsGrabbed)
         {
             Debug.Log("Grabbed");
-            // Disable the navmesh agent
+            // Get the initial Kinematic value
+            if (rigidbody != null) {
+                
+                rigidbody.isKinematic = true;
+            }
 
             if (m_lastPlayerLocation.Equals(Vector3.zero))
             {
@@ -165,8 +177,14 @@ public class Myoviridae : Enemy
             {
                 IsGrabbed = false;
                 m_lastPlayerLocation = Vector3.zero;
+                if (rigidbody != null) {
+                    rigidbody.isKinematic = originalKinematicSetting;
+                }
+
                 Debug.Log("Not grabbed anymore");
             }
         }
     }
+
+   
 }
