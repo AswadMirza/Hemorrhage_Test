@@ -12,6 +12,7 @@ public class PlasmaRifle : MonoBehaviour
     // Rate of fire that is set
     public float initialFireRate = 0.1f;
 
+    public ParticleSystem muzzleFlash;
     // Player script
     private Player m_player;
     // Internal counter for checking if it is time to fire another bullet
@@ -36,6 +37,7 @@ public class PlasmaRifle : MonoBehaviour
         if (Input.GetMouseButton(0)||Input.GetMouseButtonDown(0))
         {
             Fire();
+            muzzleFlash.Play();
         }
 
         // Condition keeps fire rate from decrementing below 0

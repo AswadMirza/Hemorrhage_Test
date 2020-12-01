@@ -11,6 +11,9 @@ public class PlasmaShotgun : MonoBehaviour
     public float initialFireRate = 0f;
     public float delayFireRate = 2.5f;
 
+    public ParticleSystem muzzleFlash1;
+    public ParticleSystem muzzleFlash2;
+
     private Player m_player;
     private float m_fireRate;
 
@@ -35,6 +38,9 @@ public class PlasmaShotgun : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Fire();
+            muzzleFlash1.Play();
+            muzzleFlash2.Play();
+
         }
     }
 

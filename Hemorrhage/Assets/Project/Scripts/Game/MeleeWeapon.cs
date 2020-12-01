@@ -59,7 +59,7 @@ public class MeleeWeapon : MonoBehaviour
             enemy.IsGrabbed = true;
             enemy.TakeDamage(damage);
             if (enemy.Health <= 0) {
-                m_player.Health += heal;
+                //m_player.Health += heal;
                 m_player.Plasma += ammoRestore;
             }
             // This is to prevent the melee weapon from hitting the enemy for multiple frames

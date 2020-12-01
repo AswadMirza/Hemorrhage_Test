@@ -10,8 +10,8 @@ public class Myoviridae : Enemy
     private GameObject m_player;
     private Vector3 m_initialPos;
     private Quaternion m_initialRot;
-    private int m_speed = 3;
-    private int m_rushSpeed = 4;
+    private int m_speed = 6;
+    private int m_rushSpeed = 9;
     private int m_rotSpeed = 45;
     private string m_enemyState;
     private AudioSource m_source;
@@ -28,6 +28,8 @@ public class Myoviridae : Enemy
     //health
     public int initialHealth = 10;
 
+    Rigidbody rigidbody;
+    bool originalKinematicSetting =false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +38,19 @@ public class Myoviridae : Enemy
         // Initializes the original rotation of Myoviridae
         m_initialRot = transform.rotation;
         // Initializes the inital behaviour state of Myoviridae
-        m_enemyState = "IDLE";
+        //m_enemyState = "IDLE";
+        m_enemyState = "ATTACK";
 
         m_source = GetComponent<AudioSource>();
         // Retrieves the Player script through the active Player GameObject
         m_player = GameObject.Find("Player");
 
         this.Health = initialHealth;
+
+        rigidbody = GetComponent<Rigidbody>();
+        if (rigidbody != null) {
+            originalKinematicSetting = rigidbody.isKinematic;
+        }
     }
 
     // Update is called once per frame
@@ -103,7 +111,7 @@ public class Myoviridae : Enemy
             // transform.position = m_initialPos;
             transform.rotation = m_initialRot;
             //  Switch enemy state to idle
-            m_enemyState = "IDLE";
+            //m_enemyState = "IDLE";
         }
     }
 
@@ -145,10 +153,15 @@ public class Myoviridae : Enemy
 
     protected override void Grabbed()
     {
+       
         if (IsGrabbed)
         {
             Debug.Log("Grabbed");
-            // Disable the navmesh agent
+            // Get the initial Kinematic value
+            if (rigidbody != null) {
+                
+                rigidbody.isKinematic = true;
+            }
 
             if (m_lastPlayerLocation.Equals(Vector3.zero))
             {
@@ -165,8 +178,14 @@ public class Myoviridae : Enemy
             {
                 IsGrabbed = false;
                 m_lastPlayerLocation = Vector3.zero;
+                if (rigidbody != null) {
+                    rigidbody.isKinematic = originalKinematicSetting;
+                }
+
                 Debug.Log("Not grabbed anymore");
             }
         }
     }
+
+   
 }
