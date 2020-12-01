@@ -5565,10 +5565,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 15
-  rotationSpeed: 7
-  distance: 1
-  attach: {fileID: 3488849860842933793}
+  InitialHealth: 100
+  m_speed: 25
+  m_rotation: 0
+  body: {fileID: 0}
 --- !u!54 &6591799938416399943
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5714,12 +5714,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a3daaff0e6d794ea7e59eb3f28454c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  damage: 10
+  InitialHealth: 100
   deathSound: {fileID: 4395343109129579270}
-  m_speed: 15
-  rotationSpeed: 7
-  follow: {fileID: 0}
+  m_speed: 25
+  m_rotation: 0
+  deathEffect: {fileID: 0}
+  player: {fileID: 0}
   body:
   - {fileID: 3488849861177824636}
   - {fileID: 3488849860640456592}
@@ -5833,10 +5833,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 15
-  rotationSpeed: 7
-  distance: 1
-  attach: {fileID: 3488849861177824636}
+  InitialHealth: 100
+  m_speed: 25
+  m_rotation: 0
+  body: {fileID: 0}
 --- !u!54 &6591799937377057470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5959,10 +5959,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 15
-  rotationSpeed: 7
-  distance: 1
-  attach: {fileID: 3488849860640456592}
+  InitialHealth: 100
+  m_speed: 25
+  m_rotation: 0
+  body: {fileID: 0}
 --- !u!54 &6591799937326259593
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5989,7 +5989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3488849861084188988}
   m_Layer: 0
-  m_Name: Snake
+  m_Name: StreptobacillusMoniliformis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6123,10 +6123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 15
-  rotationSpeed: 7
-  distance: 1
-  attach: {fileID: 3488849860638660754}
+  InitialHealth: 100
+  m_speed: 25
+  m_rotation: 0
+  body: {fileID: 0}
 --- !u!54 &6591799936578695241
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6249,10 +6249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 15
-  rotationSpeed: 7
-  distance: 1
-  attach: {fileID: 3488849860537670089}
+  InitialHealth: 100
+  m_speed: 25
+  m_rotation: 0
+  body: {fileID: 0}
 --- !u!54 &6591799937541198218
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6375,10 +6375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718ad6fd65b6bb4c961adf61149915d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 15
-  rotationSpeed: 7
-  distance: 1
-  attach: {fileID: 3488849861209579344}
+  InitialHealth: 100
+  m_speed: 25
+  m_rotation: 0
+  body: {fileID: 0}
 --- !u!54 &6591799936389356591
 Rigidbody:
   m_ObjectHideFlags: 0

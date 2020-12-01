@@ -10,6 +10,8 @@ public class EnemyGenerator : MonoBehaviour
     public GameObject[] spawnPoints;
     public GameObject spawnEffect;
 
+    //public AudioSource audioSource;
+
     public GameObject Door;
 
     Vector3 objectPos;
@@ -44,13 +46,11 @@ public class EnemyGenerator : MonoBehaviour
         if (Door != null && AreEnemiesDead()) {
             Door.SetActive(false);
             Destroy(gameObject);
-        
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.tag == "Player")
         {
             Spawn();
@@ -59,41 +59,30 @@ public class EnemyGenerator : MonoBehaviour
             {
                 Door.SetActive(true);
             }
-
-            
             else {
                 Destroy(this.gameObject);
-            }
-
-            
+            }   
         }
-
     }
-
 
     void Spawn() {
         //if we havnt spawned enemies, then spawn them
         if (!spawned) {
             for (int i = 0; i < spawnPoints.Length; i++)
             {
-
-
                 GameObject effect = Instantiate(spawnEffect, spawnPoints[i].transform.position, spawnEffect.transform.rotation);
+                //audioSource.transform.position = spawnPoints[i].transform.position;
+                //audioSource.Play();
                 GameObject virus = Instantiate(Enemy, spawnPoints[i].transform.position, Quaternion.identity);
                 //spawnPoints[i].Equals(virus);
                 //spawnPoints[i].transform.parent = EnemyContainer.transform;
                 virus.transform.parent = EnemyContainer.transform;
                 enemiesSpawned.Add(virus);
                 Debug.Log("Spawned");
-
                 //Destroy(effect);
-
             }
             spawned = true;
-
-
         }
-        
     }
 
     bool AreEnemiesDead() {
@@ -109,13 +98,11 @@ public class EnemyGenerator : MonoBehaviour
                     break;
                 }
             }
-            
         }
         else {
             check = false;
         }
 
         return check;
-    
     }
 }

@@ -10,8 +10,8 @@ public class Myoviridae : Enemy
     private GameObject m_player;
     private Vector3 m_initialPos;
     private Quaternion m_initialRot;
-    private int m_speed = 3;
-    private int m_rushSpeed = 4;
+    private int m_speed = 6;
+    private int m_rushSpeed = 9;
     private int m_rotSpeed = 45;
     private string m_enemyState;
     private AudioSource m_source;
@@ -38,7 +38,8 @@ public class Myoviridae : Enemy
         // Initializes the original rotation of Myoviridae
         m_initialRot = transform.rotation;
         // Initializes the inital behaviour state of Myoviridae
-        m_enemyState = "IDLE";
+        //m_enemyState = "IDLE";
+        m_enemyState = "ATTACK";
 
         m_source = GetComponent<AudioSource>();
         // Retrieves the Player script through the active Player GameObject
@@ -110,7 +111,7 @@ public class Myoviridae : Enemy
             // transform.position = m_initialPos;
             transform.rotation = m_initialRot;
             //  Switch enemy state to idle
-            m_enemyState = "IDLE";
+            //m_enemyState = "IDLE";
         }
     }
 
