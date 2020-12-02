@@ -1,6 +1,6 @@
 ﻿/** 
 * Last modified 02/12/2020
-* By: Sharek Khan
+* By: Aswad Mirza
 */
 
 using System.Collections;
@@ -32,6 +32,9 @@ public class CancerCell : Enemy
     public float grabSpeed = 12;
     private Vector3 m_lastPlayerLocation = Vector3.zero;
 
+    Rigidbody m_rigidbody;
+    bool originalKinematicSetting = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,11 +49,17 @@ public class CancerCell : Enemy
         m_player = GameObject.FindGameObjectWithTag("Player");
 
         m_source = GetComponent<AudioSource>();
+
+        m_rigidbody = GetComponent<Rigidbody>();
+        if (m_rigidbody != null) {
+            originalKinematicSetting = m_rigidbody.isKinematic;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        Grabbed();
         // Check Enemy behaviour state
         if (m_enemyState == "IDLE")
         {
@@ -58,6 +67,7 @@ public class CancerCell : Enemy
         }
         else if (m_enemyState == "ATTACK")
         {
+            LookAtPlayer();
             m_fireRate -= Time.deltaTime;
 
             if (m_fireRate <= 0) {
@@ -129,14 +139,22 @@ public class CancerCell : Enemy
         }
     }
 
-    // Enemies Behaviour Patterns when enter Player vicinity
-    void OnAttack()
-    {
+
+
+    //Added by aswad, seperating the function to look at the player and function to attack
+    void LookAtPlayer() {
         // Rotate in Player direction
         Vector3 playerDir = m_player.transform.position - transform.position;
         transform.rotation = Quaternion.LookRotation(playerDir);
         // Chase Player
         transform.position = CalculateDirection(transform.position, m_player.transform.position, m_chaseSpeed);
+    }
+
+
+    // Enemies Behaviour Patterns when enter Player vicinity
+    void OnAttack()
+    {
+        //LookAtPlayer();
         // StartCoroutine(fireBullet(m_fireRate));
         // Attack Player by shooting projectiles at their direction
         // Instantiate an Ammo type GameObject
@@ -182,6 +200,13 @@ public class CancerCell : Enemy
             Debug.Log("Grabbed");
             //disable the navmesh agent
 
+
+            if (m_rigidbody != null)
+            {
+
+                m_rigidbody.isKinematic = true;
+            }
+
             if (m_lastPlayerLocation.Equals(Vector3.zero))
             {
                 Debug.Log("Going to the last Player location");
@@ -197,6 +222,10 @@ public class CancerCell : Enemy
             {
                 IsGrabbed = false;
                 m_lastPlayerLocation = Vector3.zero;
+                if (m_rigidbody != null)
+                {
+                    m_rigidbody.isKinematic = originalKinematicSetting;
+                }
                 Debug.Log("Not Grabbed Anymore");
             }
         }

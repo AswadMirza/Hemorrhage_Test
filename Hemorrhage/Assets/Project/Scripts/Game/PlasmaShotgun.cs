@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 25/11/2020
-* By: Sharek Khan
+* Last modified 02/12/2020
+* By: Aswad Mirza
 */
 
 using UnityEngine;
@@ -38,8 +38,7 @@ public class PlasmaShotgun : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Fire();
-            muzzleFlash1.Play();
-            muzzleFlash2.Play();
+            
 
         }
     }
@@ -57,6 +56,9 @@ public class PlasmaShotgun : MonoBehaviour
             shotgunShellObject.transform.position = transform.position + transform.forward;
             // ShotgunShell is shot forward with the direction of the parent object
             shotgunShellObject.transform.forward = transform.forward;
+
+            muzzleFlash1.Play();
+            muzzleFlash2.Play();
         }
 
         // If PlasmaShotgun fired, delay the next shot
