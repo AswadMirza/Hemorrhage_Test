@@ -974,10 +974,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialHealth: 10
   shootingDelta: 1
-  shootingDist: 10
+  shootingDist: 15
   weapon01: {fileID: 7539830688697238014}
   weapon02: {fileID: 5800790733853105535}
-  m_fireRate: 1
+  m_fireRate: 0.5
   grabDistance: 3
   grabSpeed: 12
 --- !u!54 &4462666951546454484
@@ -1007,7 +1007,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 397f38aa19b07244e83b4ec7ce2704d3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

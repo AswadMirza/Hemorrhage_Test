@@ -13,6 +13,8 @@ public class StreptobacillusMoniliformisHead : Enemy
     public int damage = 25;
 
     public AudioSource deathSound;
+    public AudioSource effectSound;
+
     public float m_speed;
     public float Speed { get { return m_speed; } set { m_speed = value; } }
     
@@ -54,6 +56,7 @@ public class StreptobacillusMoniliformisHead : Enemy
     {
         base.OnKill();
         deathSound.Play();
+        effectSound.Play();
         GameObject effect = Instantiate(deathEffect, transform.position, deathEffect.transform.rotation);
 
         // agent.enabled = false;

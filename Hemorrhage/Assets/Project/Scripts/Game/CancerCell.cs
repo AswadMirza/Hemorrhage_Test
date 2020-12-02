@@ -37,7 +37,8 @@ public class CancerCell : Enemy
     {
         m_initialPos = transform.position;
         m_initialRot = transform.rotation;
-        m_enemyState = "IDLE";
+        //m_enemyState = "IDLE";
+        m_enemyState = "ATTACK";
 
         this.Health = InitialHealth;
         m_initialFireRate = m_fireRate;
@@ -168,8 +169,9 @@ public class CancerCell : Enemy
         if (!m_source.isPlaying) {
             m_source.Play();
         }
-        
+
         this.enabled = false;
+        Destroy(this.gameObject);
         transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 

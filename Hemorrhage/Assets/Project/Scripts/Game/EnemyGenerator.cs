@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    public GameObject Enemy;
+    public GameObject Myoviridae;
+    public GameObject Cancer;
     public GameObject EnemyContainer;
     public GameObject[] spawnPoints;
     public GameObject spawnEffect;
@@ -22,7 +23,6 @@ public class EnemyGenerator : MonoBehaviour
 
     public float maxZPos;
     public float minZPos;
-    int enemyCount = 10;
 
     private List<GameObject> enemiesSpawned = new List<GameObject>();
     private bool spawned = false;
@@ -43,7 +43,8 @@ public class EnemyGenerator : MonoBehaviour
     void Update()
     {
         //destroys the game obect if all the enemies are dead and disables the door
-        if (Door != null && AreEnemiesDead()) {
+        if (Door != null && AreEnemiesDead())
+        {
             Door.SetActive(false);
             Destroy(gameObject);
         }
@@ -59,33 +60,111 @@ public class EnemyGenerator : MonoBehaviour
             {
                 Door.SetActive(true);
             }
-            else {
-                Destroy(this.gameObject);
-            }   
-        }
-    }
-
-    void Spawn() {
-        //if we havnt spawned enemies, then spawn them
-        if (!spawned) {
-            for (int i = 0; i < spawnPoints.Length; i++)
+            else
             {
-                GameObject effect = Instantiate(spawnEffect, spawnPoints[i].transform.position, spawnEffect.transform.rotation);
-                //audioSource.transform.position = spawnPoints[i].transform.position;
-                //audioSource.Play();
-                GameObject virus = Instantiate(Enemy, spawnPoints[i].transform.position, Quaternion.identity);
-                //spawnPoints[i].Equals(virus);
-                //spawnPoints[i].transform.parent = EnemyContainer.transform;
-                virus.transform.parent = EnemyContainer.transform;
-                enemiesSpawned.Add(virus);
-                Debug.Log("Spawned");
-                //Destroy(effect);
+                Destroy(this.gameObject);
             }
-            spawned = true;
         }
     }
 
-    bool AreEnemiesDead() {
+    void Spawn()
+    {
+        //if we havnt spawned enemies, then spawn them
+        if (!spawned)
+        {
+            if (spawnPoints.Length >= 4)
+            {
+                for (int i = 0; i < spawnPoints.Length; i++)
+                {
+                    if (spawnPoints.Length == 10)
+                    {
+                        if (spawnPoints.Length - i <= 4)
+                        {
+                            GameObject effect = Instantiate(spawnEffect, spawnPoints[i].transform.position, spawnEffect.transform.rotation);
+                            //audioSource.transform.position = spawnPoints[i].transform.position;
+                            //audioSource.Play();
+                            GameObject virus = Instantiate(Cancer, spawnPoints[i].transform.position, Quaternion.identity);
+
+                            //spawnPoints[i].Equals(virus);
+                            //spawnPoints[i].transform.parent = EnemyContainer.transform;
+                            virus.transform.parent = EnemyContainer.transform;
+                            enemiesSpawned.Add(virus);
+                            Debug.Log("Spawned");
+                            //Destroy(effect);
+                        }
+                        else
+                        {
+                            GameObject effect = Instantiate(spawnEffect, spawnPoints[i].transform.position, spawnEffect.transform.rotation);
+                            //audioSource.transform.position = spawnPoints[i].transform.position;
+                            //audioSource.Play();
+                            GameObject virus = Instantiate(Myoviridae, spawnPoints[i].transform.position, Quaternion.identity);
+
+                            //spawnPoints[i].Equals(virus);
+                            //spawnPoints[i].transform.parent = EnemyContainer.transform;
+                            virus.transform.parent = EnemyContainer.transform;
+                            enemiesSpawned.Add(virus);
+                            Debug.Log("Spawned");
+                            //Destroy(effect);
+                        }
+                    }
+                    else
+                    {
+                        if (spawnPoints.Length - i <= 2)
+                        {
+                            GameObject effect = Instantiate(spawnEffect, spawnPoints[i].transform.position, spawnEffect.transform.rotation);
+                            //audioSource.transform.position = spawnPoints[i].transform.position;
+                            //audioSource.Play();
+                            GameObject virus = Instantiate(Cancer, spawnPoints[i].transform.position, Quaternion.identity);
+
+                            //spawnPoints[i].Equals(virus);
+                            //spawnPoints[i].transform.parent = EnemyContainer.transform;
+                            virus.transform.parent = EnemyContainer.transform;
+                            enemiesSpawned.Add(virus);
+                            Debug.Log("Spawned");
+                            //Destroy(effect);
+                        }
+                        else
+                        {
+                            GameObject effect = Instantiate(spawnEffect, spawnPoints[i].transform.position, spawnEffect.transform.rotation);
+                            //audioSource.transform.position = spawnPoints[i].transform.position;
+                            //audioSource.Play();
+                            GameObject virus = Instantiate(Myoviridae, spawnPoints[i].transform.position, Quaternion.identity);
+
+                            //spawnPoints[i].Equals(virus);
+                            //spawnPoints[i].transform.parent = EnemyContainer.transform;
+                            virus.transform.parent = EnemyContainer.transform;
+                            enemiesSpawned.Add(virus);
+                            Debug.Log("Spawned");
+                            //Destroy(effect);
+                        }
+                    }
+                }
+                spawned = true;
+                Debug.Log("Spawn " + enemiesSpawned.Count);
+            }
+            else
+            {
+                for (int i = 0; i < spawnPoints.Length; i++)
+                {
+                    GameObject effect = Instantiate(spawnEffect, spawnPoints[i].transform.position, spawnEffect.transform.rotation);
+                    //audioSource.transform.position = spawnPoints[i].transform.position;
+                    //audioSource.Play();
+                    GameObject virus = Instantiate(Myoviridae, spawnPoints[i].transform.position, Quaternion.identity);
+                    //spawnPoints[i].Equals(virus);
+                    //spawnPoints[i].transform.parent = EnemyContainer.transform;
+                    virus.transform.parent = EnemyContainer.transform;
+                    enemiesSpawned.Add(virus);
+                    Debug.Log("Spawned");
+                    //Destroy(effect);
+                }
+                spawned = true;
+                Debug.Log("Spawn " + enemiesSpawned.Count);
+            }
+        }
+    }
+
+    bool AreEnemiesDead()
+    {
         bool check = true;
         if (spawned)
         {
@@ -99,7 +178,8 @@ public class EnemyGenerator : MonoBehaviour
                 }
             }
         }
-        else {
+        else
+        {
             check = false;
         }
 
