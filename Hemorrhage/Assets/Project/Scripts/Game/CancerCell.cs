@@ -22,12 +22,14 @@ public class CancerCell : Enemy
     public GameObject weapon01;
     public GameObject weapon02;
 
+    public GameObject cancerCellKilled;
+    
     private AudioSource m_source;
-    //fire rate
+    // Fire rate
     public float m_fireRate = 1f;
 
     private float m_initialFireRate = 0f;
-    //grab variables
+    // Grab variables
     public float grabDistance = 3f;
     public float grabSpeed = 12;
     private Vector3 m_lastPlayerLocation = Vector3.zero;
@@ -182,15 +184,19 @@ public class CancerCell : Enemy
     {
         base.OnKill();
         // Kill State
-        gameObject.GetComponent<Rigidbody>().isKinematic = false;
-
-        if (!m_source.isPlaying) {
-            m_source.Play();
-        }
-
-        this.enabled = false;
+        Debug.Log("CancerCell is killed.");
+        Instantiate(cancerCellKilled, transform.position, transform.rotation);
         Destroy(this.gameObject);
-        transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
+        
+        // gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        // if (!m_source.isPlaying) {
+        //     m_source.Play();
+        //}
+
+        //this.enabled = false;
+        //Destroy(this.gameObject);
+        //transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 
     protected override void Grabbed()

@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heal: 10
   damage: 5
-  ammoRestore: 10
+  ammoRestore: 25
   speed: 20
   enemyDistance: 3
   initialTimeAlive: 0.7
