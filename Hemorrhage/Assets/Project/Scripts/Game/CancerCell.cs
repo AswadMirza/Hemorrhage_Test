@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 26/10/2020
+* Last modified 02/12/2020
 * By: Sharek Khan
 */
 
@@ -19,7 +19,8 @@ public class CancerCell : Enemy
     public int InitialHealth = 10;
     public float shootingDelta = 1f;
     public float shootingDist = 10f;
-    public GameObject weapon;
+    public GameObject weapon01;
+    public GameObject weapon02;
 
     private AudioSource m_source;
     //fire rate
@@ -41,7 +42,7 @@ public class CancerCell : Enemy
         this.Health = InitialHealth;
         m_initialFireRate = m_fireRate;
         // Retrieves the Player through the active Player GameObject
-        m_player = GameObject.Find("Player");
+        m_player = GameObject.FindGameObjectWithTag("Player");
 
         m_source = GetComponent<AudioSource>();
     }
@@ -135,14 +136,14 @@ public class CancerCell : Enemy
         transform.rotation = Quaternion.LookRotation(playerDir);
         // Chase Player
         transform.position = CalculateDirection(transform.position, m_player.transform.position, m_chaseSpeed);
-        //StartCoroutine(fireBullet(m_fireRate));
+        // StartCoroutine(fireBullet(m_fireRate));
         // Attack Player by shooting projectiles at their direction
         // Instantiate an Ammo type GameObject
         GameObject plasmaAmmo = ObjectPoolingManager.Instance.GetSmgBullet(false);
         // Set the initial position of the Ammo object to be from PlasmaRifle
-        plasmaAmmo.transform.position = weapon.transform.position;
+        plasmaAmmo.transform.position = weapon01.transform.position;
         // Translate the Ammo object towards the Player
-        plasmaAmmo.transform.forward = (m_player.transform.position - weapon.transform.position).normalized;
+        plasmaAmmo.transform.forward = (m_player.transform.position - weapon01.transform.position).normalized;
     }
 
     /*
@@ -194,7 +195,7 @@ public class CancerCell : Enemy
             {
                 IsGrabbed = false;
                 m_lastPlayerLocation = Vector3.zero;
-                Debug.Log("not grabbed anymore");
+                Debug.Log("Not Grabbed Anymore");
             }
         }
     }
