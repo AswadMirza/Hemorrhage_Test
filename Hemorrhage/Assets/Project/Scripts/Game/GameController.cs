@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     private float m_resetTimer = 3f;
     private bool m_gameOver = false;
 
+    private float resetActivityTimer = 5f;
+
     [Header("Game")]
     public Player player;
     public GameObject enemyContainer;
@@ -74,5 +76,16 @@ public class GameController : MonoBehaviour
                  
             }
         }
+
+
+        if (ActivityLog.ReadRecentActivity() != "") {
+            resetActivityTimer -= Time.deltaTime;
+            if (resetActivityTimer <= 0) {
+                ActivityLog.ClearLog();
+                resetActivityTimer = 5f;
+            }
+            
+        }
+
     }
 }
