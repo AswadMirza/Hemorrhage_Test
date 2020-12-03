@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +17,13 @@ public class DeathZone : MonoBehaviour
         
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Player>() != false) {
+        if (other.GetComponent<Player>() != false &&other.gameObject) {
             Player player = other.GetComponent<Player>();
             player.Health = 0;
         }
     }
+    */
 }

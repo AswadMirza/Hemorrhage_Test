@@ -25,13 +25,15 @@ public class Respawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.tag == "Death")
         {
             //gameObject.transform.position = m_startPos;
             //gameObject.transform.rotation = m_startRot;
             player.Health = 0;
         }
-        else if (other.tag == "Goal") {
+        */
+         if (other.tag == "Goal") {
             SceneManager.LoadScene(0);
         }
     }

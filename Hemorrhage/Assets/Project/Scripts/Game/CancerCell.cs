@@ -42,8 +42,8 @@ public class CancerCell : Enemy
     {
         m_initialPos = transform.position;
         m_initialRot = transform.rotation;
-        //m_enemyState = "IDLE";
-        m_enemyState = "ATTACK";
+        m_enemyState = "IDLE";
+        //m_enemyState = "ATTACK";
 
         this.Health = InitialHealth;
         m_initialFireRate = m_fireRate;

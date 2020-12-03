@@ -5694,7 +5694,7 @@ PrefabInstance:
     - target: {fileID: 5021984374969145379, guid: 94b47359e07d70247a3e220447f7aa13,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.009
+      value: -3.83
       objectReference: {fileID: 0}
     - target: {fileID: 5021984374969145379, guid: 94b47359e07d70247a3e220447f7aa13,
         type: 3}
@@ -15073,6 +15073,11 @@ PrefabInstance:
       propertyPath: weaponImage
       value: 
       objectReference: {fileID: 105122887}
+    - target: {fileID: 8643841776666623100, guid: 5b610768b8a042e4c87239b22fdea18a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 8643841776681354522, guid: 5b610768b8a042e4c87239b22fdea18a,
         type: 3}
       propertyPath: MeleeDirection.z
@@ -15137,6 +15142,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643841778349037926, guid: 5b610768b8a042e4c87239b22fdea18a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 8842230899623124384, guid: 5b610768b8a042e4c87239b22fdea18a,
         type: 3}
