@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/** 
+* Last modified 03/12/2020 
+* By: Sharek Khan 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,12 +30,15 @@ public class Respawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Death")
+        // This code is redundant, Player's HitBox already checks for collision with DeathZone
+        if (other.GetComponent<PlayerHitBox>() != false)
         {
-            //gameObject.transform.position = m_startPos;
-            //gameObject.transform.rotation = m_startRot;
-            player.Health = 0;
+            // Debug.LogError("Logic is in Respawn.cs Line:30.");
+            // gameObject.transform.position = m_startPos;
+            // gameObject.transform.rotation = m_startRot;
+            // player.Health = 0;
         }
+        // Play reaches the level goal
         else if (other.tag == "Goal") {
             SceneManager.LoadScene(0);
         }

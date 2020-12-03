@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 02/12/2020
+* Last modified 03/12/2020
 * By: Sharek Khan
 */
 
@@ -39,7 +39,7 @@ public class Myoviridae : Enemy
         m_initialRot = transform.rotation;
         // Initializes the inital behaviour state of Myoviridae
         //m_enemyState = "IDLE";
-        m_enemyState = "ATTACK";
+        m_enemyState = "IDLE";
 
         m_source = GetComponent<AudioSource>();
         // Retrieves the Player script through the active Player GameObject
@@ -111,7 +111,7 @@ public class Myoviridae : Enemy
             // transform.position = m_initialPos;
             transform.rotation = m_initialRot;
             //  Switch enemy state to idle
-            //m_enemyState = "IDLE";
+            m_enemyState = "IDLE";
         }
     }
 
@@ -181,7 +181,6 @@ public class Myoviridae : Enemy
                 if (rigidbody != null) {
                     rigidbody.isKinematic = originalKinematicSetting;
                 }
-
                 Debug.Log("Not Grabbed Anymore");
             }
         }

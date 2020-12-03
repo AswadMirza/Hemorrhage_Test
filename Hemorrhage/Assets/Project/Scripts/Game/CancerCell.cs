@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 02/12/2020
-* By: Aswad Mirza
+* Last modified 03/12/2020
+* By: Sharek Khan
 */
 
 using System.Collections;
@@ -11,8 +11,8 @@ public class CancerCell : Enemy
     private GameObject m_player;
     private Vector3 m_initialPos;
     private Quaternion m_initialRot;
-    private int m_speed = 2;
-    private int m_chaseSpeed = 3;
+    private int m_speed;
+    private int m_chaseSpeed;
     private int m_rotSpeed = 180;
     private string m_enemyState;
 
@@ -21,13 +21,14 @@ public class CancerCell : Enemy
     public float shootingDist = 10f;
     public GameObject weapon01;
     public GameObject weapon02;
+    public int speed = 2;
+    public int chaseSpeed = 3;
 
     public GameObject cancerCellKilled;
     
     private AudioSource m_source;
     // Fire rate
     public float m_fireRate = 1f;
-
     private float m_initialFireRate = 0f;
     // Grab variables
     public float grabDistance = 3f;
@@ -42,8 +43,10 @@ public class CancerCell : Enemy
     {
         m_initialPos = transform.position;
         m_initialRot = transform.rotation;
-        //m_enemyState = "IDLE";
-        m_enemyState = "ATTACK";
+        m_speed = speed;
+        m_chaseSpeed = chaseSpeed;
+        m_enemyState = "IDLE";
+        // m_enemyState = "ATTACK";
 
         this.Health = InitialHealth;
         m_initialFireRate = m_fireRate;
@@ -75,9 +78,7 @@ public class CancerCell : Enemy
             if (m_fireRate <= 0) {
                 OnAttack();
             }
-            
         }
-
         if (m_fireRate <= 0) {
             m_fireRate = m_initialFireRate;
         }

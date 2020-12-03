@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 30/11/2020
+* Last modified 03/12/2020
 * By: Sharek Khan
 */
 
@@ -10,7 +10,7 @@ public class PlayerUI : MonoBehaviour
 {
     private Player player = null;
     private GunContainer gunContainer = null;
-    private float gameInfoTextTimer = 0.0f;
+    // private float gameInfoTextTimer = 0.0f;
 
     [Header("UI")]
     public Text gameInfoText = null;
@@ -43,7 +43,6 @@ public class PlayerUI : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
         // Updates the Game Info Text on the UI
         gameInfoText.text = ActivityLog.ReadRecentActivity();
 

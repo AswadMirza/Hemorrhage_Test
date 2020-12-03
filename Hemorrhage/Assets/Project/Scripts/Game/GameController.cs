@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 18/11/2020
-* By: Aswad Mirza
+* Last modified 03/12/2020
+* By: Sharek Khan
 */
 
 using UnityEngine;
@@ -77,15 +77,13 @@ public class GameController : MonoBehaviour
             }
         }
 
-
+        // Clears the event read for the Player after a few seconds
         if (ActivityLog.ReadRecentActivity() != "") {
             resetActivityTimer -= Time.deltaTime;
             if (resetActivityTimer <= 0) {
                 ActivityLog.ClearLog();
                 resetActivityTimer = 5f;
-            }
-            
+            }    
         }
-
     }
 }

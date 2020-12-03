@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 25/11/2020 
+* Last modified 03/12/2020 
 * By: Sharek Khan 
 */
 
@@ -23,7 +23,7 @@ public class PlayerHitBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_playerObject = GameObject.Find("Player");
+        m_playerObject = GameObject.FindGameObjectWithTag("Player");
         m_player = m_playerObject.GetComponent<Player>();
         m_audio = m_player.GetComponent<AudioSource>();
     }
@@ -71,8 +71,9 @@ public class PlayerHitBox : MonoBehaviour
         // Environment
         // Lets the Player die if they fall to the ground ---- 2020/07/28
         // *NOTE WILL BE ALTERED
-        if (collider.GetComponent<DeathZone>() != null)
+        if (collider.GetComponent<DeathZone>()!= null)
         {
+            Debug.LogError("Logic is in PlayerHitBox.cs Line:76.");
             m_player.Health = 0;
         }
 
