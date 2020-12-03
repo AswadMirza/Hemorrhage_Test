@@ -10,7 +10,11 @@ using UnityEngine.Rendering;
 public class StreptobacillusMoniliformisHead : Enemy
 {
     public int InitialHealth = 100;
+    public int damage = 25;
+
     public AudioSource deathSound;
+    public AudioSource effectSound;
+
     public float m_speed;
     public float Speed { get { return m_speed; } set { m_speed = value; } }
     
@@ -28,6 +32,7 @@ public class StreptobacillusMoniliformisHead : Enemy
     void Start()
     {
         this.Health = InitialHealth;
+        this.Damage = damage;
     }
 
     // Update is called once per frame
@@ -51,6 +56,7 @@ public class StreptobacillusMoniliformisHead : Enemy
     {
         base.OnKill();
         deathSound.Play();
+        effectSound.Play();
         GameObject effect = Instantiate(deathEffect, transform.position, deathEffect.transform.rotation);
 
         // agent.enabled = false;

@@ -8,6 +8,7 @@ using UnityEngine;
 public class StreptobacillusMoniliformisBody : Enemy
 {
     public int InitialHealth = 100;
+    public int damage = 25;
     public float m_speed;
     public float Speed { get { return m_speed; } set { m_speed = value; } }
     public float m_rotation = 0;
@@ -21,6 +22,7 @@ public class StreptobacillusMoniliformisBody : Enemy
     void Start()
     {
         this.Health = InitialHealth;
+        this.Damage = damage;
         /*tail = GameObject.Find("Tail");
         body1 = GameObject.Find("Body1");
         body2 = GameObject.Find("Body2");

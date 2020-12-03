@@ -23,6 +23,11 @@ public class ActivityLog
         }
     }
 
+    public static void ClearLog() {
+        // Returns the last event logged
+        m_events[m_events.Count - 1] = "";
+    }
+
     public static string ReadRecentActivity()
     {
         // Checks if event log has any events added

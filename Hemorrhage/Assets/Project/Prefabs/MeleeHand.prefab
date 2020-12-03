@@ -143,3 +143,6 @@ MonoBehaviour:
   meleeWeapon: {fileID: 1968500049494879962, guid: 768a74cc62375f04e8dc13999cd5b940,
     type: 3}
   meleeSounds: {fileID: 8300000, guid: ce44f5886b8417f4d867038263fa3eed, type: 3}
+  initialFireRate: 0
+  delayFireRate: 1
+  MeleeDirection: {x: 0, y: 100, z: 7500}

@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 18/11/2020
+* Last modified 02/12/2020
 * By: Sharek Khan
 */
 
@@ -10,8 +10,8 @@ public class Myoviridae : Enemy
     private GameObject m_player;
     private Vector3 m_initialPos;
     private Quaternion m_initialRot;
-    private int m_speed = 6;
-    private int m_rushSpeed = 9;
+    public int m_speed = 6;
+    public int m_rushSpeed = 9;
     private int m_rotSpeed = 45;
     private string m_enemyState;
     private AudioSource m_source;
@@ -43,7 +43,7 @@ public class Myoviridae : Enemy
 
         m_source = GetComponent<AudioSource>();
         // Retrieves the Player script through the active Player GameObject
-        m_player = GameObject.Find("Player");
+        m_player = GameObject.FindGameObjectWithTag("Player");
 
         this.Health = initialHealth;
 
@@ -182,7 +182,7 @@ public class Myoviridae : Enemy
                     rigidbody.isKinematic = originalKinematicSetting;
                 }
 
-                Debug.Log("Not grabbed anymore");
+                Debug.Log("Not Grabbed Anymore");
             }
         }
     }

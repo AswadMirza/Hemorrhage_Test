@@ -57,10 +57,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88db10f2c44da443ab9d103e410f67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 4987682488152580339, guid: 078a0d5e6da62a44c82a83e323e9f06a, type: 3}
+  Myoviridae: {fileID: 4987682488152580339, guid: 078a0d5e6da62a44c82a83e323e9f06a,
+    type: 3}
+  Cancer: {fileID: 4462666951546454443, guid: 7d4d85cba5ec6674384ee7c66595957c, type: 3}
   EnemyContainer: {fileID: 0}
+  spawnPoints: []
+  spawnEffect: {fileID: 1912731163003908, guid: c5febdd93ab44d640b3eb37b768360bb,
+    type: 3}
+  Door: {fileID: 0}
   maxXPos: 0
   minXPos: 0
   maxZPos: 0
   minZPos: 0
-  maxEnemy: 5

@@ -37,7 +37,7 @@ public class PlasmaRifle : MonoBehaviour
         if (Input.GetMouseButton(0)||Input.GetMouseButtonDown(0))
         {
             Fire();
-            muzzleFlash.Play();
+           // muzzleFlash.Play();
         }
 
         // Condition keeps fire rate from decrementing below 0
@@ -60,6 +60,7 @@ public class PlasmaRifle : MonoBehaviour
             smgBulletObject.transform.position = transform.position + transform.forward;
             // Bullet is shot forward with the direction of the parent object
             smgBulletObject.transform.forward = transform.forward;
+            muzzleFlash.Play();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿/** 
-* Last modified 26/10/2020
-* By: Sharek Khan
+* Last modified 02/12/2020
+* By: Aswad Mirza
 */
 
 using System.Collections;
@@ -19,36 +19,49 @@ public class CancerCell : Enemy
     public int InitialHealth = 10;
     public float shootingDelta = 1f;
     public float shootingDist = 10f;
-    public GameObject weapon;
+    public GameObject weapon01;
+    public GameObject weapon02;
 
+    public GameObject cancerCellKilled;
+    
     private AudioSource m_source;
-    //fire rate
+    // Fire rate
     public float m_fireRate = 1f;
 
     private float m_initialFireRate = 0f;
-    //grab variables
+    // Grab variables
     public float grabDistance = 3f;
     public float grabSpeed = 12;
     private Vector3 m_lastPlayerLocation = Vector3.zero;
+
+    Rigidbody m_rigidbody;
+    bool originalKinematicSetting = false;
 
     // Start is called before the first frame update
     void Start()
     {
         m_initialPos = transform.position;
         m_initialRot = transform.rotation;
-        m_enemyState = "IDLE";
+        //m_enemyState = "IDLE";
+        m_enemyState = "ATTACK";
 
         this.Health = InitialHealth;
         m_initialFireRate = m_fireRate;
         // Retrieves the Player through the active Player GameObject
-        m_player = GameObject.Find("Player");
+        m_player = GameObject.FindGameObjectWithTag("Player");
 
         m_source = GetComponent<AudioSource>();
+
+        m_rigidbody = GetComponent<Rigidbody>();
+        if (m_rigidbody != null) {
+            originalKinematicSetting = m_rigidbody.isKinematic;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        Grabbed();
         // Check Enemy behaviour state
         if (m_enemyState == "IDLE")
         {
@@ -56,6 +69,7 @@ public class CancerCell : Enemy
         }
         else if (m_enemyState == "ATTACK")
         {
+            LookAtPlayer();
             m_fireRate -= Time.deltaTime;
 
             if (m_fireRate <= 0) {
@@ -127,22 +141,30 @@ public class CancerCell : Enemy
         }
     }
 
-    // Enemies Behaviour Patterns when enter Player vicinity
-    void OnAttack()
-    {
+
+
+    //Added by aswad, seperating the function to look at the player and function to attack
+    void LookAtPlayer() {
         // Rotate in Player direction
         Vector3 playerDir = m_player.transform.position - transform.position;
         transform.rotation = Quaternion.LookRotation(playerDir);
         // Chase Player
         transform.position = CalculateDirection(transform.position, m_player.transform.position, m_chaseSpeed);
-        //StartCoroutine(fireBullet(m_fireRate));
+    }
+
+
+    // Enemies Behaviour Patterns when enter Player vicinity
+    void OnAttack()
+    {
+        //LookAtPlayer();
+        // StartCoroutine(fireBullet(m_fireRate));
         // Attack Player by shooting projectiles at their direction
         // Instantiate an Ammo type GameObject
         GameObject plasmaAmmo = ObjectPoolingManager.Instance.GetSmgBullet(false);
         // Set the initial position of the Ammo object to be from PlasmaRifle
-        plasmaAmmo.transform.position = weapon.transform.position;
+        plasmaAmmo.transform.position = weapon01.transform.position;
         // Translate the Ammo object towards the Player
-        plasmaAmmo.transform.forward = (m_player.transform.position - weapon.transform.position).normalized;
+        plasmaAmmo.transform.forward = (m_player.transform.position - weapon01.transform.position).normalized;
     }
 
     /*
@@ -162,14 +184,19 @@ public class CancerCell : Enemy
     {
         base.OnKill();
         // Kill State
-        gameObject.GetComponent<Rigidbody>().isKinematic = false;
-
-        if (!m_source.isPlaying) {
-            m_source.Play();
-        }
+        Debug.Log("CancerCell is killed.");
+        Instantiate(cancerCellKilled, transform.position, transform.rotation);
+        Destroy(this.gameObject);
         
-        this.enabled = false;
-        transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
+        // gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        // if (!m_source.isPlaying) {
+        //     m_source.Play();
+        //}
+
+        //this.enabled = false;
+        //Destroy(this.gameObject);
+        //transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 
     protected override void Grabbed()
@@ -178,6 +205,13 @@ public class CancerCell : Enemy
         {
             Debug.Log("Grabbed");
             //disable the navmesh agent
+
+
+            if (m_rigidbody != null)
+            {
+
+                m_rigidbody.isKinematic = true;
+            }
 
             if (m_lastPlayerLocation.Equals(Vector3.zero))
             {
@@ -194,7 +228,11 @@ public class CancerCell : Enemy
             {
                 IsGrabbed = false;
                 m_lastPlayerLocation = Vector3.zero;
-                Debug.Log("not grabbed anymore");
+                if (m_rigidbody != null)
+                {
+                    m_rigidbody.isKinematic = originalKinematicSetting;
+                }
+                Debug.Log("Not Grabbed Anymore");
             }
         }
     }

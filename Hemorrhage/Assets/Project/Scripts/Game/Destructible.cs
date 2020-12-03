@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 18/11/2020
+* Last modified 02/12/2020
 * By: Sharek Khan
 */
 
@@ -14,11 +14,15 @@ public class Destructible : MonoBehaviour
     {
         if(this.gameObject.name == "CholesterolCrate(Broken)")
         {
-            m_audioSource = GameObject.Find("CholesterolCrate").GetComponent<AudioSource>();
+            m_audioSource = GameObject.FindGameObjectWithTag("CholesterolCrate").GetComponent<AudioSource>();
         }
         else if(this.gameObject.name == "Myoviridae(Killed)")
         {
-            m_audioSource = GameObject.Find("Myoviridae").GetComponent<AudioSource>();
+            m_audioSource = GameObject.FindGameObjectWithTag("Myoviridae").GetComponent<AudioSource>();
+        }
+        else if(this.gameObject.name == "CancerCell(Killed)")
+        {
+            m_audioSource = GameObject.FindGameObjectWithTag("CancerCell").GetComponent<AudioSource>();
         }
         //if(!m_audioSource.isPlaying)
         //{
