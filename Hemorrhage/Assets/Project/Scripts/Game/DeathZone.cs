@@ -27,7 +27,10 @@ public class DeathZone : MonoBehaviour
         if (other.GetComponent<PlayerHitBox>() != false) {
             Debug.LogError("Logic is in DeathZone.cs Line:22.");
             Player player = other.GetComponent<Player>();
-            player.Health = 0;
+            if (player != null) {
+                player.Health = 0;
+            }
+            
         }
     }
 }
