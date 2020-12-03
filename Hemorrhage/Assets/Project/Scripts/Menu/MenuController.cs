@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 25/11/2020
+* Last modified 03/12/2020
 * By: Sharek Khan
 */
 
@@ -14,22 +14,25 @@ public class MenuController : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
-    public void OnPlay()
-    {
-        Debug.Log("Click successful");
-        SceneManager.LoadScene("Level1");
-    }
 
     public void PlayGame()
     {
-        Debug.Log("Loading level 1...");
-        SceneManager.LoadScene("Level1");
+        Debug.Log("Loading Level 1...");
+        SceneManager.LoadScene("Level01");
+    }
+
+    public void StartCredits()
+    {
+        Debug.Log("Loading Credits...");
+        SceneManager.LoadScene("Credits");
     }
 
     public void QuitGame()
     {
         Debug.Log("Quitting Game...");
-        // Quit the game...
+        // Quit the game through application...
+        Application.Quit();
+        // Quit the game through editor...
         UnityEditor.EditorApplication.isPlaying = false;
     }
 }
