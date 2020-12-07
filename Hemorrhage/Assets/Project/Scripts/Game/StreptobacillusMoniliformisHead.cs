@@ -15,7 +15,7 @@ public class StreptobacillusMoniliformisHead : Enemy
     public AudioSource deathSound;
     public AudioSource effectSound;
 
-    public float m_speed;
+    public float m_speed = 25;
     public float Speed { get { return m_speed; } set { m_speed = value; } }
     
     public float m_rotation = 0;
@@ -26,8 +26,12 @@ public class StreptobacillusMoniliformisHead : Enemy
     Vector3 dir1;
     Vector3 dir2;
     float distance;
+
+    float timer;
+
     public GameObject player;
     public GameObject[] body = new GameObject[6];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,8 +52,20 @@ public class StreptobacillusMoniliformisHead : Enemy
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(player.transform.position -
             this.gameObject.transform.position), m_rotation * Time.deltaTime);
 
-
         Move();
+
+        /*if (distance > 3)
+        {
+            timer += Time.deltaTime;
+            Debug.Log("Timer = " + timer);
+            if (timer >= 5.0f)
+            {
+                Speed *= 0;
+                Lunge(2);
+                timer = 0;
+                Speed = 25;
+            }
+        }*/
     }
 
     protected override void OnKill()
@@ -77,11 +93,9 @@ public class StreptobacillusMoniliformisHead : Enemy
     }
 
     
-    /*IEnumerator Lunge(float multiplier)
+    void Lunge(float multiplier)
     {
         Debug.Log("HeadLunge");
-        m_speed *= 0;
-        yield return new WaitForSeconds(10);
 
         Debug.Log("Speed = " + m_speed);
        
@@ -90,6 +104,6 @@ public class StreptobacillusMoniliformisHead : Enemy
 
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
-    }*/
+    }
 
 }
