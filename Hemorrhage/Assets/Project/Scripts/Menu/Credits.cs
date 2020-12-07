@@ -1,5 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/** 
+* Last modified 06/12/2020
+* By: Sharek Khan
+*/
+
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,7 +33,7 @@ public class Credits : MonoBehaviour
 
     IEnumerator CreditsTimer()
     {
-        yield return new WaitForSeconds(22);
+        yield return new WaitForSeconds(25);
         Debug.Log("Loading Main Menu....");
         SceneManager.LoadScene("MainMenu");
 

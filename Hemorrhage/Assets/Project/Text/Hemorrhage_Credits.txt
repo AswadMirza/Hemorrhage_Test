@@ -1,0 +1,30 @@
+Director: 
+Aswad Mirza
+
+Game Designer:
+Aswad Mirza
+Sharek Khan
+Omer Farkhad
+
+Art Design: 
+Sharek Khan
+
+Level Design: 
+Omer Farkhand
+
+AI Scripting:
+Sharek Khan
+
+Boss Development:
+Omer Farkhand
+
+UI Design:
+Sharek Khan
+
+Weapon Scripting:
+Aswad Mirza
+
+Gameplay Scripting:
+Aswad Mirza
+
+Music Provided By Madatracker
