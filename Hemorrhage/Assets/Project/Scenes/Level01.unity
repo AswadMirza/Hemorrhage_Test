@@ -3133,7 +3133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1220025269, guid: 5af43d352cc87624cb65e7134fe0ec1f, type: 3}
       propertyPath: SceneIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4449371919827019499, guid: 5af43d352cc87624cb65e7134fe0ec1f,
         type: 3}
@@ -17850,6 +17850,16 @@ PrefabInstance:
         type: 3}
       propertyPath: MeleeDirection.z
       value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643841777168698848, guid: 5b610768b8a042e4c87239b22fdea18a,
+        type: 3}
+      propertyPath: nextLevelIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643841777168698848, guid: 5b610768b8a042e4c87239b22fdea18a,
+        type: 3}
+      propertyPath: currentLevelIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8643841777168698849, guid: 5b610768b8a042e4c87239b22fdea18a,
         type: 3}
