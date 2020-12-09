@@ -16,6 +16,8 @@ TagManager:
   - ShotgunShell
   - Door
   - Shootable
+  - RightFiber
+  - LeftFiber
   layers:
   - Default
   - TransparentFX
