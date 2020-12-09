@@ -275,9 +275,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987682488105570435}
+  - component: {fileID: 4825398941184754230}
   m_Layer: 0
   m_Name: FiberRightBack
-  m_TagString: Untagged
+  m_TagString: RightFiber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,6 +302,21 @@ Transform:
   m_Father: {fileID: 4987682488152580336}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &4825398941184754230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987682488105570434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a441282cb4a00e04db398b9cb2718b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positiveRotDelta: 10
+  negativeRotDelta: 10
+  rotSpeed: 15
 --- !u!1 &4987682488120835685
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,9 +326,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987682488120835682}
+  - component: {fileID: 2236039880177284305}
   m_Layer: 0
   m_Name: FiberRightFront
-  m_TagString: Untagged
+  m_TagString: RightFiber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,6 +353,21 @@ Transform:
   m_Father: {fileID: 4987682488152580336}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
+--- !u!114 &2236039880177284305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987682488120835685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a441282cb4a00e04db398b9cb2718b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positiveRotDelta: 10
+  negativeRotDelta: 10
+  rotSpeed: 15
 --- !u!1 &4987682488152580339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,9 +1270,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987682488320815877}
+  - component: {fileID: 1970995509324282150}
   m_Layer: 0
   m_Name: LeftWhisker
-  m_TagString: Untagged
+  m_TagString: LeftFiber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1264,6 +1297,21 @@ Transform:
   m_Father: {fileID: 4987682488152580336}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -25, z: 0}
+--- !u!114 &1970995509324282150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987682488320815876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a441282cb4a00e04db398b9cb2718b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positiveRotDelta: 10
+  negativeRotDelta: 10
+  rotSpeed: 15
 --- !u!1 &4987682488361849962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,9 +1399,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987682488479474878}
+  - component: {fileID: 4724022793362155629}
   m_Layer: 0
   m_Name: FiberRightSide
-  m_TagString: Untagged
+  m_TagString: RightFiber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1377,6 +1426,21 @@ Transform:
   m_Father: {fileID: 4987682488152580336}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4724022793362155629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987682488479474865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a441282cb4a00e04db398b9cb2718b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positiveRotDelta: 10
+  negativeRotDelta: 10
+  rotSpeed: 15
 --- !u!1 &4987682488480677102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,9 +1528,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987682488497714569}
+  - component: {fileID: 8705049590610903349}
   m_Layer: 0
   m_Name: RightWhisker
-  m_TagString: Untagged
+  m_TagString: RightFiber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1490,6 +1555,21 @@ Transform:
   m_Father: {fileID: 4987682488152580336}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 25, z: 0}
+--- !u!114 &8705049590610903349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987682488497714568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a441282cb4a00e04db398b9cb2718b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positiveRotDelta: 10
+  negativeRotDelta: 10
+  rotSpeed: 15
 --- !u!1 &4987682488510553723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,9 +1813,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987682488567903016}
+  - component: {fileID: 9120450279689839271}
   m_Layer: 0
   m_Name: FiberLeftBack
-  m_TagString: Untagged
+  m_TagString: LeftFiber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1759,6 +1840,21 @@ Transform:
   m_Father: {fileID: 4987682488152580336}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
+--- !u!114 &9120450279689839271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987682488567903019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a441282cb4a00e04db398b9cb2718b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positiveRotDelta: 10
+  negativeRotDelta: 10
+  rotSpeed: 15
 --- !u!1 &4987682488646349305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2782,9 +2878,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987682489105357285}
+  - component: {fileID: 1822675353281432638}
   m_Layer: 0
   m_Name: FiberLeftSide
-  m_TagString: Untagged
+  m_TagString: LeftFiber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2808,6 +2905,21 @@ Transform:
   m_Father: {fileID: 4987682488152580336}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1822675353281432638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987682489105357284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a441282cb4a00e04db398b9cb2718b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positiveRotDelta: 10
+  negativeRotDelta: 10
+  rotSpeed: 15
 --- !u!1 &4987682489105731770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3945,9 +4057,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987682489698924259}
+  - component: {fileID: 7288735834974643734}
   m_Layer: 0
   m_Name: FiberLeftFront
-  m_TagString: Untagged
+  m_TagString: LeftFiber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3971,6 +4084,21 @@ Transform:
   m_Father: {fileID: 4987682488152580336}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 225, z: 0}
+--- !u!114 &7288735834974643734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987682489698924258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a441282cb4a00e04db398b9cb2718b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positiveRotDelta: 10
+  negativeRotDelta: 10
+  rotSpeed: 15
 --- !u!1 &4987682489776186593
 GameObject:
   m_ObjectHideFlags: 0
