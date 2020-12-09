@@ -47,8 +47,7 @@ public class StreptobacillusMoniliformis : MonoBehaviour
 
         Debug.Log("Speed = " + m_speed);
 
-        m_speed = 15f;
-        m_speed *= multiplier;
+        m_speed = 15f;        m_speed *= multiplier;
 
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;

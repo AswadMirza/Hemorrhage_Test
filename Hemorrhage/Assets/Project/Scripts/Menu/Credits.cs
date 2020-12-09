@@ -6,6 +6,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Credits : MonoBehaviour
 {
@@ -23,9 +24,15 @@ public class Credits : MonoBehaviour
         Vector3 localVectorUp = transform.TransformDirection(0, 10, 0);
         pos += localVectorUp * scrollSpeed * Time.deltaTime;
         transform.position = pos;
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Mouse0) || 
+            Input.GetKeyDown(KeyCode.Space))
+        {
+            OnPress();
+        }
     }
 
-    void OnClick()
+    void OnPress()
     {
         Debug.Log("Loading Main Menu...");
         SceneManager.LoadScene("MainMenu");

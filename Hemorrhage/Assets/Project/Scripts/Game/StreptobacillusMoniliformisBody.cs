@@ -14,21 +14,15 @@ public class StreptobacillusMoniliformisBody : Enemy
     public float m_rotation = 0;
     public float RotationSpeed { get { return m_rotation; } set { m_rotation = value; } }
     float distance = 1;
+    
     public GameObject body;
 
-    //GameObject tail, body1, body2, body3, body4, body5;
 
     // Start is called before the first frame update
     void Start()
     {
         this.Health = InitialHealth;
         this.Damage = damage;
-        /*tail = GameObject.Find("Tail");
-        body1 = GameObject.Find("Body1");
-        body2 = GameObject.Find("Body2");
-        body3 = GameObject.Find("Body3");
-        body4 = GameObject.Find("Body4");
-        body5 = GameObject.Find("Body5");*/
     }
 
     // Update is called once per frame
