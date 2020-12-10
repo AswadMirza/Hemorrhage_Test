@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class Credits : MonoBehaviour
 {
-    public float scrollSpeed = 20;
+    public float scrollSpeed = 30;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +40,7 @@ public class Credits : MonoBehaviour
 
     IEnumerator CreditsTimer()
     {
-        yield return new WaitForSeconds(25);
+        yield return new WaitForSeconds(28);
         Debug.Log("Loading Main Menu....");
         SceneManager.LoadScene("MainMenu");
 

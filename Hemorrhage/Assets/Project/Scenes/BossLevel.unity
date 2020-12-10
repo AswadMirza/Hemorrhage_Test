@@ -9258,6 +9258,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: f4a4e3a17ed491e44ab00c111e532ecc, type: 3}
+    - target: {fileID: 1161435967763395505, guid: e5a936ce3d5aa034abad0f1ab997a912,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161435967763395510, guid: e5a936ce3d5aa034abad0f1ab997a912,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9924,7 +9929,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh362072
+  m_Name: pb_Mesh30160
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
