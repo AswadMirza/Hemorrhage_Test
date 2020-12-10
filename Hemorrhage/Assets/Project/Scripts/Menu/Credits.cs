@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 06/12/2020
+* Last modified 10/12/2020
 * By: Sharek Khan
 */
 
@@ -9,11 +9,12 @@ using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour
 {
-    public float scrollSpeed = 30;
+    public float scrollSpeed = 10;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CreditsTimer());
+
     }
 
     // Update is called once per frame
@@ -24,10 +25,20 @@ public class Credits : MonoBehaviour
         pos += localVectorUp * scrollSpeed * Time.deltaTime;
         transform.position = pos;
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Mouse0) || 
+        // Credits stop if interrupted by User input
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Mouse0) ||
             Input.GetKeyDown(KeyCode.Space))
         {
             OnPress();
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject.name == "Canvas")
+        {
+            scrollSpeed = 0;
+            StartCoroutine(CreditsTimer());
         }
     }
 
@@ -39,9 +50,7 @@ public class Credits : MonoBehaviour
 
     IEnumerator CreditsTimer()
     {
-        yield return new WaitForSeconds(50);
-        Debug.Log("Loading Main Menu....");
-        SceneManager.LoadScene("MainMenu");
-
+        yield return new WaitForSeconds(5);
+        OnPress();
     }
 }

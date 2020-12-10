@@ -1,5 +1,5 @@
 ﻿/** 
-* Last modified 03/12/2020
+* Last modified 10/12/2020
 * By: Sharek Khan
 */
 
@@ -33,6 +33,6 @@ public class MenuController : MonoBehaviour
         // Quit the game through application...
         Application.Quit();
         // Quit the game through editor...
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
     }
 }
