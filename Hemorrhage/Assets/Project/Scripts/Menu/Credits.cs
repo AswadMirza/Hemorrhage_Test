@@ -6,7 +6,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Credits : MonoBehaviour
 {
@@ -40,7 +39,7 @@ public class Credits : MonoBehaviour
 
     IEnumerator CreditsTimer()
     {
-        yield return new WaitForSeconds(28);
+        yield return new WaitForSeconds(50);
         Debug.Log("Loading Main Menu....");
         SceneManager.LoadScene("MainMenu");
 
