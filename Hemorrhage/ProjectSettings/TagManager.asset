@@ -18,6 +18,7 @@ TagManager:
   - Shootable
   - RightFiber
   - LeftFiber
+  - MusicEnd
   layers:
   - Default
   - TransparentFX

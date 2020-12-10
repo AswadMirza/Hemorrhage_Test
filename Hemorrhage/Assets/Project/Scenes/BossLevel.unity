@@ -9320,6 +9320,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5a936ce3d5aa034abad0f1ab997a912, type: 3}
+--- !u!1 &1584730536 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1161435967763395504, guid: e5a936ce3d5aa034abad0f1ab997a912,
+    type: 3}
+  m_PrefabInstance: {fileID: 1584730535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1590717167 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8220210218255604522, guid: 5b610768b8a042e4c87239b22fdea18a,
@@ -11807,6 +11813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9430a7f2d05fc874ea2b415f8b90d811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 1584730536}
   source: {fileID: 1328824859}
 --- !u!1001 &2113833575
 PrefabInstance:
