@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Created By: Omer Farkhand
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
