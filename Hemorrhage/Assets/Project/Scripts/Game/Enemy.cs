@@ -8,6 +8,10 @@ using UnityEngine;
 
 //Last edited by Aswad Mirza on Octorber 12th 2020
 //is grabbed and base grab function by Aswad Mirza
+/*
+     Code based on
+    Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+     */
 
 public class Enemy : MonoBehaviour
 {

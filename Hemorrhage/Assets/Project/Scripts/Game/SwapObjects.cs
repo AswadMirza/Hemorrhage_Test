@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 //Made by Aswad Mirza student number 991445135
+
+/*
+ * Code based on
+ Brackeys - SHATTER/DESTRUCTION In Unity (Tutorial)
+https://www.youtube.com/watch?time_continue=69&v=Dn_BUIVdAPg&feature=emb_title
+ */
 public class SwapObjects : MonoBehaviour
 {
     // What we are replacing this gameobject with

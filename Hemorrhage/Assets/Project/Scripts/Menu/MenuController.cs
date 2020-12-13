@@ -3,6 +3,10 @@
 * By: Sharek Khan
 */
 
+/*
+    Code based on
+   Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+    */
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

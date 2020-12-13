@@ -5,6 +5,11 @@ using UnityEngine;
 public class ObjectPoolingManager : MonoBehaviour
 {
     //last updated by Aswad Mira - 2020-10-04
+
+    /*
+     Code based on
+    Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+     */
     private static ObjectPoolingManager instance;
     public static ObjectPoolingManager Instance { get { return instance; } }
 
@@ -92,7 +97,7 @@ public class ObjectPoolingManager : MonoBehaviour
         return prefabInstance;
     }
 
-    //object pools a shotgun shell and creates  a new member in the list if there are not enough bullets preloaded
+    //object pools a smg bullet and creates  a new member in the list if there are not enough bullets preloaded
     public GameObject GetSmgBullet(bool shotByPlayer) {
         foreach (GameObject smgBullet in smgBullets) {
             if (!smgBullet.activeInHierarchy) {

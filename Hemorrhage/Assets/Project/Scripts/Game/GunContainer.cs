@@ -5,6 +5,12 @@
 // Made by Aswad Mirza student number 991445135
 using UnityEngine;
 
+/*
+ Code based on Brackeys- Weapon Switching - Unity Tutorial
+https://www.youtube.com/watch?time_continue=69&v=Dn_BUIVdAPg&feature=emb_title
+ */
+
+
 // Purpose of this class is to hold all the gun models and choose which is active
 // IDEA: Each gun has its own fire functionality, and different bullets that they fire. 
 // When the player left clicks, they just call the selected gun's fire script

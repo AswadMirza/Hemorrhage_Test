@@ -2,6 +2,10 @@
 
 public class Bullet : MonoBehaviour
 {
+    /*
+     Code based on
+    Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+     */
     public float speed = 20f;
     public float lifeDuration = 10f;
     public int damage = 5;
