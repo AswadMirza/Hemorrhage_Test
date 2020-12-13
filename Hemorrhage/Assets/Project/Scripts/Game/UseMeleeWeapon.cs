@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 // last updated by Aswad Mirza on  November 25th 2020
+//Made by Aswad Mirza student number 991445135
 public class UseMeleeWeapon : MonoBehaviour
 {
     // Start is called before the first frame update

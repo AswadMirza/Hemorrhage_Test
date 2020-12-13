@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Made by Aswad Mirza student number 991445135
 public class TimerDestroy : MonoBehaviour
 {
 

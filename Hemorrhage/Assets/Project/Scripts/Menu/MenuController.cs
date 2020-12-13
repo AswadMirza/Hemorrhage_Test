@@ -33,6 +33,6 @@ public class MenuController : MonoBehaviour
         // Quit the game through application...
         Application.Quit();
         // Quit the game through editor...
-        // UnityEditor.EditorApplication.isPlaying = false;
+         UnityEditor.EditorApplication.isPlaying = false;
     }
 }

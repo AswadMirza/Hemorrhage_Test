@@ -2,7 +2,7 @@
 * Last modified 02/12/2020
 * By: Aswad Mirza
 */
-
+//Made by Aswad Mirza student number 991445135
 using UnityEngine;
 
 public class PlasmaShotgun : MonoBehaviour

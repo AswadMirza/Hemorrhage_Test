@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Made by Aswad Mirza student number 991445135
 public class Goal : MonoBehaviour
 {
     // Start is called before the first frame update

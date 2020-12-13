@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Made by Aswad Mirza - On December 2nd 2020
+// Made by Aswad Mirza student number 991445135 - On December 2nd 2020
 public class AudioListPlayer : MonoBehaviour
 {
 

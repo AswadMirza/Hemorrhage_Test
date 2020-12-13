@@ -2,7 +2,7 @@
 * Last modified 25/11/2020
 * By: Sharek Khan
 */
-
+// Made by Aswad Mirza student number 991445135
 using UnityEngine;
 
 // Purpose of this class is to hold all the gun models and choose which is active

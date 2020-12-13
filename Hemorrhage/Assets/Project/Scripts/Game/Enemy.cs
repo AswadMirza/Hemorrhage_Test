@@ -7,6 +7,7 @@
 using UnityEngine;
 
 //Last edited by Aswad Mirza on Octorber 12th 2020
+//is grabbed and base grab function by Aswad Mirza
 
 public class Enemy : MonoBehaviour
 {
