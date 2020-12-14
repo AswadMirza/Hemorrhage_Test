@@ -32,6 +32,10 @@ public class EnemyGenerator : MonoBehaviour
     private List<GameObject> enemiesSpawned = new List<GameObject>();
     private bool spawned = false;
     // Start is called before the first frame update
+    
+    /*
+     * At start assigns the min and max values
+     */
     void Start()
     {
         objectPos = this.gameObject.transform.position;
@@ -71,7 +75,10 @@ public class EnemyGenerator : MonoBehaviour
             }
         }
     }
-
+    
+    /*
+     * Enemies are instatiated in the spawn point positions. 
+     */
     void Spawn()
     {
         //if we havnt spawned enemies, then spawn them

@@ -16,15 +16,10 @@ public class MusicLooper : MonoBehaviour
     public AudioSource loopAudioSource;
     public AudioSource endAudioSource;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-           
-    }
-
     // Update is called once per frame
     void Update()
     {
+        //checks if background music is not false, then checks whether the intro of the song is playing, if not switches the clip to loop
         if(backgroundMusic.activeInHierarchy != false)
         {
             if (!introAudioSource.isPlaying)
@@ -39,6 +34,7 @@ public class MusicLooper : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //Plays the End of the Song 
         if(other.tag == "MusicEnd")
         {
             introAudioSource.Stop();

@@ -153,8 +153,6 @@ public class ObjectPoolingManager : MonoBehaviour
         return meleeWeaponInstance;
     }
     //just to make the job of preloading a fuckton of bullets easier, and to add more scalability to the project
-
-    
     private void fillBulletList( ref List<GameObject> bulletList,GameObject prefab,  int amount) {
         bulletList = new List<GameObject>(amount);
         for (int i = 0; i < amount; i++)

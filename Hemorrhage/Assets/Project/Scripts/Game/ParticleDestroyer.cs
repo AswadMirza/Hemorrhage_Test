@@ -10,6 +10,7 @@ using UnityEngine;
 public class ParticleDestroyer : MonoBehaviour
 {
     GameObject particle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,9 @@ public class ParticleDestroyer : MonoBehaviour
         
     }
 
+    /*
+     * When the player enters this trigger, this code starts a timer then destroys the particle effect
+     */
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -25,6 +29,9 @@ public class ParticleDestroyer : MonoBehaviour
         }
     }
 
+    /*
+     * Timer to Destroy the particle effect
+     */
     IEnumerator DestroyEffect()
     {
         yield return new WaitForSeconds(2);

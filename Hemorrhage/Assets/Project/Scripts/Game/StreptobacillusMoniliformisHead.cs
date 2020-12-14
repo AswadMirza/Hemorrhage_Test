@@ -9,6 +9,7 @@ using UnityEngine.Rendering;
 
 public class StreptobacillusMoniliformisHead : Enemy
 {
+    //Fields
     public int InitialHealth = 100;
     public int damage = 25;
 
@@ -32,7 +33,7 @@ public class StreptobacillusMoniliformisHead : Enemy
     public GameObject player;
     public GameObject[] body = new GameObject[6];
 
-    // Start is called before the first frame update
+    // Initializes the health and damage
     void Start()
     {
         this.Health = InitialHealth;
@@ -48,12 +49,15 @@ public class StreptobacillusMoniliformisHead : Enemy
         v2 = player.transform.position;
         distance = Vector3.Distance(v1, v2);
 
-        //rotate to look at the player
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(player.transform.position -
             this.gameObject.transform.position), m_rotation * Time.deltaTime);
 
         Move();
 
+        /*
+         * If the player steps out of the specific range, StreptobacillusMonoiliformis increases it's speed to ram the player. 
+         */
+        
         /*if (distance > 3)
         {
             timer += Time.deltaTime;
@@ -65,9 +69,14 @@ public class StreptobacillusMoniliformisHead : Enemy
                 timer = 0;
                 Speed = 25;
             }
-        }*/
+        } else {
+            Move();
+            }*/
     }
 
+    /*
+     * Overrides the OnKill method from the enemy class to destroy all the parts of the boss's body
+     */
     protected override void OnKill()
     {
         base.OnKill();
@@ -93,6 +102,9 @@ public class StreptobacillusMoniliformisHead : Enemy
     }
 
     
+    /*
+     * Multiplies the speed of the boss to ram the player
+     */
     void Lunge(float multiplier)
     {
         Debug.Log("HeadLunge");

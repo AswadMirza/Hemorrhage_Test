@@ -12,6 +12,7 @@ public class BossLevel : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        //Enables the Scripts of the Boss and it's body parts
         if(other.gameObject.name == "Player")
         {
             door.SetActive(true);
