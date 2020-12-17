@@ -4,13 +4,14 @@
  * Last Modified DD/MM/YYYY
  * By: [Insert Name]
  * 
- * Contributors:
+ * Contributors: Aswad Mirza
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * The class basically takes a public array of audioclips and just plays through each clip one by one until it reaches the
+ * end of the audioclips, and then the script deletes itself from the object
  */
 public class AudioListPlayer : MonoBehaviour
 {

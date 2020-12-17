@@ -4,7 +4,7 @@
  * Last Modified 25/11/2020
  * By: Aswad Mirza
  * 
- * Contributors:
+ * Contributors:Aswad Mirza
  */
 
 using UnityEngine;
@@ -55,7 +55,7 @@ public class UseMeleeWeapon : MonoBehaviour
             */
             Rigidbody rb = weapon.GetComponent<Rigidbody>();
 
-            //Launch that shit with the might of zeus
+            //Launch that wep with the might of zeus
             //rb.AddRelativeForce(0, 2000, 0);
             rb.AddRelativeForce(MeleeDirection);
             //fireRate is equal to the delay fireRate

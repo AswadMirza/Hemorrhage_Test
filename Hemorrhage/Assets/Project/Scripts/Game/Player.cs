@@ -4,7 +4,7 @@
  * Last Modified 25/11/2020
  * By: [Insert Name]
  * 
- * Contributors:
+ * Contributors: Aswad Mirza
  */
 
 using UnityEngine;

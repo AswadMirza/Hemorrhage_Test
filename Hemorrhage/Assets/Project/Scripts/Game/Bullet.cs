@@ -1,10 +1,10 @@
 ﻿/**
  * Created DD/MM/YYYY
- * By: [Insert Name]
+ * By: Sharek Khan
  * Last Modified DD/MM/YYYY
  * By: [Insert Name]
  * 
- * Contributors:
+ * Contributors: Aswad Mirza
  */
 
 using UnityEngine;
