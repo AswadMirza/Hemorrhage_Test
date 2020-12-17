@@ -48,14 +48,14 @@ public class StreptobacillusMoniliformisBody : Enemy
         Move();
     }
 
-    // [Describe the function of this method]
+    // Moves this gameobject forward
     void Move()
     {
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
-    // [Describe the function of this method]
+    // Get's what this gameobject is attached to
     public GameObject getAttach()
     {
         return body;

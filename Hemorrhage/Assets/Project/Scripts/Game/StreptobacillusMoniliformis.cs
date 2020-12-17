@@ -47,7 +47,7 @@ public class StreptobacillusMoniliformis : MonoBehaviour
         }
     }
 
-    // [Describe the function of this method]
+    // Stops the Streptobacillus Moniliformis and moves it towards the player at a increased speed
     IEnumerator Lunge(float multiplier)
     {
         Debug.Log("HeadLunge");

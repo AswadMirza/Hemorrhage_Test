@@ -38,7 +38,6 @@ public class EnemyGenerator : MonoBehaviour
 
     private List<GameObject> enemiesSpawned = new List<GameObject>();
     private bool spawned = false;
-    // Start is called before the first frame update
 
     // Start is called before the first frame update
     void Start()

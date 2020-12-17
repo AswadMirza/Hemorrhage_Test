@@ -55,6 +55,7 @@ public class StreptobacillusMoniliformisHead : Enemy
         v2 = player.transform.position;
         distance = Vector3.Distance(v1, v2);
 
+        // Rotates the gameobject to look at the player
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(player.transform.position -
             this.gameObject.transform.position), m_rotation * Time.deltaTime);
 
@@ -99,7 +100,7 @@ public class StreptobacillusMoniliformisHead : Enemy
         Destroy(body[5]);
     }
 
-    // [Describe the function of this method]
+    // Moves the head forward
     void Move()
     {
         //move towards the player

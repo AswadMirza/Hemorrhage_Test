@@ -20,12 +20,6 @@ public class Credits : MonoBehaviour
 {
     public float scrollSpeed = 10;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -42,6 +36,7 @@ public class Credits : MonoBehaviour
         }
     }
 
+    //Starts the CreditTimer once the Exit Trigger condition is met
     void OnTriggerExit(Collider collider)
     {
         if (collider.gameObject.name == "Canvas")
@@ -51,12 +46,14 @@ public class Credits : MonoBehaviour
         }
     }
 
+    //Loads the MainMennu
     void OnPress()
     {
         Debug.Log("Loading Main Menu...");
         SceneManager.LoadScene("MainMenu");
     }
 
+    //Sets up the Timer for Credits
     IEnumerator CreditsTimer()
     {
         yield return new WaitForSeconds(5);
