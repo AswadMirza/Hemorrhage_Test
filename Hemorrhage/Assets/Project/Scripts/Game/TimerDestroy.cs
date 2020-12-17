@@ -4,13 +4,13 @@
  * Last Modified DD/MM/YYYY
  * By: [Insert Name]
  * 
- * Contributors:Aswad Mirza
+ * Contributors: Aswad Mirza
  */
 
 using UnityEngine;
 
 /*
- * [General use function to destroy any game object after x time]
+ * TimerDestroy general use function to destroy any game object after x time
  */
 public class TimerDestroy : MonoBehaviour
 {
@@ -30,6 +30,5 @@ public class TimerDestroy : MonoBehaviour
         }
 
         Timer -= Time.deltaTime;
-        
     }
 }

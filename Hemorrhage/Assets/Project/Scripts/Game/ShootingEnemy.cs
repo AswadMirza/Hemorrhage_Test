@@ -1,22 +1,21 @@
 /**
- * Created DD/MM/YYYY
- * By: [Insert Name]
+ * Created DD/MM/2020
+ * By: Sharek Khan
  * Last Modified 26/10/2020
  * By: Sharek Khan
  * 
- * Contributors:Aswad Mirza
+ * Contributors:Aswad Mirza, Sharek Khan
  */
 
 using UnityEngine;
 using UnityEngine.AI;
 
 /*
- * [Describe the function of the class]
+ * ShootingEnemy handles all the logic, AI and behaviour patterns of the ShootingEnemy GameObject
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class ShootingEnemy : Enemy
 {
-
     public int InitialHealth = 10;
     public AudioSource deathSound;
     public float shootingInterval = 4f;
@@ -98,7 +97,7 @@ public class ShootingEnemy : Enemy
     */
 
 
-    // [Describe the function of this method]
+    // OnKill handles the logic for when the ShootingEnemy dies, in this case it calls the base class function and falls over
     protected override void OnKill()
     {
         base.OnKill();
@@ -109,7 +108,7 @@ public class ShootingEnemy : Enemy
     }
 
 
-    // [Describe the function of this method]
+    // Grabbed handles the behaviour of the ShootingEnemy reacts when grabbed by the Player through MeleeWeapon [Added By: Aswad Mirza]
     protected override void Grabbed()
     {
         if (IsGrabbed)

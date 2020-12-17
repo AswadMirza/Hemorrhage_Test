@@ -2,19 +2,21 @@
  * Created 25/11/2020
  * By: Sharek Khan
  * Last modified 25/11/2020 
- * By: Sharek Khan 
- * Contributors: Aswad Mirza
+ * By: Sharek Khan
+ * 
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using System.Collections.Generic;
 
 /*
- * ActivityLog class handles all game centric events that happening during the game
+ * ActivityLog handles all game centric events that happening during the game
  */
 public class ActivityLog
 {
     private static List<string> m_events = new List<string>(); 
 
+    // AddActivity adds a new event to the List
     public static void AddActivity(string _event)
     {
         // Adds a new event to the log
@@ -27,11 +29,13 @@ public class ActivityLog
         }
     }
 
+    // ClearLog clears an event from the List
     public static void ClearLog() {
         // Returns the last event logged
         m_events[m_events.Count - 1] = "";
     }
 
+    // ReadRecentActivity returns the last event from the List
     public static string ReadRecentActivity()
     {
         // Checks if event log has any events added

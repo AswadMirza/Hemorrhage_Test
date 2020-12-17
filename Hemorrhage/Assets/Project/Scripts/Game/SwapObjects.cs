@@ -4,13 +4,13 @@
  * Last Modified DD/MM/YYYY
  * By: [Insert Name]
  * 
- * Contributors:Aswad Mirza
+ * Contributors: Aswad Mirza
  */
 
 using UnityEngine;
 
 /*
- * [Switches between this game object to another game object, and destroys the original]
+ * SwapObjecs switches between this game object to another game object, and destroys the original
  * Code based on Brackeys - SHATTER/DESTRUCTION In Unity (Tutorial) https://www.youtube.com/watch?time_continue=69&v=Dn_BUIVdAPg&feature=emb_title
  */
 public class SwapObjects : MonoBehaviour

@@ -1,16 +1,16 @@
 ﻿/**
- * Created DD/MM/YYYY
+ * Created 26/10/YYYY
  * By: Sharek Khan
  * Last Modified 26/10/2020
  * By: Sharek Khan
  *
- * Contributors: 
+ * Contributors: Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * CholesterolCrateBroken handles all the logic with the CholesterolCrate GameObject and how it applies within the game
  */
 public class CholesterolCrateBroken : MonoBehaviour
 {

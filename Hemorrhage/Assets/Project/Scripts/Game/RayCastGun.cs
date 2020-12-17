@@ -4,18 +4,17 @@
  * Last Modified 26/10/2020
  * By: Sharek Khan
  * 
- * Contributors:Aswad Mirza
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Unused code for testing how to fire a gun through raycasting]
+ * RayCastGun was unused logic created for testing on how to fire a gun through raycasting
  * Code is based on Brackeys tutorial https://www.youtube.com/watch?v=THnivyG0Mvo
  */
 public class RayCastGun : MonoBehaviour
 {
-
     public int damage = 10;
     public float range = 100f;
     public Camera PlayerCamera;
@@ -35,7 +34,7 @@ public class RayCastGun : MonoBehaviour
         }
     }
 
-    // [Unused method for firing a raycast from the gun]
+    // Shoot is an unused method for firing a raycast from the gun
     void Shoot() {
         RaycastHit hit;
 

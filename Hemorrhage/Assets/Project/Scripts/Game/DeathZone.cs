@@ -4,13 +4,13 @@
  * Last Modified 03/12/2020
  * By: Sharek Khan
  * 
- * Contributors:Aswad Mirza, Sharek Khan
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Used to have the player die when they fall out of bounds or into a pit]
+ * Deathzone handles the logic when the Player falls out of bounds or into a pit
  */
 public class DeathZone : MonoBehaviour
 {

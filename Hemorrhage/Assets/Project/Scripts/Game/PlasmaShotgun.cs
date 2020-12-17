@@ -4,13 +4,17 @@
  * Last Modified 02/12/2020
  * By: Aswad Mirza
  * 
+<<<<<<< Updated upstream
  * Contributors: Aswad Mirza, Omer Farkhand
+=======
+ * Contributors: Aswad Mirza, Sharek Khan
+>>>>>>> Stashed changes
  */
 
 using UnityEngine;
 
 /*
- * [One of the two main weapons of the game, fires a shotgun shell which fires several pellets which was meant to be good for single target]
+ * PlasmaShotgun is one of the two main weapons of the game, fires a shotgun shell which fires several pellets which was meant to be good for single target]
  */
 public class PlasmaShotgun : MonoBehaviour
 {
@@ -45,12 +49,10 @@ public class PlasmaShotgun : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Fire();
-            
-
         }
     }
 
-    // [Describe the function of this method]
+    // Fire handles the functionality of when the PlasmaShotgun is activated by the Player and instantiates bullets
     void Fire()
     {
         // Condition checks if Ammo is present/Players not dead/Input not within fire rate

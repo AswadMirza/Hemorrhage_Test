@@ -1,16 +1,16 @@
 ﻿/**
- * Created DD/MM/YYYY
+ * Created 04/10/2020
  * By: Sharek Khan
  * Last Modified 04/10/2020
  * By: Sharek Khan
  * 
- * Contributors: 
+ * Contributors: Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * VitaCapsule handles all the logic with the VitaCapsule GameObject and how it applies within the game
  */
 public class VitaCapsule : MonoBehaviour
 {

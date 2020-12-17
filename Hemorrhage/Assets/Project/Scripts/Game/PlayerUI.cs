@@ -1,17 +1,17 @@
 ﻿/** 
- * Created
+ * Created 25/11/YYYY
  * By: Sharek Khan
  * Last modified 03/12/2020
  * By: Sharek Khan
  * 
- * Contributors:
+ * Contributors: Sharek Khan
  */
 
 using UnityEngine;
 using UnityEngine.UI;
 
 /*
- * [Describe the function of the class]
+ * PlayerUI handles all the logic and functionality for the UI for the core gameplay, displays game critical information
  */
 public class PlayerUI : MonoBehaviour
 {

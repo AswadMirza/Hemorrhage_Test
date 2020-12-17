@@ -4,13 +4,13 @@
  * Last Modified 25/11/2020
  * By: Aswad Mirza
  * 
- * Contributors:Aswad Mirza
+ * Contributors: Aswad Mirza
  */
 
 using UnityEngine;
 
 /*
- * [Script for creating a melee weapon instance and launching it forward and making sounds, has an adujustable fire rate and force]
+ * UseMeleeWeapon for creating a melee weapon instance and launching it forward and making sounds, has an adujustable fire rate and force]
  */
 public class UseMeleeWeapon : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class UseMeleeWeapon : MonoBehaviour
 
     private AudioSource source;
 
-    //logic for fireRate
+    // Logic for fireRate
     public float initialFireRate = 0f;
     public float delayFireRate = 1f;
     public Vector3 MeleeDirection =new Vector3(0,100,5000);
@@ -35,7 +35,7 @@ public class UseMeleeWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //reducing the firerate by delta time
+        // Reducing the firerate by delta time
         if (m_fireRate >= 0) {
             m_fireRate -= Time.deltaTime;
         }

@@ -1,17 +1,17 @@
 ﻿/**
- * Created DD/MM/YYYY
+ * Created 26/10/YYYY
  * By: Sharek Khan
  * Last Modified 03/12/2020
  * By: Sharek Khan
  * 
- * Contributors: Aswad Mirza
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using System.Collections;
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * PlayerHitBox handles all the collision logic for the Player, with interactables, environment, enemies...
  */
 public class PlayerHitBox : MonoBehaviour
 {
@@ -160,7 +160,7 @@ public class PlayerHitBox : MonoBehaviour
         }
     }
 
-    // [Describe the function of this method]
+    // HurtRoutine schedules a duration for how long a Player should be damaged
     IEnumerator HurtRoutine()
     {
         yield return new WaitForSeconds(hurtDuration);

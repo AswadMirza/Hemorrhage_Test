@@ -1,16 +1,17 @@
 ﻿/**
- * Created DD/MM/YYYY
- * By: [Insert Name]
+ * Created 04/10/2020
+ * By: Sharek Khan
  * Last Modified 04/10/2020
  * By: Sharek Khan
  * 
- * Contributors:
+ * Contributors: Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * PlasmaAmmo moves the Plasma prefab fired every frame by a set amount, and after it is active for x time it will be set as inactive
+ * it also has a bool property that can be used to determine if it was fired by the Player or not for hit detection purposes
  */
 public class PlasmaAmmo : MonoBehaviour
 {

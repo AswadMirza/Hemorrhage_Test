@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * Loops the part of music that is to be looped, ends once the trigger is passed through
+ * MusicLooper loops the part of music that is to be looped, ends once the trigger is passed through
  */
 public class MusicLooper : MonoBehaviour
 {

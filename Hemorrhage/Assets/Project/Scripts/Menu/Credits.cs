@@ -12,7 +12,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /*
- * This script handles the credit sequence
+ * Credit script handles the logic behind Credit sequence
  */
 public class Credits : MonoBehaviour
 {
@@ -34,24 +34,26 @@ public class Credits : MonoBehaviour
         }
     }
 
-    //Starts the CreditTimer once the Exit Trigger condition is met
+    // OnTriggerExit detects all trigger collisions on exit
     void OnTriggerExit(Collider collider)
     {
+        // Condition check is the colliding object is a Canvas
         if (collider.gameObject.name == "Canvas")
         {
+            // Stops the scroll sequence and sets off the timer
             scrollSpeed = 0;
             StartCoroutine(CreditsTimer());
         }
     }
 
-    //Loads the MainMennu
+    // OnPress transitions to the MainMenu scene
     void OnPress()
     {
         Debug.Log("Loading Main Menu...");
         SceneManager.LoadScene("MainMenu");
     }
 
-    //Sets up the Timer for Credits
+    // CreditsTimer sets up the timer for Credits
     IEnumerator CreditsTimer()
     {
         yield return new WaitForSeconds(5);

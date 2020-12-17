@@ -1,16 +1,16 @@
 ﻿/**
- * Created DD/MM/YYYY
- * By: [Insert Name]
+ * Created DD/MM/2020
+ * By: Sharek Khan
  * Last Modified 25/11/2020
- * By: [Insert Name]
+ * By: Sharek Khan
  * 
- * Contributors: Aswad Mirza
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [The player class for the player of the game]
+ * Player handles all the logic, functionality and behaviour patterns of the Player GameObject
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class Player : MonoBehaviour

@@ -1,16 +1,20 @@
 ﻿/** 
- * Created DD/MM/YYYY
+ * Created 21/10/2020
  * By: Sharek Khan
  * Last modified 03/12/2020
  * By: Sharek Khan
  * 
+<<<<<<< Updated upstream
  * Contributors:Aswad Mirza, Sharek Khan
+=======
+ * Contributors: Aswad Mirza, Sharek Khan
+>>>>>>> Stashed changes
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * CancerCell handles all the logic, AI and behaviour patterns of the CancerCell GameObject
  */
 public class CancerCell : Enemy
 {
@@ -133,7 +137,7 @@ public class CancerCell : Enemy
         }
     }
 
-    // Enemies Behaviour Patterns when not near Player
+    // OnIdle determines CancerCell behaviour patterns when not near Player
     void OnIdle()
     {
         // Translate enemy back and forth, while rotating around
@@ -150,7 +154,7 @@ public class CancerCell : Enemy
         }
     }
 
-    // Added by aswad, seperating the function to look at the player and function to attack
+    // LookAtPlayer seperates the function to look at the player and function to attack [Added by: Aswad Mirza]
     void LookAtPlayer() {
         // Rotate in Player direction
         Vector3 playerDir = m_player.transform.position - transform.position;
@@ -159,8 +163,7 @@ public class CancerCell : Enemy
         transform.position = CalculateDirection(transform.position, m_player.transform.position, m_chaseSpeed);
     }
 
-
-    // Enemies Behaviour Patterns when enter Player vicinity
+    // OnAttack determines CancerCell behaviour patterns when entering Player vicinity
     void OnAttack()
     {
         //LookAtPlayer();
@@ -187,8 +190,8 @@ public class CancerCell : Enemy
     }
     */
 
-    // [Handles the logic for when the enemy dies, in this case it calls the base class function and instantiates 
-    //the killed version of this prefab and destroys this game object]
+    // OnKill handles the logic for when the CancerCell dies, in this case it calls the base class function and instantiates 
+    // the killed version of this prefab and destroys this game object
     protected override void OnKill()
     {
         base.OnKill();
@@ -208,34 +211,35 @@ public class CancerCell : Enemy
         //transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 
-    // Aswad Mirza contributed with the grab functionality
+    // Grabbed handles the behaviour of the CancerCell reacts when grabbed by the Player through MeleeWeapon [Added By: Aswad Mirza]
     protected override void Grabbed()
     {
         if (IsGrabbed)
         {
             Debug.Log("Grabbed");
             //disable the navmesh agent
-
-
+            // Condition checks if CancerCell RigidBody component is active
             if (m_rigidbody != null)
             {
 
                 m_rigidbody.isKinematic = true;
             }
-
+            // Condition checks if Players last position is relative to stationary movement
             if (m_lastPlayerLocation.Equals(Vector3.zero))
             {
                 Debug.Log("Going to the last Player location");
                 m_lastPlayerLocation = m_player.transform.position;
             }
-
+            // Condition checks the delta between the CancerCell and Player distance is greater than the grab distance
             if (Vector3.Distance(transform.position, m_lastPlayerLocation) > grabDistance)
             {
 
                 transform.position = CalculateDirection(transform.position, m_lastPlayerLocation, grabSpeed);
             }
+            // Condition checks the delta between the CanerCell and Player distance is less than or equal to the grab distance
             else
             {
+                // CancerCell is no longer grabbed and returns to it's previous state (position and physics)
                 IsGrabbed = false;
                 m_lastPlayerLocation = Vector3.zero;
                 if (m_rigidbody != null)

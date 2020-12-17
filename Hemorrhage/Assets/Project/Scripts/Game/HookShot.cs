@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Script that allows the player to be pulled towards the object that has this script when it is hit with the melee weapon]
+ * HookShot allows the Player to be pulled towards the object that has this script when it is hit with the melee weapon
  */
 public class HookShot : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class HookShot : MonoBehaviour
         Traversal();
     }
 
-    // [Describe the function of this method]
+    // CalculateDirection is a helper function for calculating direction of vectors
     protected Vector3 CalculateDirection(Vector3 source, Vector3 destination, float speed)
     {
         Vector3 direction = (destination - source).normalized;
@@ -49,7 +49,7 @@ public class HookShot : MonoBehaviour
     void Traversal() {
         if (IsGrabbed)
         {
-            Debug.Log("Moving Player to Object");
+            Debug.Log("Moving Player to Object.");
              
             if (Vector3.Distance(transform.position, PlayerObject.transform.position) > GrabDistance)
             {
@@ -59,7 +59,7 @@ public class HookShot : MonoBehaviour
             {
                 IsGrabbed = false;
                
-                Debug.Log("Player Arrived close enough to object");
+                Debug.Log("Player Arrived close enough to object.");
             }
         }
     }
@@ -80,7 +80,7 @@ public class HookShot : MonoBehaviour
                 }
             
             }
-            Debug.Log("You triggered me");
+            Debug.Log("HookShot was successful.");
         }
     }
 }

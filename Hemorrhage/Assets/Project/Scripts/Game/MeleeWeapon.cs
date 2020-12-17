@@ -4,14 +4,14 @@
  * Last Modified 25/11/2020
  * By: Sharek Khan
  * 
- * Contributors: Aswad Mirza
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Key feature of the game, is used to pull enemies closer to the player or have the player traverse to hookshot objects
- * damages enemies and restores plasma once the player kills an enemy with it, will destroy itself after x time]
+ * MeleeWeapon is the Key Feature of the game, is used to pull enemies closer to the player or have the player traverse to HookShot objects
+ * damages enemies and restores plasma once the player kills an enemy with it, will destroy itself after x time
  */
 public class MeleeWeapon : MonoBehaviour
 {
@@ -62,7 +62,7 @@ public class MeleeWeapon : MonoBehaviour
         Enemy enemy = null;
         // Condition checks if colliding object has a Enemy component and boolean isFired flag is not active
         if (collision.gameObject.GetComponent<Enemy>() != null &&!m_isFired) {
-            Debug.Log("gottem");
+            Debug.Log("Melee grab successful.");
             enemy = collision.gameObject.GetComponent<Enemy>();
             enemy.IsGrabbed = true;
             enemy.TakeDamage(damage);
@@ -81,14 +81,14 @@ public class MeleeWeapon : MonoBehaviour
         }
     }
 
-    // [Unused function to have the object move through a script rather then through its rigidbody]
+    // MoveObject is a unused function to have the object move through a script rather then through its Rigidbody
     private void MoveObject()
     {
         // Make the weapon move
         transform.position += transform.forward * speed * Time.deltaTime; 
     }
 
-    // [Unused script for moving an emey directly in front of the player]
+    // PullObject is a unused script for moving an Enemy directly in front of the Player
     private void pullObject(GameObject enemy) {
         Vector3 distanceFromPlayer = m_playerObject.transform.forward;
        // distanceFromPlayer.z += m_enemyDistance;

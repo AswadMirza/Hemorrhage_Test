@@ -1,16 +1,16 @@
 ﻿/**
- * Created DD/MM/YYYY
+ * Created 09/12/2020
  * By: Sharek Khan
  * Last Modified 09/12/2020
  * By: Sharek Khan
  *
- * Contributors: 
+ * Contributors: Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * MyoviridaeFiber handles all the logic and functionality required to "animate" the Myoviridae's fiber limbs
  */
 public class MyoviridaeFiber : MonoBehaviour
 {

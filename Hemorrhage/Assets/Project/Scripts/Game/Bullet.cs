@@ -4,14 +4,14 @@
  * Last Modified DD/MM/YYYY
  * By: [Insert Name]
  * 
- * Contributors: Aswad Mirza
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Moves the bullet prefab fired every frame by a set amount, and after it is active for x time it will be set as inactive
- * it also has a bool property that can be used to determine if it was fired by the player or not for hit detection purposes]
+ * Bullet moves the Bullet prefab fired every frame by a set amount, and after it is active for x time it will be set as inactive
+ * it also has a bool property that can be used to determine if it was fired by the player or not for hit detection purposes
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class Bullet : MonoBehaviour
@@ -34,10 +34,10 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Make the bullet move
+        // Make the Bullet move
         transform.position += transform.forward * speed * Time.deltaTime;
 
-        // Check if the bullet should be destroyed
+        // Check if the Bullet should be destroyed
         lifeTimer -= Time.deltaTime;
         if(lifeTimer <= 0f)
         {

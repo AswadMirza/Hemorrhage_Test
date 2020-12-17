@@ -4,13 +4,13 @@
  * Last Modified DD/MM/YYYY
  * By: [Insert Name]
  * 
- * Contributors:Aswad Mirza
+ * Contributors: Aswad Mirza
  */
 
 using UnityEngine;
 
 /*
- * [Was to be an interface that all objects could use, but never implemented]
+ * Grabbable Was to be an interface that all objects could use, but never implemented
  */
 public class Grabbable : MonoBehaviour
 {

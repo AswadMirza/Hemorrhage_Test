@@ -1,15 +1,16 @@
 ﻿/** 
- * Created DD/MM/YYYY
+ * Created 21/10/2020
  * By: Sharek Khan
  * Last modified 03/12/2020
  * By: Sharek Khan
- * Cotributors: Aswad Mirza
+ * 
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * Myoviridae handles all the logic, AI and behaviour patterns of the Myoviridae GameObject
  */
 public class Myoviridae : Enemy
 {
@@ -88,7 +89,7 @@ public class Myoviridae : Enemy
         }
 
 
-        // because we are using ontrigger enter in this class, it needs to be updated
+        // Because we are using ontrigger enter in this class, it needs to be updated
         if (collider.GetComponent<Bullet>() != null)
         {
             // Calls an instance of the PlasmaAmmo script component
@@ -152,7 +153,8 @@ public class Myoviridae : Enemy
     }
 
 
-    // [Describe the function of this method]
+    // OnKill handles the logic for when the Myoviridae dies, in this case it calls the base class function and instantiates 
+    // the killed version of this prefab and destroys this game object
     protected override void OnKill()
     {
         base.OnKill();
@@ -162,7 +164,7 @@ public class Myoviridae : Enemy
         Destroy(this.gameObject);
     }
 
-    // Grab functionality implemented by Aswad Mirza
+    // Grabbed handles the behaviour of the CancerCell reacts when grabbed by the Player through MeleeWeapon [Added By: Aswad Mirza]
     protected override void Grabbed()
     {
        

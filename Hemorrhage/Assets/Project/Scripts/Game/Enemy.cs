@@ -1,6 +1,6 @@
 /**
- * Created DD/MM/YYYY
- * By: [Insert Name]
+ * Created DD/MM/2020
+ * By: Sharek Khan
  * Last Modified 10/26/2020
  * By: Sharek Khan
  * 
@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Base class that defines what properties and functions all enemies share]
+ * Enemy base class that defines what properties and functions all enemies share
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class Enemy : MonoBehaviour
@@ -52,10 +52,10 @@ public class Enemy : MonoBehaviour
         */
     }
 
-    // Base function that will be overriden by inherited class, determing how enemy will behave on death
+    // OnKill base function that will be overriden by inherited class, determing how Enemy will behave on death
     protected virtual void OnKill() { }
 
-    // Makes the enemy take x damage, and then check if it is dead or not
+    // TakeDamage makes the Enemy take x damage and then check if it is dead or not
     public void TakeDamage(int damage) {
         m_health -= damage;
         if (m_health <= 0) {
@@ -67,14 +67,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Helper function for calculating direction of vectors
+    // CalculateDirection is a helper function for calculating direction of vectors
     protected Vector3 CalculateDirection(Vector3 source, Vector3 destination, float speed) {
         Vector3 direction = (destination - source).normalized;
         source += (direction * speed * Time.deltaTime);
         return source;
     }
 
-    // [Base class function that all other enemies can override for thier logic when they are grabbed]
+    // Grabbed base class function that all other enemies can override for their logic when they are grabbed
     protected virtual void Grabbed() {
         Debug.Log("Base Class Grabbed");
     }

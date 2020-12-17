@@ -4,14 +4,18 @@
  * Last Modified 01/12/2020
  * By: Omer Farkhand
  * 
+<<<<<<< Updated upstream
  * Contributors: Aswad Mirza, Sharek Khan, Omer Farkhand
+=======
+ * Contributors: Aswad Mirza, Sharek Khan
+>>>>>>> Stashed changes
  */
 
 using UnityEngine;
 
 /*
- * [One of the two main weapons in the game, can fire bullets in quick succession on mouse down or when the mouse is held down
- * also has adjustable firerates for fine tuning gameplay]
+ * PlasmaRifle is one of the two main weapons in the game, can fire bullets in quick succession on mouse down or when the mouse is held down
+ * also has adjustable firerates for fine tuning gameplay
  */
 public class PlasmaRifle : MonoBehaviour
 {
@@ -55,7 +59,7 @@ public class PlasmaRifle : MonoBehaviour
         }
     }
 
-    // [Describe the function of this method]
+    // Fire handles the functionality of when the PlasmaRifle is activated by the Player and instantiates bullets
     void Fire()
     {
         // Condition checks if Ammo is present/Players not dead/Input within fire rate

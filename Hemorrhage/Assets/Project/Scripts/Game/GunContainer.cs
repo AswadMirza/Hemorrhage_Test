@@ -4,13 +4,13 @@
  * Last Modified 25/11/2020
  * By: Sharek Khan
  * 
- * Contributors:Aswad Mirza
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * Purpose of this class is to hold all the gun models and choose which is active
+ * GunContainer purpose is to hold all the gun models and choose which is active
  * IDEA: Each gun has its own fire functionality, and different bullets that they fire.
  * When the player left clicks, they just call the selected gun's fire script
  * When the player scrolls up and down, they just select a different gun
@@ -75,7 +75,7 @@ public class GunContainer : MonoBehaviour
         }
     }
 
-    // [Describe the function of this method]
+    // SelectWeapon manages the logic between cycling through and activating/deactivating a gun
     public void SelectWeapon() {
         // For each child transform in the transform in the gunContainer, we are looping through them
         int index = 0;

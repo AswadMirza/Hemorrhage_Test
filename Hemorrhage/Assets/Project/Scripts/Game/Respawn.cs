@@ -4,21 +4,21 @@
  * Last Modified 03/12/2020
  * By: Sharek Khan
  * 
- * Contributors:Aswad Mirza
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /*
- * [Handles respawning the player to the beginning of the level on death or to a goal]
+ * Respawn handles respawning the Player to the beginning of the level on death or to a goal
  */
 public class Respawn : MonoBehaviour
 {
-
     private Vector3 m_startPos;
     private Quaternion m_startRot;
     Player player;
+
     // Start is called before the first frame update
     void Start()
     {

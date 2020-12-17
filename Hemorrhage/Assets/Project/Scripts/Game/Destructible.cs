@@ -1,16 +1,16 @@
 ﻿/** 
- * Created DD/MM/YYYY
+ * Created 19/11/YYYY
  * By: Sharek Khan
  * Last modified 02/12/2020
  * By: Sharek Khan
  * 
- * Contributors:
+ * Contributors: Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * Destructible handles all the logic and behaviour around the destructible environment objects
  */
 public class Destructible : MonoBehaviour
 {

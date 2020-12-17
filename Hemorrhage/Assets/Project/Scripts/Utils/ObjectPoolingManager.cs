@@ -1,19 +1,19 @@
 ﻿/**
- * Created DD/MM/YYYY
- * By: [Insert Name]
+ * Created DD/MM/2020
+ * By: Sharek Khan
  * Last Modified 04/10/2020
  * By: Aswad Mirza
  * 
- * Contributors:Aswad Mirza
+ * Contributors: Aswad Mirza, Sharek Khan
  */
 
 using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * [Object pools objects so that instead of destroying and recreating objects they are instead either active or inactive in the scene
+ * ObjectPoolingManager pools objects so that instead of destroying and recreating objects they are instead either active or inactive in the scene
  * and save memory and performance for the game at an expense of a longer load time
- * handles the preloading of bullets, smgbullets, shotgun shells and some melee weapon instances]
+ * handles the preloading of bullets, smgbullets, shotgun shells and some melee weapon instances
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class ObjectPoolingManager : MonoBehaviour
@@ -90,97 +90,113 @@ public class ObjectPoolingManager : MonoBehaviour
         }
     }
 
-    // [Describe the function of this method]
+    // GetBullet object pools a Bullet and creates a new member in the List if there are not enough Bullets preloaded
     public GameObject GetBullet(bool shotByPlayer)
     {
+        // Iterates through the List of Bullets
         foreach (GameObject bullet in bullets)
         {
+            // Condition checks if indexed Bullet isn't already active in the game
             if (!bullet.activeInHierarchy)
             {
+                // Activates the Bullet and states whether it was/wasn't fired from Player
                 bullet.SetActive(true);
                 bullet.GetComponent<Bullet>().ShotByPlayer = shotByPlayer;
                 return bullet;
             }
         }
+        // Instantiates a new Bullet prefab with transformation coming from the parent object
         GameObject prefabInstance = Instantiate(bulletPrefab);
         prefabInstance.transform.SetParent(transform);
         bullets.Add(prefabInstance);
         return prefabInstance;
     }
 
-    // Object pools a smg bullet and creates  a new member in the list if there are not enough bullets preloaded
+    // GetSmgBullet object pools a SMGBullet and creates a new member in the List if there are not enough SMGBullets preloaded
     public GameObject GetSmgBullet(bool shotByPlayer)
     {
+        // Iterates through the List of SMGBullets
         foreach (GameObject smgBullet in smgBullets)
         {
+            // Condition checks if indexed SMGBullet isn't already active in the game
             if (!smgBullet.activeInHierarchy)
             {
+                // Activates the SMGBullet and states whether it was/wasn't fired from Player
                 smgBullet.SetActive(true);
                 smgBullet.GetComponent<Bullet>().ShotByPlayer = shotByPlayer;
                 return smgBullet;
             }
         }
+        // Instantiates a new SMGBullet prefab with transformation coming from the parent object
         GameObject smgPrefabInstance = Instantiate(smgBulletPrefab);
         smgPrefabInstance.transform.SetParent(transform);
         smgBullets.Add(smgPrefabInstance);
         return smgPrefabInstance;
     }
 
-    // Object pools a shotgun shell and creates  a new member in the list if there are not enough bullets preloaded
-    // also goes through and sets that each pellet in the shell is shot by the player
+    // GetShotgunShell object pools a ShotgunShell and creates a new member in the List if there are not enough Bullets preloaded
+    // also goes through and sets that each pellet in the shell is shot by the Player
     public GameObject GetShotgunShell(bool shotByPlayer)
     {
+        // Iterates through the List of ShotgunShells
         foreach (GameObject shotgunShell in _shotgunShells)
         {
+            // Condition checks if indexed ShotgunShell isn't already active in the game
             if (!shotgunShell.activeInHierarchy)
             {
+                // Activates the ShotgunShell
                 shotgunShell.SetActive(true);
+                // Iterates through all the Pellets from the ShotgunShell
                 foreach (Transform pellet in shotgunShell.transform)
                 {
+                    // Grabs the Bullet component from each Pellet and states whether it was/wasn't fired from Player
                     Bullet childBullet = pellet.GetComponent<Bullet>();
                     childBullet.ShotByPlayer = shotByPlayer;
-
                 }
                 //shotgunShell.GetComponent<Bullet>().ShotByPlayer = shotByPlayer;
                 return shotgunShell;
             }
         }
+        // Instantiates a new ShotgunShell prefab with transformation coming from the parent object
         GameObject shotgunShellPrefabInstance = Instantiate(shotgunShellPrefab);
         shotgunShellPrefabInstance.transform.SetParent(transform);
         _shotgunShells.Add(shotgunShellPrefabInstance);
         return shotgunShellPrefabInstance;
     }
 
-    // [Describe the function of this method]
+    // GetMeleeWeapon object pools a MeleeWeapon and creates a new member in the List if there are not enough MeleeWeapons preloaded
     public GameObject GetMeleeWeapon()
     {
+        // Iterates through the List of MeleeWeapon projectiles
         foreach (GameObject melee in _meleeWeapons)
         {
+            // Condition checks if indexed MeleeWeapon isn't already active in the game
             if (!melee.activeInHierarchy)
             {
+                // Activates the MeleeWeapon
                 melee.SetActive(true);
                 return melee;
             }
-
-
         }
+        // Instantiates a new MeleeWeapon prefab with transformation coming from the parent object
         GameObject meleeWeaponInstance = Instantiate(meleeWeaponPrefab);
         meleeWeaponPrefab.transform.SetParent(transform);
         _meleeWeapons.Add(meleeWeaponInstance);
         return meleeWeaponInstance;
     }
 
-    // Just to make the job of preloading bullets easier and to add more scalability to the project
+    // FillBulletList tries to make the job of preloading Bullets easier and to add more scalability to the project
     private void fillBulletList(ref List<GameObject> bulletList, GameObject prefab, int amount)
     {
+        // Intializes the List of Bullets with new generic GameObjects
         bulletList = new List<GameObject>(amount);
         for (int i = 0; i < amount; i++)
         {
+            // Instantiates a new GameObject prefab with transformation coming from the parent object
             GameObject prefabInstance = Instantiate(prefab);
             prefabInstance.transform.SetParent(transform);
             prefabInstance.SetActive(false);
             bulletList.Add(prefabInstance);
         }
-
     }
 }

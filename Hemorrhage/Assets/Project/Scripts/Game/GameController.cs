@@ -1,18 +1,22 @@
 ﻿/**
- * Created DD/MM/YYYY
- * By: [Insert Name]
+ * Created DD/MM/2020
+ * By: Sharek Khan
  * Last Modified 03/12/2020
- * By: [Insert Name]
+ * By: Aswad Mirza
  * 
+<<<<<<< Updated upstream
  * Contributors: Aswad Mirza, Sharek Khan
+=======
+ * Contributors: Aswad Mirza, Omer Farkhand, Sharek Khan
+>>>>>>> Stashed changes
  */
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /*
- * [Controls the game logic for moving to the next scene, whether the player has won or lost, and for clearing the acitivty log
- * after x time]
+ * GameController controls the game logic for moving to the next scene, whether the player has won or lost and for clearing the acitivty log
+ * after x time
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class GameController : MonoBehaviour
@@ -26,7 +30,7 @@ public class GameController : MonoBehaviour
     public Player player;
     public GameObject enemyContainer;
 
-    //Removing ui in game controller due to redundancy
+    //Removing UI in game controller due to redundancy
     /*
     [Header("UI")]
     public Text healthText;
@@ -35,6 +39,7 @@ public class GameController : MonoBehaviour
     public Text enemyText;
     public Text infoText;
     */
+
     public int nextLevelIndex = 1;
     public int currentLevelIndex = 0;
 

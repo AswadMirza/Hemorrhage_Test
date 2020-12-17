@@ -1,16 +1,16 @@
 ﻿/**
- * Created DD/MM/YYYY
+ * Created 04/10/2020
  * By: Sharek Khan
  * Last Modified 19/11/2020
  * By: Sharek Khan
  *
- * Contributors: 
+ * Contributors: Sharek Khan
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * CholesterolCrate handles all the logic with the CholesterolCrate GameObject and how it applies within the game
  */
 public class CholesterolCrate : MonoBehaviour
 {
@@ -65,7 +65,7 @@ public class CholesterolCrate : MonoBehaviour
         }
     }
 
-    // [Describe the function of this method]
+    // RNG receives two integers and returns a random number between their interval
     int RNG(int minValue, int maxValue)
     {
         System.Random rng = new System.Random();
