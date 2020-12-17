@@ -4,11 +4,7 @@
  * Last modified 03/12/2020
  * By: Sharek Khan
  * 
-<<<<<<< Updated upstream
- * Contributors:Aswad Mirza, Sharek Khan
-=======
  * Contributors: Aswad Mirza, Sharek Khan
->>>>>>> Stashed changes
  */
 
 using UnityEngine;

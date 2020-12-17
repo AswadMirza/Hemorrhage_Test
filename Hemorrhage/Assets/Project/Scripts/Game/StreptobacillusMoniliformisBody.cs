@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * This script handles the body parts of the Streptobacillus Moniliformis 
+ * StreptobacillusMoniliformisBody handles the logic, AI and behaviour patterns of the body parts of the StreptobacillusMoniliformis 
  */
 public class StreptobacillusMoniliformisBody : Enemy
 {
@@ -47,17 +47,16 @@ public class StreptobacillusMoniliformisBody : Enemy
         Move();
     }
 
-    // Moves this gameobject forward
+    // Move moves this GameBbject forward
     void Move()
     {
-        //move towards the player
+        // Move towards the Player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
-    // Get's what this gameobject is attached to
+    // GetAttach retrieves what this GameObject is attached to
     public GameObject getAttach()
     {
         return body;
     }
-
 }

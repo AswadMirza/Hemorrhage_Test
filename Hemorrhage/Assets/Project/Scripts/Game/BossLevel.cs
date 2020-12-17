@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * Activates the trap door and enables the StreptobacillusMoniliformis scripts
+ * BossLevel activates the trap door and enables the StreptobacillusMoniliformis scripts
  */
 public class BossLevel : MonoBehaviour
 {

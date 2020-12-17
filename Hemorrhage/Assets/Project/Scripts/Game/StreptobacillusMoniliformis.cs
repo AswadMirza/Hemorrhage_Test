@@ -11,7 +11,7 @@ using System.Collections;
 using UnityEngine;
 
 /*
- * This script was to handle attacks for the  Streptobacillus Moniliformis 
+ * StreptobacillusMoniliformis handles all the logic, AI and behaviour patterns of the StreptobacillusMoniliformis GameObject 
  */
 public class StreptobacillusMoniliformis : MonoBehaviour
 {
@@ -46,14 +46,14 @@ public class StreptobacillusMoniliformis : MonoBehaviour
         }
     }
 
-    // Stops the Streptobacillus Moniliformis and moves it towards the player at a increased speed
+    // Lunge stops the StreptobacillusMoniliformis and moves it towards the Player at an increased speed
     IEnumerator Lunge(float multiplier)
     {
         Debug.Log("HeadLunge");
         m_speed *= 0;
         yield return new WaitForSeconds(10);
 
-        //rotate to look at the player
+        // Rotate to look at the player
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, Quaternion.LookRotation(player.transform.position -
             this.gameObject.transform.position), m_rotation * Time.deltaTime);
 
@@ -62,7 +62,7 @@ public class StreptobacillusMoniliformis : MonoBehaviour
         m_speed = 15f;        
         m_speed *= multiplier;
 
-        //move towards the player
+        // Move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 }

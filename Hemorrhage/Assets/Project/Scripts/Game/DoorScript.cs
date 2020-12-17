@@ -2,7 +2,7 @@
  * Created DD/MM/YYYY
  * By: Omer Farkhand
  * Last Modified DD/MM/YYYY
- * By: [Insert Name]
+ * By: Omer Farkhand
  * 
  * Contributors: Omer Farkhand
  */
@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * Activates Doors
+ * DoorScript activates trap doors hidden within the main level Level01
  */
 public class DoorScript : MonoBehaviour
 {

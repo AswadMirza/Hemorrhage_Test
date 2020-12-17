@@ -10,11 +10,11 @@
 using UnityEngine;
 
 /*
- * Handles the head of the Streptobacillus Moniliformis 
+ * StreptobacillusMoniliformisHead handles the logic, AI and behaviour patterns of head of the StreptobacillusMoniliformis 
  */
 public class StreptobacillusMoniliformisHead : Enemy
 {
-    //Fields
+    // Fields
     public int InitialHealth = 100;
     public int damage = 25;
 
@@ -38,9 +38,10 @@ public class StreptobacillusMoniliformisHead : Enemy
     public GameObject player;
     public GameObject[] body = new GameObject[6];
 
-    // Initializes the health and damage
+    // Start is called before the first frame update
     void Start()
     {
+        // Initializes the health and damage
         this.Health = InitialHealth;
         this.Damage = damage;
     }
@@ -99,10 +100,10 @@ public class StreptobacillusMoniliformisHead : Enemy
         Destroy(body[5]);
     }
 
-    // Moves the head forward
+    // Move moves the head forward
     void Move()
     {
-        //move towards the player
+        // Move towards the Player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
