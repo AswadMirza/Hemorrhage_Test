@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [Used to have the player die when they fall out of bounds or into a pit]
  */
 public class DeathZone : MonoBehaviour
 {

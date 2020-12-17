@@ -187,7 +187,8 @@ public class CancerCell : Enemy
     }
     */
 
-    // [Describe the function of this method]
+    // [Handles the logic for when the enemy dies, in this case it calls the base class function and instantiates 
+    //the killed version of this prefab and destroys this game object]
     protected override void OnKill()
     {
         base.OnKill();

@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [Base class that defines what properties and functions all enemies share]
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class Enemy : MonoBehaviour
@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
         return source;
     }
 
-    // [Describe the function of this method]
+    // [Base class function that all other enemies can override for thier logic when they are grabbed]
     protected virtual void Grabbed() {
         Debug.Log("Base Class Grabbed");
     }

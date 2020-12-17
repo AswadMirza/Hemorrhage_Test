@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /*
- * [Describe the function of the class]
+ * [Main purpose of this class is to load the next scene when the player stays inside of it]
  */
 public class Goal : MonoBehaviour
 {

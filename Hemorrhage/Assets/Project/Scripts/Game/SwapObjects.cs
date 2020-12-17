@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [Switches between this game object to another game object, and destroys the original]
  * Code based on Brackeys - SHATTER/DESTRUCTION In Unity (Tutorial) https://www.youtube.com/watch?time_continue=69&v=Dn_BUIVdAPg&feature=emb_title
  */
 public class SwapObjects : MonoBehaviour

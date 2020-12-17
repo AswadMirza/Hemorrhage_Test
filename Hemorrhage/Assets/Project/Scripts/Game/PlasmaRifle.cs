@@ -10,7 +10,8 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [One of the two main weapons in the game, can fire bullets in quick succession on mouse down or when the mouse is held down
+ * also has adjustable firerates for fine tuning gameplay]
  */
 public class PlasmaRifle : MonoBehaviour
 {

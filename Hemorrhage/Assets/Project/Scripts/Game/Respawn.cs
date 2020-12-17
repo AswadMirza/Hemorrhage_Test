@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /*
- * [Describe the function of the class]
+ * [Handles respawning the player to the beginning of the level on death or to a goal]
  */
 public class Respawn : MonoBehaviour
 {

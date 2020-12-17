@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [Script for creating a melee weapon instance and launching it forward and making sounds, has an adujustable fire rate and force]
  */
 public class UseMeleeWeapon : MonoBehaviour
 {

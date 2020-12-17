@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [General use function to destroy any game object after x time]
  */
 public class TimerDestroy : MonoBehaviour
 {

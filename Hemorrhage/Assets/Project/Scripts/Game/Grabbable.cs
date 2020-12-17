@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [Was to be an interface that all objects could use, but never implemented]
  */
 public class Grabbable : MonoBehaviour
 {

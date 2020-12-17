@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [Script that allows the player to be pulled towards the object that has this script when it is hit with the melee weapon]
  */
 public class HookShot : MonoBehaviour
 {

@@ -10,7 +10,8 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [Key feature of the game, is used to pull enemies closer to the player or have the player traverse to hookshot objects
+ * damages enemies and restores plasma once the player kills an enemy with it, will destroy itself after x time]
  */
 public class MeleeWeapon : MonoBehaviour
 {
@@ -80,14 +81,14 @@ public class MeleeWeapon : MonoBehaviour
         }
     }
 
-    // [Describe the function of this method]
+    // [Unused function to have the object move through a script rather then through its rigidbody]
     private void MoveObject()
     {
         // Make the weapon move
         transform.position += transform.forward * speed * Time.deltaTime; 
     }
 
-    // [Describe the function of this method]
+    // [Unused script for moving an emey directly in front of the player]
     private void pullObject(GameObject enemy) {
         Vector3 distanceFromPlayer = m_playerObject.transform.forward;
        // distanceFromPlayer.z += m_enemyDistance;

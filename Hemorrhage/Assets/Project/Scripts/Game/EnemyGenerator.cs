@@ -181,7 +181,8 @@ public class EnemyGenerator : MonoBehaviour
         }
     }
 
-    // [Describe the function of this method]
+    // [Returns whether or not all enemies spawned by this script been killed or not, return false if there is still and enemy alive
+    // or if it has not spawned enemies yet, will return true if all enemies spawned are dead or null since they are Destroyed on death]
     bool AreEnemiesDead()
     {
         bool check = true;

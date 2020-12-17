@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [One of the two main weapons of the game, fires a shotgun shell which fires several pellets which was meant to be good for single target]
  */
 public class PlasmaShotgun : MonoBehaviour
 {

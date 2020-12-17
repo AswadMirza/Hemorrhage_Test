@@ -11,7 +11,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /*
- * [Describe the function of the class]
+ * [Controls the game logic for moving to the next scene, whether the player has won or lost, and for clearing the acitivty log
+ * after x time]
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class GameController : MonoBehaviour

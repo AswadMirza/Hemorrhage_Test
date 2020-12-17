@@ -11,7 +11,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * [Describe function of class]
+ * [Object pools objects so that instead of destroying and recreating objects they are instead either active or inactive in the scene
+ * and save memory and performance for the game at an expense of a longer load time
+ * handles the preloading of bullets, smgbullets, shotgun shells and some melee weapon instances]
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class ObjectPoolingManager : MonoBehaviour

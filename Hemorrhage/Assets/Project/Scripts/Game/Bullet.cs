@@ -10,7 +10,8 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [Moves the bullet prefab fired every frame by a set amount, and after it is active for x time it will be set as inactive
+ * it also has a bool property that can be used to determine if it was fired by the player or not for hit detection purposes]
  * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
  */
 public class Bullet : MonoBehaviour

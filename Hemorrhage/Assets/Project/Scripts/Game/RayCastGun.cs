@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * [Unused code for testing how to fire a gun through raycasting]
  * Code is based on Brackeys tutorial https://www.youtube.com/watch?v=THnivyG0Mvo
  */
 public class RayCastGun : MonoBehaviour
@@ -35,7 +35,7 @@ public class RayCastGun : MonoBehaviour
         }
     }
 
-    // [Describe the function of this method]
+    // [Unused method for firing a raycast from the gun]
     void Shoot() {
         RaycastHit hit;
 
