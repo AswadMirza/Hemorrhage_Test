@@ -5,13 +5,14 @@
  * By: [Insert Name]
  * 
  * Contributors:
+ * Omer Farkhand
  */
 
 using System.Collections;
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * This script was to handle attacks for the  Streptobacillus Moniliformis 
  */
 public class StreptobacillusMoniliformis : MonoBehaviour
 {
@@ -59,7 +60,8 @@ public class StreptobacillusMoniliformis : MonoBehaviour
 
         Debug.Log("Speed = " + m_speed);
 
-        m_speed = 15f;        m_speed *= multiplier;
+        m_speed = 15f;        
+        m_speed *= multiplier;
 
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;

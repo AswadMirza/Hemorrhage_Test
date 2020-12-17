@@ -5,12 +5,13 @@
  * By: Omer Farkhand
  * 
  * Contributors:
+ * Omer Farkhand
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * Loops the part of music that is to be looped, ends once the trigger is passed through
  */
 public class MusicLooper : MonoBehaviour
 {

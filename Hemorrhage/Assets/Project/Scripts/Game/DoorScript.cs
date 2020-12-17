@@ -5,12 +5,13 @@
  * By: [Insert Name]
  * 
  * Contributors:
+ * Omer Farkhand
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * Activates Doors
  */
 public class DoorScript : MonoBehaviour
 {

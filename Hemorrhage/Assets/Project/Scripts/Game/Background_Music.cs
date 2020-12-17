@@ -2,7 +2,7 @@
  * Created DD/MM/YYYY
  * By: Omer Farkhand
  * Last Modified DD/MM/YYYY
- * By: [Insert Name]
+ * By: Omer Farkhand
  * 
  * Contributors:
  */
@@ -10,7 +10,7 @@
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * This script handles triggering the background music
  */
 public class Background_Music : MonoBehaviour
 {

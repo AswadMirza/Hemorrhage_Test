@@ -3,12 +3,19 @@
  * By: Omer Farkhand
  * Last modified 12/12/2020
  * By: Sharek Khan
+ * 
+ * Contributors:
+ * Omer Farkhand
+ * Sharek Khan
  */
 
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * This script handles the credit sequence
+ */
 public class Credits : MonoBehaviour
 {
     public float scrollSpeed = 10;

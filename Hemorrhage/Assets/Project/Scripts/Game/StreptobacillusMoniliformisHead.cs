@@ -5,12 +5,13 @@
  * By: Omer Farkhand
  * 
  * Contributors:
+ * Omer Farkhand
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * Handles the head of the Streptobacillus Moniliformis 
  */
 public class StreptobacillusMoniliformisHead : Enemy
 {

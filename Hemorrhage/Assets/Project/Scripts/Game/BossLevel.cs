@@ -5,12 +5,13 @@
  * By: [Insert Name]
  * 
  * Contributors:
+ * Omer Farkhand
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * Activates the trap door and enables the StreptobacillusMoniliformis scripts
  */
 public class BossLevel : MonoBehaviour
 {

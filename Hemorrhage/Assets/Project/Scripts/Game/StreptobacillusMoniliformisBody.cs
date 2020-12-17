@@ -5,12 +5,13 @@
  * By: Omer Farkhand
  * 
  * Contributors:
+ * Omer Farkhand
  */
 
 using UnityEngine;
 
 /*
- * [Describe the function of the class]
+ * This script handles the body parts of the Streptobacillus Moniliformis 
  */
 public class StreptobacillusMoniliformisBody : Enemy
 {
