@@ -1,20 +1,28 @@
-﻿/*
- * Created By: 
- * Omer Farkhand
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Omer Farkhand
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
  */
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class BossLevel : MonoBehaviour
 {
     public GameObject door;
-    
+
+    // OnTriggerEnter detects all trigger collisions on entry
     private void OnTriggerEnter(Collider other)
     {
-        //Enables the Scripts of the Boss and it's body parts
-        if(other.gameObject.name == "Player")
+        // Condition checks if the colliding object has a Player tag
+        if (other.gameObject.name == "Player")
         {
+            // Enables the Scripts of the Boss and it's body parts
             door.SetActive(true);
             GameObject.Find("Tail").GetComponent<StreptobacillusMoniliformisBody>().enabled = true;
             GameObject.Find("Body4").GetComponent<StreptobacillusMoniliformisBody>().enabled = true;

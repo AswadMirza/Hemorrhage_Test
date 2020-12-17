@@ -1,10 +1,17 @@
-﻿/** 
-* Last modified 02/10/2020
-* By: Sharek Khan
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Sharek Khan
+ * Last Modified 02/10/2020
+ * By: Sharek Khan
+ *
+ * Contributors: 
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class CellArmour : MonoBehaviour
 {
     public GameObject cellArmour;
@@ -26,6 +33,7 @@ public class CellArmour : MonoBehaviour
         cellArmour.transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
     }
 
+    // OnTriggerEnter detects all trigger collisions on entry
     private void OnTriggerEnter(Collider other)
     {
         if (m_audio != null) {

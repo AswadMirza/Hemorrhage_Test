@@ -1,12 +1,17 @@
 ﻿/** 
-* Last modified 03/12/2020
-* By: Sharek Khan
-*/
-//Aswad Mirza contributed to the grab functionality
+ * Created DD/MM/YYYY
+ * By: Sharek Khan
+ * Last modified 03/12/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
-using System.Collections;
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class CancerCell : Enemy
 {
     private GameObject m_player;
@@ -85,6 +90,7 @@ public class CancerCell : Enemy
         }
     }
 
+    // OnTriggerEnter detects all trigger collisions on entry
     void OnTriggerEnter(Collider collider)
     {
         // Checks if Enemy has entered the Players vicinity bubble
@@ -95,7 +101,7 @@ public class CancerCell : Enemy
             m_enemyState = "ATTACK";
         }
 
-        // because we are using ontrigger enter in this class, it needs to be updated
+        // Because we are using OnTriggerEnter in this class, it needs to be updated
         if (collider.GetComponent<Bullet>() != null)
         {
             // Calls an instance of the PlasmaAmmo script component
@@ -112,6 +118,7 @@ public class CancerCell : Enemy
         }
     }
 
+    // OnTriggerExit detects all trigger collisions on exit
     void OnTriggerExit(Collider collider)
     {
         // Checks if Enemy has exited the Players vicinity bubble
@@ -143,9 +150,7 @@ public class CancerCell : Enemy
         }
     }
 
-
-
-    //Added by aswad, seperating the function to look at the player and function to attack
+    // Added by aswad, seperating the function to look at the player and function to attack
     void LookAtPlayer() {
         // Rotate in Player direction
         Vector3 playerDir = m_player.transform.position - transform.position;
@@ -182,6 +187,7 @@ public class CancerCell : Enemy
     }
     */
 
+    // [Describe the function of this method]
     protected override void OnKill()
     {
         base.OnKill();
@@ -201,6 +207,7 @@ public class CancerCell : Enemy
         //transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 
+    // Aswad Mirza contributed with the grab functionality
     protected override void Grabbed()
     {
         if (IsGrabbed)

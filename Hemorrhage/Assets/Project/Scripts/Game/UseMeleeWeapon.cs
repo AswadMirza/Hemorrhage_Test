@@ -1,12 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified 25/11/2020
+ * By: Aswad Mirza
+ * 
+ * Contributors:
+ */
+
 using UnityEngine;
-// last updated by Aswad Mirza on  November 25th 2020
-//Made by Aswad Mirza student number 991445135
+
+/*
+ * [Describe the function of the class]
+ */
 public class UseMeleeWeapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public GameObject meleeWeapon;
     public AudioClip meleeSounds;
 
@@ -17,6 +24,8 @@ public class UseMeleeWeapon : MonoBehaviour
     public float delayFireRate = 1f;
     public Vector3 MeleeDirection =new Vector3(0,100,5000);
     private float m_fireRate;
+    
+    // Start is called before the first frame update
     void Start()
     {
         source = GetComponent<AudioSource>();

@@ -1,11 +1,18 @@
 ﻿/** 
-* Last modified 03/12/2020
-* By: Sharek Khan
-*/
+ * Created
+ * By: Sharek Khan
+ * Last modified 03/12/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * [Describe the function of the class]
+ */
 public class PlayerUI : MonoBehaviour
 {
     private Player player = null;

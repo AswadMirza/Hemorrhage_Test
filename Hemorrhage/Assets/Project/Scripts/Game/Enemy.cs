@@ -1,18 +1,18 @@
-
-/** 
-* Last modified 26/10/2020
-* By: Sharek Khan
-*/
+/**
+ * Created DD/MM/YYYY
+ * By: [Insert Name]
+ * Last Modified 10/26/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
 using UnityEngine;
 
-//Last edited by Aswad Mirza on Octorber 12th 2020
-//is grabbed and base grab function by Aswad Mirza
 /*
-     Code based on
-    Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
-     */
-
+ * [Describe the function of the class]
+ * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+ */
 public class Enemy : MonoBehaviour
 {
     private int m_health = 5;
@@ -23,10 +23,11 @@ public class Enemy : MonoBehaviour
     public bool IsGrabbed { get { return m_isGrabbed; } set { m_isGrabbed = value; } }
     private bool m_isKilled = false;
     public bool IsKilled { get { return m_isKilled; } set { m_isKilled = value; } }
-    
+
+    // OnTriggerEnter detects all trigger collisions on entry
     void OnTriggerEnter(Collider otherCollider)
     {
-        // If Enemy is colliding with PlasmaAmmo
+        // Condition checks if colliding object has a Bullet component
         if (otherCollider.GetComponent<Bullet>() != null)
         {
             // Calls an instance of the PlasmaAmmo script component
@@ -73,6 +74,7 @@ public class Enemy : MonoBehaviour
         return source;
     }
 
+    // [Describe the function of this method]
     protected virtual void Grabbed() {
         Debug.Log("Base Class Grabbed");
     }

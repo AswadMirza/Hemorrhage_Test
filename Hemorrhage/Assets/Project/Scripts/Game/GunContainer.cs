@@ -1,20 +1,21 @@
-﻿/** 
-* Last modified 25/11/2020
-* By: Sharek Khan
-*/
-// Made by Aswad Mirza student number 991445135
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified 25/11/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
+
 using UnityEngine;
 
 /*
- Code based on Brackeys- Weapon Switching - Unity Tutorial
-https://www.youtube.com/watch?time_continue=69&v=Dn_BUIVdAPg&feature=emb_title
+ * Purpose of this class is to hold all the gun models and choose which is active
+ * IDEA: Each gun has its own fire functionality, and different bullets that they fire.
+ * When the player left clicks, they just call the selected gun's fire script
+ * When the player scrolls up and down, they just select a different gun
+ * Code based on Brackeys- Weapon Switching - Unity Tutorial https://www.youtube.com/watch?time_continue=69&v=Dn_BUIVdAPg&feature=emb_title
  */
-
-
-// Purpose of this class is to hold all the gun models and choose which is active
-// IDEA: Each gun has its own fire functionality, and different bullets that they fire. 
-// When the player left clicks, they just call the selected gun's fire script
-// When the player scrolls up and down, they just select a different gun 
 public class GunContainer : MonoBehaviour
 {
     private int m_maxWeapons;
@@ -25,6 +26,7 @@ public class GunContainer : MonoBehaviour
     // Selects the deafult weapon on start
     public int DefaultGun = 0;
 
+    // Start is called before the first frame update
     void Start()
     {
         // Starts the selected gun as the default value
@@ -53,7 +55,7 @@ public class GunContainer : MonoBehaviour
                 m_selectedGun++;
             }
         }
-        //if the user is scrolling down, axis is negative
+        // If the user is scrolling down, axis is negative
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             // Condition check if current gun is a first point in inventory, moving back to last point
@@ -73,6 +75,7 @@ public class GunContainer : MonoBehaviour
         }
     }
 
+    // [Describe the function of this method]
     public void SelectWeapon() {
         // For each child transform in the transform in the gunContainer, we are looping through them
         int index = 0;

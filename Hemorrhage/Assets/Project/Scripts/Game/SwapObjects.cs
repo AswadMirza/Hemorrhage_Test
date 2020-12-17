@@ -1,10 +1,17 @@
-﻿using UnityEngine;
-//Made by Aswad Mirza student number 991445135
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
+ */
+
+using UnityEngine;
 
 /*
- * Code based on
- Brackeys - SHATTER/DESTRUCTION In Unity (Tutorial)
-https://www.youtube.com/watch?time_continue=69&v=Dn_BUIVdAPg&feature=emb_title
+ * [Describe the function of the class]
+ * Code based on Brackeys - SHATTER/DESTRUCTION In Unity (Tutorial) https://www.youtube.com/watch?time_continue=69&v=Dn_BUIVdAPg&feature=emb_title
  */
 public class SwapObjects : MonoBehaviour
 {
@@ -26,7 +33,7 @@ public class SwapObjects : MonoBehaviour
         Swap();
     }
 
-    // public method that will swap the gameobjects
+    // Swap will swap the GameObjects
     public void Swap()
     {
         Debug.Log("SWAPPED");
@@ -36,5 +43,4 @@ public class SwapObjects : MonoBehaviour
         replacement_instance.transform.SetParent(transform.parent);
         Destroy(gameObject);
     }
-
 }

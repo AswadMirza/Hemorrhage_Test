@@ -1,11 +1,17 @@
-﻿/** 
-* Last modified 25/11/2020
-* By: Sharek Khan
-*/
-// Made by Aswad Mirza student number 991445135
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified 25/11/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class MeleeWeapon : MonoBehaviour
 {
     private GameObject m_playerObject;
@@ -22,8 +28,6 @@ public class MeleeWeapon : MonoBehaviour
     public float initialTimeAlive = 0.25f;
 
     public GameObject collideEffect;
-
-
     
     // Start is called before the first frame update
     void Start()
@@ -51,9 +55,11 @@ public class MeleeWeapon : MonoBehaviour
         m_timeAlive -= Time.deltaTime;
     }
 
+    // OncollisionEnter detects all collisions on entry
     private void OnCollisionEnter(Collision collision)
     {
         Enemy enemy = null;
+        // Condition checks if colliding object has a Enemy component and boolean isFired flag is not active
         if (collision.gameObject.GetComponent<Enemy>() != null &&!m_isFired) {
             Debug.Log("gottem");
             enemy = collision.gameObject.GetComponent<Enemy>();
@@ -68,18 +74,20 @@ public class MeleeWeapon : MonoBehaviour
                 // problem is that the object will be destroyed so this doesnt have time to play
                 m_source.Play();
             }
-            // spawns the particle effect
+            // Spawns the particle effect
             GameObject effect = Instantiate(collideEffect, transform.position, collideEffect.transform.rotation);
             Destroy(this.gameObject);
         }
     }
 
+    // [Describe the function of this method]
     private void MoveObject()
     {
         // Make the weapon move
         transform.position += transform.forward * speed * Time.deltaTime; 
     }
 
+    // [Describe the function of this method]
     private void pullObject(GameObject enemy) {
         Vector3 distanceFromPlayer = m_playerObject.transform.forward;
        // distanceFromPlayer.z += m_enemyDistance;

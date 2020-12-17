@@ -1,9 +1,18 @@
-﻿using UnityEngine;
+﻿/**
+ * Created DD/MM/YYYY
+ * By: [Insert Name]
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
+ */
+
+using UnityEngine;
 
 /*
-    Code based on
-   Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
-    */
+ * [Describe the functio of the class]
+ * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+ */
 public class HealthCrate : MonoBehaviour
 {
     [Header("Visuals")]

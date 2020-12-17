@@ -1,10 +1,17 @@
 ﻿/** 
-* Last modified 02/12/2020
-* By: Sharek Khan
-*/
+ * Created DD/MM/YYYY
+ * By: Sharek Khan
+ * Last modified 02/12/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class Destructible : MonoBehaviour
 {
     private AudioSource m_audioSource;
@@ -36,6 +43,7 @@ public class Destructible : MonoBehaviour
         
     }
 
+    // OnTriggerExit detects all trigger collisions on exit
     void OnTriggerExit(Collider collider)
     {
         // Deletes object one it's outside of Players proximity

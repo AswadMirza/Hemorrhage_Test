@@ -1,10 +1,17 @@
-﻿/** 
-* Last modified 04/10/2020
-* By: Sharek Khan
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Sharek Khan
+ * Last Modified 04/10/2020
+ * By: Sharek Khan
+ * 
+ * Contributors: 
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class VitaCapsule : MonoBehaviour
 {
     public GameObject vitaCapsule;

@@ -1,12 +1,18 @@
-﻿/*
- * Created By:
- * Omer Farkhand
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Omer Farkhand
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
  */
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class StreptobacillusMoniliformis : MonoBehaviour
 {
     public float m_speed;
@@ -40,6 +46,7 @@ public class StreptobacillusMoniliformis : MonoBehaviour
         }
     }
 
+    // [Describe the function of this method]
     IEnumerator Lunge(float multiplier)
     {
         Debug.Log("HeadLunge");

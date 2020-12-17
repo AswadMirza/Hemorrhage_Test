@@ -1,10 +1,17 @@
-﻿/** 
-* Last modified 09/12/2020
-* By: Sharek Khan
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Sharek Khan
+ * Last Modified 09/12/2020
+ * By: Sharek Khan
+ *
+ * Contributors: 
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class MyoviridaeFiber : MonoBehaviour
 {
     public float positiveRotDelta = 10.0f;

@@ -1,23 +1,30 @@
-﻿/*
- * Written By: Omer Farkhand
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Omer Farkhand
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
  * 
+ * Contributors:
  */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class Background_Music : MonoBehaviour
 {
     //Fields
     public GameObject backgroundMusic;
     public AudioSource source;
-    
-    // When the player enters this trigger the background music starts playing
+
+    // OnTriggerEnter detects all trigger collisions on entry
     private void OnTriggerEnter(Collider other)
     {
+        // Condition checks if the colliding object has a Player tag 
         if(other.gameObject.tag == "Player")
         {
+            // Starts the background music
             backgroundMusic.SetActive(true);
             source.Play();
             this.gameObject.GetComponent<BoxCollider>().enabled = false;

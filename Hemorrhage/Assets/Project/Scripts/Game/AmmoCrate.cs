@@ -1,11 +1,18 @@
-﻿using UnityEngine;
+﻿/** 
+ * Created DD/MM/YYYY
+ * By: Sharek Khan
+ * Last modified 03/12/2020
+ * By: Sharek Khan
+ */
 
+using UnityEngine;
+
+/*
+ * 
+ * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+ */
 public class AmmoCrate : MonoBehaviour
 {
-    /*
-     Code based on
-    Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
-     */
     [Header("Visuals")]
     public GameObject container;
     public float rotationSpeed = 80f;

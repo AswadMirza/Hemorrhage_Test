@@ -1,15 +1,18 @@
-﻿/** 
-* Last modified 03/12/2020 
-* By: Sharek Khan 
-* 
-* //Made by Aswad Mirza student number 991445135
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified 03/12/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * [Describe the function of the class]
+ */
 public class Respawn : MonoBehaviour
 {
 
@@ -30,6 +33,7 @@ public class Respawn : MonoBehaviour
         
     }
 
+    // OnTriggerEnter detects all trigger collisions on entry
     private void OnTriggerEnter(Collider other)
     {
         // This code is redundant, Player's HitBox already checks for collision with DeathZone

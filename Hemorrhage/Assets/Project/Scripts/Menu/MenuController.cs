@@ -1,18 +1,20 @@
-﻿/** 
-* Last modified 10/12/2020
-* By: Sharek Khan
-*/
+﻿/**
+ * Created
+ * By: Sharek Khan
+ * Last modified 10/12/2020
+ * By: Sharek Khan
+ */
 
-/*
-    Code based on
-   Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
-    */
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * Code based on
+ * Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+ */
 public class MenuController : MonoBehaviour
 {
-
+    
     private void Start()
     {
         Cursor.visible = true;

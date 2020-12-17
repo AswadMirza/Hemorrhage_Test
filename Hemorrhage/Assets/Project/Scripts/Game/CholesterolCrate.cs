@@ -1,10 +1,17 @@
-﻿/** 
-* Last modified 19/11/2020
-* By: Sharek Khan
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Sharek Khan
+ * Last Modified 19/11/2020
+ * By: Sharek Khan
+ *
+ * Contributors: 
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class CholesterolCrate : MonoBehaviour
 {
     private int m_crateHealth;
@@ -58,13 +65,14 @@ public class CholesterolCrate : MonoBehaviour
         }
     }
 
+    // [Describe the function of this method]
     int RNG(int minValue, int maxValue)
     {
         System.Random rng = new System.Random();
         return rng.Next(minValue, maxValue);
     }
 
-    // Checks for any trigger collisions the CholesterolCrate is colliding with
+    // OnTriggerEnter detects all trigger collisions on entry
     private void OnTriggerEnter(Collider other)
     {
         // Checks for collision with projectiles that are instantiated through the Player

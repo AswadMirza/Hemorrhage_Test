@@ -1,10 +1,17 @@
-﻿/** 
-* Last modified 02/12/2020
-* By: Aswad Mirza
-*/
-//Made by Aswad Mirza student number 991445135
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified 02/12/2020
+ * By: Aswad Mirza
+ * 
+ * Contributors:
+ */
+
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class PlasmaShotgun : MonoBehaviour
 {
     public GameObject playerObject;
@@ -43,6 +50,7 @@ public class PlasmaShotgun : MonoBehaviour
         }
     }
 
+    // [Describe the function of this method]
     void Fire()
     {
         // Condition checks if Ammo is present/Players not dead/Input not within fire rate

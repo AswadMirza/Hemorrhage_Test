@@ -1,19 +1,25 @@
-﻿/*
- * Created By: Omer Farkhand
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Omer Farkhand
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
  */
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class DoorScript : MonoBehaviour
 {
     public GameObject Door;
 
-    /*
-     * The Door Closes when the player enters this trigger
-     */
+    // OnCollisionEnter detects all collisions on entry
     private void OnCollisionEnter(Collision collision)
     {
+        // The Door Closes when the player enters this trigger
         Door.SetActive(true);
     }
 }

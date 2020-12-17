@@ -1,11 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
+ */
+
 using UnityEngine;
-//Made by Aswad Mirza student number 991445135
+
+/*
+ * [Describe the function of the class]
+ */
 public class TimerDestroy : MonoBehaviour
 {
-
     public float Timer = 2f;
+    
     // Start is called before the first frame update
     void Start()
     {

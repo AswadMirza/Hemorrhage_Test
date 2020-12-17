@@ -1,22 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
+ */
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Made by Aswad Mirza student number 991445135
+/*
+ * [Describe the function of the class]
+ */
 public class Goal : MonoBehaviour
 {
+    public int SceneIndex = 0;
+
     // Start is called before the first frame update
+    void Start()
+    {
 
-    public int SceneIndex =0;
+    }
 
-
-
-
+    // OnTriggerStay detects all trigger collisions on duration of collision
     private void OnTriggerStay(Collider other)
     {
+        // Condition checks if colliding object has a Player component and is within a specific distance
         if (other.GetComponent<Player>() != null && Vector3.Distance(transform.position, other.transform.position)<3)
         {
+            // SceneManager will load the next scene
             SceneManager.LoadScene(SceneIndex);
         }
     }

@@ -1,11 +1,15 @@
 ﻿/** 
-* Last modified 03/12/2020
-* By: Sharek Khan
-* Grab functionality implemented by Aswad Mirza
-*/
+ * Created DD/MM/YYYY
+ * By: Sharek Khan
+ * Last modified 03/12/2020
+ * By: Sharek Khan
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class Myoviridae : Enemy
 {
     private GameObject m_player;
@@ -31,6 +35,7 @@ public class Myoviridae : Enemy
 
     Rigidbody rigidbody;
     bool originalKinematicSetting =false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +74,7 @@ public class Myoviridae : Enemy
         Grabbed();
     }
 
+    // OnTriggerEnter detects all trigger collisions on entry
     void OnTriggerEnter(Collider collider)
     {
         
@@ -102,6 +108,7 @@ public class Myoviridae : Enemy
         }
     }
 
+    // OnTriggerExit detects all trigger collisions on exit
     void OnTriggerExit(Collider collider)
     {
         // Checks if Enemy has exited the Players vicinity bubble
@@ -143,6 +150,8 @@ public class Myoviridae : Enemy
         transform.position = CalculateDirection(transform.position, m_player.transform.position, m_rushSpeed);
     }
 
+
+    // [Describe the function of this method]
     protected override void OnKill()
     {
         base.OnKill();
@@ -152,6 +161,7 @@ public class Myoviridae : Enemy
         Destroy(this.gameObject);
     }
 
+    // Grab functionality implemented by Aswad Mirza
     protected override void Grabbed()
     {
        
@@ -186,6 +196,4 @@ public class Myoviridae : Enemy
             }
         }
     }
-
-   
 }

@@ -1,10 +1,17 @@
-﻿/** 
-* Last modified 12/10/2020 
-* By: Omer Farkhand
-*/
-using System.Collections;
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Omer Farkhand
+ * Last Modified 12/10/2020
+ * By: Omer Farkhand
+ * 
+ * Contributors:
+ */
+
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class StreptobacillusMoniliformisBody : Enemy
 {
     public int InitialHealth = 100;
@@ -39,12 +46,15 @@ public class StreptobacillusMoniliformisBody : Enemy
 
         Move();
     }
+
+    // [Describe the function of this method]
     void Move()
     {
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
+    // [Describe the function of this method]
     public GameObject getAttach()
     {
         return body;

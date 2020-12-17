@@ -1,8 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/**
+ * Created 02/12/2020
+ * By: Aswad Mirza
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
+ */
+
 using UnityEngine;
 
-// Made by Aswad Mirza student number 991445135 - On December 2nd 2020
+/*
+ * [Describe the function of the class]
+ */
 public class AudioListPlayer : MonoBehaviour
 {
 
@@ -18,7 +27,6 @@ public class AudioListPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //while (counter < clips.Length) {
         if (counter < clips.Length)
         {
@@ -32,16 +40,11 @@ public class AudioListPlayer : MonoBehaviour
                 if (counter < clips.Length) {
                     m_audioSource.clip = clips[counter];
                     m_audioSource.Play();
-                }
-                
+                }   
             }
-
         }
         else {
             Destroy(this);
-        }
-            
-        
-        
+        }   
     }
 }

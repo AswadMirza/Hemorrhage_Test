@@ -1,12 +1,17 @@
-﻿/*
- * Created By:
- * Omer Farkhand
- * Last modified: 12/12/2020
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Omer Farkhand
+ * Last Modified 12/12/2020
+ * By: Omer Farkhand
+ * 
+ * Contributors:
  */
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class MusicLooper : MonoBehaviour
 {
     public AudioClip[] audioClips;
@@ -19,7 +24,7 @@ public class MusicLooper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //checks if background music is not false, then checks whether the intro of the song is playing, if not switches the clip to loop
+        // Checks if background music is not false, then checks whether the intro of the song is playing, if not switches the clip to loop
         if(backgroundMusic.activeInHierarchy != false)
         {
             if (!introAudioSource.isPlaying)
@@ -32,11 +37,13 @@ public class MusicLooper : MonoBehaviour
         }
     }
 
+    // OnTriggerEnter detects all trigger collisions on entry
     private void OnTriggerEnter(Collider other)
     {
-        //Plays the End of the Song 
+        // Condition checks if colliding object has a MusicEnd tag
         if(other.tag == "MusicEnd")
         {
+            // Plays the End of the Song
             introAudioSource.Stop();
             introAudioSource.loop = false;
             introAudioSource.clip = endAudioSource.clip;

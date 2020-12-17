@@ -1,12 +1,18 @@
-﻿/*
- * Created By: Omer Farkhand
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Omer Farkhand
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
  */
 
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class ParticleDestroyer : MonoBehaviour
 {
     GameObject particle;
@@ -18,20 +24,18 @@ public class ParticleDestroyer : MonoBehaviour
         
     }
 
-    /*
-     * When the player enters this trigger, this code starts a timer then destroys the particle effect
-     */
+    // OnTriggerEnter detects all trigger collisions on entry
     private void OnTriggerEnter(Collider other)
     {
+        // Condition checks if the colliding object has a Player tag
         if (other.gameObject.tag == "Player")
         {
+            // Starts a timer then destroys the particle effect
             StartCoroutine(DestroyEffect());
         }
     }
 
-    /*
-     * Timer to Destroy the particle effect
-     */
+    // DestroyEffect has a timer to destroy the particle effect
     IEnumerator DestroyEffect()
     {
         yield return new WaitForSeconds(2);

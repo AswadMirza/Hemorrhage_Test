@@ -1,13 +1,18 @@
-﻿/*
+﻿/**
+ * Created DD/MM/YYYY
  * By: Omer Farkhand
+ * Last Modified DD/MM/YYYY
+ * By: Aswad Mirza
  * 
- * Modifed by Aswad Mirza
+ * Contributors:
  */
-using System;
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class EnemyGenerator : MonoBehaviour
 {
     public GameObject Myoviridae;
@@ -32,12 +37,11 @@ public class EnemyGenerator : MonoBehaviour
     private List<GameObject> enemiesSpawned = new List<GameObject>();
     private bool spawned = false;
     // Start is called before the first frame update
-    
-    /*
-     * At start assigns the min and max values
-     */
+
+    // Start is called before the first frame update
     void Start()
     {
+        // Assigns the min and max values
         objectPos = this.gameObject.transform.position;
 
         minXPos = objectPos.x - 10f;
@@ -59,8 +63,10 @@ public class EnemyGenerator : MonoBehaviour
         }
     }
 
+    // OnTriggerEnter detects all trigger collisions on entry
     private void OnTriggerEnter(Collider other)
     {
+        // Condition checks if the colliding object has a Player tag
         if (other.gameObject.tag == "Player")
         {
             Spawn();
@@ -75,13 +81,11 @@ public class EnemyGenerator : MonoBehaviour
             }
         }
     }
-    
-    /*
-     * Enemies are instatiated in the spawn point positions. 
-     */
+
+    // Spawn instantiates Enemies at their spawn point positions
     void Spawn()
     {
-        //if we havnt spawned enemies, then spawn them
+        // If we havnt spawned enemies, then spawn them
         if (!spawned)
         {
             if (spawnPoints.Length >= 4)
@@ -175,6 +179,7 @@ public class EnemyGenerator : MonoBehaviour
         }
     }
 
+    // [Describe the function of this method]
     bool AreEnemiesDead()
     {
         bool check = true;

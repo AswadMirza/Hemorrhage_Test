@@ -1,17 +1,18 @@
-﻿/** 
-* Last modified 25/11/2020 
-* By: Sharek Khan 
-* 
-* Contributed by Aswad Mirza
-*/
-
-/*
-    Code based on
-   Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
-    */
+﻿/**
+ * Created DD/MM/YYYY
+ * By: [Insert Name]
+ * Last Modified 25/11/2020
+ * By: [Insert Name]
+ * 
+ * Contributors:
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+ */
 public class Player : MonoBehaviour
 {
     // Plasma regeneration properties
@@ -86,6 +87,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // [Describe the function of this method]
     private void CheckRegen() {
         if (m_plasma < m_plasmaRegenTrigger)
         {
@@ -102,6 +104,7 @@ public class Player : MonoBehaviour
 
     }
 
+    // [Describe the function of this method]
     private void OnKill()
     {
         // Disabled due to bricking the game through different GameStates

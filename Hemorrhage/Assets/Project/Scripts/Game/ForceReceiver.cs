@@ -1,11 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/**
+ * Created DD/MM/YYYY
+ * By: [Insert Name]
+ * Last Modified DD/MM/YYYY
+ * By: [Insert Name]
+ * 
+ * Contributors:
+ */
+
 using UnityEngine;
 
 /*
-     Code based on
-    Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
-     */
+ * [Describe the function of the class]
+ * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+ */
 public class ForceReceiver : MonoBehaviour
 {
     public float deceleration = 5;
@@ -31,6 +38,7 @@ public class ForceReceiver : MonoBehaviour
         intensity = Vector3.Lerp(intensity, Vector3.zero, deceleration * Time.deltaTime);
     }
 
+    // [Describe the function of this method]
     public void AddForce(Vector3 direction, float force)
     {
         intensity += direction.normalized * force / mass;

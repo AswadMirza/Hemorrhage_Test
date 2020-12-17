@@ -1,11 +1,17 @@
-﻿/** 
-* Last modified 25/11/2020
-* By: Sharek Khan
-* // Made by Aswad Mirza student number 991445135
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified 25/11/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class PlasmaRifle : MonoBehaviour
 {
     // Player GameObject
@@ -48,6 +54,7 @@ public class PlasmaRifle : MonoBehaviour
         }
     }
 
+    // [Describe the function of this method]
     void Fire()
     {
         // Condition checks if Ammo is present/Players not dead/Input within fire rate

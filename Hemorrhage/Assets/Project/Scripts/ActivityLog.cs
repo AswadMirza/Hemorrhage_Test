@@ -1,12 +1,15 @@
-﻿/** 
-* Last modified 25/11/2020 
-* By: Sharek Khan 
-*/
+﻿/**
+ * Created 25/11/2020
+ * By: Sharek Khan
+ * Last modified 25/11/2020 
+ * By: Sharek Khan 
+ */
 
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
+/*
+ * ActivityLog class handles all game centric events that happening during the game
+ */
 public class ActivityLog
 {
     private static List<string> m_events = new List<string>(); 

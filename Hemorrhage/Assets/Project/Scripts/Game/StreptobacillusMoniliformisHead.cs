@@ -1,12 +1,17 @@
-﻿/** 
-* Last modified 12/10/2020 
-* By: Omer Farkhand
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Omer Farkhand
+ * Last Modified 12/20/2020
+ * By: Omer Farkhand
+ * 
+ * Contributors:
+ */
 
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 
+/*
+ * [Describe the function of the class]
+ */
 public class StreptobacillusMoniliformisHead : Enemy
 {
     //Fields
@@ -74,9 +79,7 @@ public class StreptobacillusMoniliformisHead : Enemy
             }*/
     }
 
-    /*
-     * Overrides the OnKill method from the enemy class to destroy all the parts of the boss's body
-     */
+    // OnKill overrides the OnKill method from the Enemy class to destroy all the parts of the boss's body 
     protected override void OnKill()
     {
         base.OnKill();
@@ -95,16 +98,14 @@ public class StreptobacillusMoniliformisHead : Enemy
         Destroy(body[5]);
     }
 
+    // [Describe the function of this method]
     void Move()
     {
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
 
-    
-    /*
-     * Multiplies the speed of the boss to ram the player
-     */
+    // Lunge multiplies the speed of the boss to ram the Player 
     void Lunge(float multiplier)
     {
         Debug.Log("HeadLunge");
@@ -117,5 +118,4 @@ public class StreptobacillusMoniliformisHead : Enemy
         //move towards the player
         this.gameObject.transform.position += this.gameObject.transform.forward * Time.deltaTime * m_speed;
     }
-
 }

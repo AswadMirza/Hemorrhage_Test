@@ -1,12 +1,18 @@
-﻿/** 
-* Last modified 26/10/2020
-* By: Sharek Khan
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Aswad Mirza
+ * Last Modified 26/10/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
-//Made by Aswad Mirza student number 991445135
 using UnityEngine;
 
-//Code is based on Brackeys tutorial https://www.youtube.com/watch?v=THnivyG0Mvo
+/*
+ * [Describe the function of the class]
+ * Code is based on Brackeys tutorial https://www.youtube.com/watch?v=THnivyG0Mvo
+ */
 public class RayCastGun : MonoBehaviour
 {
 
@@ -29,6 +35,7 @@ public class RayCastGun : MonoBehaviour
         }
     }
 
+    // [Describe the function of this method]
     void Shoot() {
         RaycastHit hit;
 
@@ -47,6 +54,5 @@ public class RayCastGun : MonoBehaviour
 
             }
         }
-    
     }
 }

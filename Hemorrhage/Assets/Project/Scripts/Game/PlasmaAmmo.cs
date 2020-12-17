@@ -1,10 +1,17 @@
-﻿/** 
-* Last modified 04/10/2020
-* By: Sharek Khan
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: [Insert Name]
+ * Last Modified 04/10/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
 using UnityEngine;
 
+/*
+ * [Describe the function of the class]
+ */
 public class PlasmaAmmo : MonoBehaviour
 {
     public float speed = 20f;
@@ -15,6 +22,7 @@ public class PlasmaAmmo : MonoBehaviour
 
     private bool m_shotByPlayer;
     public bool ShotByPlayer { get { return m_shotByPlayer; } set { m_shotByPlayer = value; } }
+    
     // Start is called before the first frame update
     void Start()
     {

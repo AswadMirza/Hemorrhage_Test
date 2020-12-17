@@ -1,13 +1,18 @@
-﻿/** 
-* Last modified 03/12/2020 
-* By: Sharek Khan 
-* Contributed by Aswad Mirza
-*/
+﻿/**
+ * Created DD/MM/YYYY
+ * By: Sharek Khan
+ * Last Modified 03/12/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+/*
+ * [Describe the function of the class]
+ */
 public class PlayerHitBox : MonoBehaviour
 {
     private GameObject m_playerObject;
@@ -21,6 +26,7 @@ public class PlayerHitBox : MonoBehaviour
     public AudioClip vitaCapsuleClip;
     public AudioClip armorClip;
     float volume;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -154,6 +160,7 @@ public class PlayerHitBox : MonoBehaviour
         }
     }
 
+    // [Describe the function of this method]
     IEnumerator HurtRoutine()
     {
         yield return new WaitForSeconds(hurtDuration);

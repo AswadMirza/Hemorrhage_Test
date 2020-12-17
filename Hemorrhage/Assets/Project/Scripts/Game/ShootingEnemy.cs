@@ -1,19 +1,19 @@
-/** 
-* Last modified 26/10/2020
-* By: Sharek Khan
-* 
-* contributed by Aswad Mirza
-* 
-* 
-*/
-/*
-    Code based on
-   Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
-    */
+/**
+ * Created DD/MM/YYYY
+ * By: [Insert Name]
+ * Last Modified 26/10/2020
+ * By: Sharek Khan
+ * 
+ * Contributors:
+ */
 
 using UnityEngine;
 using UnityEngine.AI;
 
+/*
+ * [Describe the function of the class]
+ * Code based on Zenva Studios -COMPLETE COURSE Create a Unity FPS Game in 3 hours - https://www.youtube.com/watch?v=UtlAqRyZrUw
+ */
 public class ShootingEnemy : Enemy
 {
 
@@ -31,10 +31,10 @@ public class ShootingEnemy : Enemy
 
     private Vector3 m_lastPlayerLocation = Vector3.zero;
 
-    //variables for when the enemy is hit by the melee weapon   
-    
+    // Variables for when the enemy is hit by the melee weapon   
     public float grabDistance=3f;
     public float grabSpeed = 120f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,12 +82,12 @@ public class ShootingEnemy : Enemy
             agent.SetDestination(player.transform.position);
         }
 
-
-        //grabbed logic
+        // Grabbed logic
         Grabbed();
     }
 
     /*
+    // OnCollisionEnter detects all collisions on entry
     private void OnCollisionEnter(Collision collision)
     {
         
@@ -96,6 +96,9 @@ public class ShootingEnemy : Enemy
         }
     }
     */
+
+
+    // [Describe the function of this method]
     protected override void OnKill()
     {
         base.OnKill();
@@ -105,6 +108,8 @@ public class ShootingEnemy : Enemy
         transform.localEulerAngles = new Vector3(10, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 
+
+    // [Describe the function of this method]
     protected override void Grabbed()
     {
         if (IsGrabbed)
