@@ -1,19 +1,18 @@
 ﻿/**
- * Created DD/MM/YYYY
+ * Created 25/11/2020
  * By: Omer Farkhand
  * Last Modified DD/MM/YYYY
  * By: Aswad Mirza
  * 
- * Contributors:
- * Aswad Mirza
- * Omer Farkhand
+ * Contributors: Omer Farkhand, Aswad Mirza
  */
 
 using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Script instantiates enemies on the spawn point objects placed in the level. Also handles trap room enemies to spawn in.
+ * Script instantiates enemies on the spawn point objects placed in the level. 
+ * Also handles trap room enemies to spawn in.
  */
 public class EnemyGenerator : MonoBehaviour
 {

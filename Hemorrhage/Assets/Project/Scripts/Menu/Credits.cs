@@ -4,9 +4,7 @@
  * Last modified 12/12/2020
  * By: Sharek Khan
  * 
- * Contributors:
- * Omer Farkhand
- * Sharek Khan
+ * Contributors: Omer Farkhand, Sharek Khan
  */
 
 using System.Collections;

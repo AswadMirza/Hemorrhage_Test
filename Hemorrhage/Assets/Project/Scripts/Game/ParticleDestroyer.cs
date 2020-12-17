@@ -1,11 +1,10 @@
 ﻿/**
- * Created DD/MM/YYYY
+ * Created 07/12/2020
  * By: Omer Farkhand
- * Last Modified DD/MM/YYYY
- * By: [Insert Name]
+ * Last Modified 07/12/2020
+ * By: Omer Farkhand
  * 
- * Contributors:
- * Omer Farkhand
+ * Contributors: Omer Farkhand
  */
 
 using System.Collections;

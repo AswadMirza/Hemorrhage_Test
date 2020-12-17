@@ -4,8 +4,7 @@
  * Last Modified DD/MM/YYYY
  * By: [Insert Name]
  * 
- * Contributors:
- * Omer Farkhand
+ * Contributors: Omer Farkhand
  */
 
 using UnityEngine;

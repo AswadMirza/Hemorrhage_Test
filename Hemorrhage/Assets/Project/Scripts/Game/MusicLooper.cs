@@ -1,11 +1,10 @@
 ﻿/**
- * Created DD/MM/YYYY
+ * Created 12/12/2020
  * By: Omer Farkhand
  * Last Modified 12/12/2020
  * By: Omer Farkhand
  * 
- * Contributors:
- * Omer Farkhand
+ * Contributors: Omer Farkhand
  */
 
 using UnityEngine;
